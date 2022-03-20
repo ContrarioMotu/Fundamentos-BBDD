@@ -117,7 +117,7 @@ public class Cliente {
    * Asigna el nombre
    * @param nombre
    */
-  public setNombre(String nombre) {
+  public void setNombre(String nombre) {
     this.nombre = nombre;
   }
 
@@ -125,7 +125,7 @@ public class Cliente {
    * Asigna el apellido paterno
    * @param apellidoPaterno
    */
-  public setApellidoPaterno(String apellidoPaterno) {
+  public void setApellidoPaterno(String apellidoPaterno) {
     this.apellidoPaterno = apellidoPaterno;
   }
 
@@ -133,7 +133,7 @@ public class Cliente {
    * Asiga el apellido materno
    * @param apellidoMaterno
    */
-  public setApellidoMaterno(String apellidoMaterno) {
+  public void setApellidoMaterno(String apellidoMaterno) {
     this.apellidoMaterno = apellidoMaterno;
   }
 
@@ -141,7 +141,7 @@ public class Cliente {
    * Asigna el curp
    * @param curp
    */
-  public setCurp(String curp) {
+  public void setCurp(String curp) {
     this.curp = curp;
   }
 
@@ -149,7 +149,7 @@ public class Cliente {
    * Asigna el estado
    * @param estado
    */
-  public setEstado(String estado) {
+  public void setEstado(String estado) {
     this.estado = estado;
   }
 
@@ -157,7 +157,7 @@ public class Cliente {
    * Asigna el codigo postal
    * @param cp
    */
-  public setCP(String cp) {
+  public void setCP(String cp) {
     this.cp = cp;
   }
 
@@ -165,7 +165,7 @@ public class Cliente {
    * Asigna la calle
    * @param calle
    */
-  public setCalle(String calle) {
+  public void setCalle(String calle) {
     this.calle = calle;
   }
 
@@ -173,7 +173,7 @@ public class Cliente {
    * Asigna el numero de telefono
    * @param telefono
    */
-  public setTelefono(String telefono) {
+  public void setTelefono(String telefono) {
     this.telefono = telefono;
   }
 
@@ -181,7 +181,7 @@ public class Cliente {
    * Asigna el email
    * @param email
    */
-  public setEmail(String email) {
+  public void setEmail(String email) {
     this.email = email;
   }
 
@@ -189,7 +189,8 @@ public class Cliente {
    * Asigna la fecha de nacimiento
    * @param fechaNac
    */
-  public setFechaNacimiento(String fechaNac) {
+  public void setFechaNacimiento(String fechaNac) {
     this.fechaNac = fechaNac;
   }
+
 }

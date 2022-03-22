@@ -154,7 +154,7 @@ public class Main {
             BufferedWriter output = new BufferedWriter(new FileWriter(archivo));
 
             for(Cliente c : clientes){
-                output.write(c.getCurp() + "," + c.getApellidoPaterno() + "," + c.apellidoMaterno + "," + c.getNombre()
+                output.write(c.getCurp() + "," + c.getApellidoPaterno() + "," + c.getApellidoMaterno() + "," + c.getNombre()
                              + "," + c.getEstado() + "," + c.getCalle() + "," + c.getCP() + "," + c.getEmail()
                              + "," + c.getTelefono() + "," + c.getFechaNacimiento() + "\n");
             }
@@ -187,7 +187,7 @@ public class Main {
             }
 
             output.close();
-            
+
         } catch (Exception e) {
             System.err.println("Error al guardar el archivo de mascotas...");
             System.exit(1);
@@ -195,7 +195,7 @@ public class Main {
     }
 
     /**
-     * Método que revisa si un <i>String</i> solo contiene letras y espacios.
+     * Método que revisa si un {@link String} solo contiene letras y espacios.
      * @param cadena {@link String} a revisar.
      * @return {@code true} si la cadena solamente contiene letras y espacios,
      * {@code false} en otro caso.
@@ -212,7 +212,7 @@ public class Main {
     }
 
     /**
-     * Método que revisa si un <i>String</i> solo contiene letras y números.
+     * Método que revisa si un {@link String} solo contiene letras y números.
      * @param cadena {@Link String} a revisar.
      * @return {@code true} si la cadena solamente contiene letras y números,
      * {@code false} en otro caso.

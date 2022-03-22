@@ -1,3 +1,6 @@
+/**
+ * Clase para modelar a los clientes de la empresa.
+ */
 public class Cliente {
 
   String curp;
@@ -11,6 +14,19 @@ public class Cliente {
   String telefono;
   String fechaNac;
 
+  /**
+   * Constructor para clientes.
+   * @param curp CURP del cliente.
+   * @param apellidoPaterno Apellido paterno del cliente.
+   * @param apellidoMaterno Apellido materno del cliente.
+   * @param nombre Nombre del cliente.
+   * @param estado Estado donde vive el cliente
+   * @param calle Calle donde vive el cliente.
+   * @param cp Código postal del cliente.
+   * @param email e-mail del cliente.
+   * @param telefono Teléfono del cliente.
+   * @param fechaNac Fecha de nacimiento del cliente.
+   */
   public Cliente(String curp, String apellidoPaterno, String apellidoMaterno, String nombre,
     String estado, String calle, String cp, String email, String telefono, String fechaNac) {
     this.curp = curp;
@@ -27,7 +43,7 @@ public class Cliente {
 
   /**
    * Regresa el nombre
-   * @return
+   * @return Nombre del cliente.
    */
   public String getNombre() {
     return nombre;
@@ -35,7 +51,7 @@ public class Cliente {
 
   /**
    * Regresa el apellido paterno
-   * @return
+   * @return Apellido paterno del cliente.
    */
   public String getApellidoPaterno() {
     return apellidoPaterno;
@@ -43,7 +59,7 @@ public class Cliente {
 
   /**
    * Regresa el apellido materno
-   * @return
+   * @return Apellido materno del cliente.
    */
   public String getApellidoMaterno() {
     return apellidoMaterno;
@@ -51,7 +67,7 @@ public class Cliente {
 
   /**
    * Regresa el CURP
-   * @return
+   * @return CURP del cliente.
    */
   public String getCurp() {
     return curp;
@@ -59,7 +75,7 @@ public class Cliente {
 
   /**
    * Regresa el estado
-   * @return
+   * @return Estado donde vive el cliente
    */
   public String getEstado() {
     return estado;
@@ -67,7 +83,7 @@ public class Cliente {
 
   /**
    * Regresa el codigo postal
-   * @return
+   * @return Código postal del cliente.
    */
   public String getCP() {
     return cp;
@@ -75,7 +91,7 @@ public class Cliente {
 
   /**
    * Regresa la calle
-   * @return
+   * @return Calle donde vive el cliente.
    */
   public String getCalle() {
     return calle;
@@ -83,7 +99,7 @@ public class Cliente {
 
   /**
    * Regresa el telefono
-   * @return
+   * @return Teléfono del cliente.
    */
   public String getTelefono() {
     return telefono;
@@ -91,7 +107,7 @@ public class Cliente {
 
   /**
    * Regresa la dirección de email
-   * @return
+   * @return e-mail del cliente.
    */
   public String getEmail() {
     return email;
@@ -99,7 +115,7 @@ public class Cliente {
 
   /**
    * Regresa la fecha de nacimiento
-   * @return
+   * @return Fecha de nacimiento del cliente.
    */
   public String getFechaNacimiento() {
     return fechaNac;
@@ -107,7 +123,7 @@ public class Cliente {
 
   /**
    * Regresa un string compuesto que representa la dirección completa
-   * @return
+   * @return Dirección del cliente.
    */
   public String getDireccion() {
     return calle + ". Estado:" + estado + ". CP: " + cp;

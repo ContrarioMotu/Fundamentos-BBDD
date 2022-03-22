@@ -6,8 +6,10 @@ public class EsteticaVeterinaria {
     
     private String telefono;
     
-    private String horario;
-    
+    private String horaApertura;
+
+    private String horaCierre;
+
     private double ingresos;
     
     private int cantConsultorios;
@@ -20,19 +22,21 @@ public class EsteticaVeterinaria {
     
     private String cp;
 
-    public EsteticaVeterinaria(int id, String nombre, String telefono, String horario, double ingresos, int cantConsultorios, String estado, String calle, int numero, String cp) {
+    public EsteticaVeterinaria() {
+    }
 
+    public EsteticaVeterinaria(int id, String nombre, String telefono, String horaApertura, String horaCierre, double ingresos, int cantConsultorios, String estado, String calle, int numero, String cp) {
         this.id = id;
         this.nombre = nombre;
         this.telefono = telefono;
-        this.horario = horario;
+        this.horaApertura = horaApertura;
+        this.horaCierre = horaCierre;
         this.ingresos = ingresos;
         this.cantConsultorios = cantConsultorios;
         this.estado = estado;
         this.calle = calle;
         this.numero = numero;
         this.cp = cp;
-
     }
 
     public int getId() {
@@ -59,12 +63,20 @@ public class EsteticaVeterinaria {
         this.telefono = telefono;
     }
 
-    public String getHorario() {
-        return horario;
+    public String getHoraApertura() {
+        return horaApertura;
     }
 
-    public void setHorario(String horario) {
-        this.horario = horario;
+    public void setHoraApertura(String horaApertura) {
+        this.horaApertura = horaApertura;
+    }
+
+    public String getHoraCierre() {
+        return horaCierre;
+    }
+
+    public void setHoraCierre(String horaCierre) {
+        this.horaCierre = horaCierre;
     }
 
     public double getIngresos() {
@@ -114,5 +126,5 @@ public class EsteticaVeterinaria {
     public void setCp(String cp) {
         this.cp = cp;
     }
-    
+
 }

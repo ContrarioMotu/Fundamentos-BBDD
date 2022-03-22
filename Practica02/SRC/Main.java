@@ -11,7 +11,7 @@ public class Main {
 
     private static LinkedList<EsteticaVeterinaria> esteticas = new LinkedList<EsteticaVeterinaria>();
     private static LinkedList<Cliente> clientes = new LinkedList<Cliente>();
-    //private static LinkedList<Mascota> mascotas = new LinkedList<Mascota>();
+    private static LinkedList<Mascota> mascotas = new LinkedList<Mascota>();
 
     /**
      * Método para cargar el archivo esteticas.csv, si no existe el archivo
@@ -81,32 +81,33 @@ public class Main {
      * Método para cargar el archivo mascotas.csv, si no existe el archivo
      * se crea uno con el mismo nombre.
      */
-    //private static void cargarMascotas(){
-    //    try {
-    //        File archivo = new File("mascotas.csv");
-    //
-    //        if(!archivo.exists()){
-    //            archivo.createNewFile();
-    //        }
-    //
-    //        BufferedReader input = new BufferedReader(new FileReader(archivo));
-    //
-    //        String line;
-    //
-    //        while ((line = input.readLine()) != null) {
-    //            String[] l = line.split(",");
-    //
-    //            mascotas.add();
-    //        }
-    //        
-    //        input.close();
-    //        
-    //    } catch (Exception e) {
-    //        System.err.println("Error al cargar el archivo de mascotas...");
-    //        System.exit(1);
-    //    }
-    //
-    //}
+    private static void cargarMascotas(){
+        try {
+            File archivo = new File("mascotas.csv");
+    
+            if(!archivo.exists()){
+                archivo.createNewFile();
+            }
+    
+            BufferedReader input = new BufferedReader(new FileReader(archivo));
+    
+            String line;
+    
+            while ((line = input.readLine()) != null) {
+                String[] l = line.split(",");
+    
+                mascotas.add(new Mascota(Integer.parseInt(l[0]), l[1], l[2], Integer.parseInt(l[3]),
+                                         Double.parseDouble(l[4]), l[5], l[6]));
+            }
+            
+            input.close();
+            
+        } catch (Exception e) {
+            System.err.println("Error al cargar el archivo de mascotas...");
+            System.exit(1);
+        }
+    
+    }
 
     /**
      * Método para guardar el archivo esteticas.csv, si no existe el archivo
@@ -169,31 +170,35 @@ public class Main {
      * Método para guardar el archivo mascotas.csv, si no existe el archivo
      * se crea uno con el mismo nombre.
      */
-    //private static void guardarMascotas(){
-    //    try {
-    //        
-    //        File archivo = new File("mascotas.csv");
-    //
-    //        if(!archivo.exists()){
-    //            archivo.createNewFile();
-    //        }
-    //
-    //        BufferedWriter output = new BufferedWriter(new FileWriter(archivo));
-    //
-    //        for(Mascota m : mascotas){
-    //            output.write();
-    //        }
-    //    } catch (Exception e) {
-    //        System.err.println("Error al guardar el archivo de mascotas...");
-    //        System.exit(1);
-    //    }
-    //}
+    private static void guardarMascotas(){
+        try {
+            
+            File archivo = new File("mascotas.csv");
+    
+            if(!archivo.exists()){
+                archivo.createNewFile();
+            }
+    
+            BufferedWriter output = new BufferedWriter(new FileWriter(archivo));
+    
+            for(Mascota m : mascotas){
+                output.write(m.getIdMascota() + "," + m.getNombreMascota() + "," + m.getCurpDueño() + "," + m.getEdad()
+                             + "," + m.getPeso() + "," + m.getEspecie() + "," + m.getRaza());
+            }
+
+            output.close();
+            
+        } catch (Exception e) {
+            System.err.println("Error al guardar el archivo de mascotas...");
+            System.exit(1);
+        }
+    }
 
     /**
      * Método que revisa si un <i>String</i> solo contiene letras y espacios.
-     * @param cadena <i>String</i> a revisar.
-     * @return <i>true</i> si la cadena solamente contiene letras y espacios,
-     * <i>false</i> en otro caso.
+     * @param cadena {@link String} a revisar.
+     * @return {@code true} si la cadena solamente contiene letras y espacios,
+     * {@code false} en otro caso.
      */
     static boolean esCadenaSimple(String cadena){
 
@@ -208,9 +213,9 @@ public class Main {
 
     /**
      * Método que revisa si un <i>String</i> solo contiene letras y números.
-     * @param cadena <i>String</i> a revisar.
-     * @return <i>true</i> si la cadena solamente contiene letras y números,
-     * <i>false</i> en otro caso.
+     * @param cadena {@Link String} a revisar.
+     * @return {@code true} si la cadena solamente contiene letras y números,
+     * {@code false} en otro caso.
      */
     static boolean esAlfanumerico(String cadena, int tamano){
 
@@ -276,7 +281,7 @@ public class Main {
 
         cargarEsteticas();
         cargarClientes();
-        //cargaMascotas();
+        cargarMascotas();
 
         //System.out.println(esAlfanumerico("3a1dfas31aaa",11));
         //System.out.println(esCadenaSimple("Cadena Simple"));
@@ -474,20 +479,24 @@ public class Main {
 
                         //Para añadir el nuevo cliente al archivo.
                         //clientes.add(nuevo);
+
                         break;
 
                     case 3 :
 
                         //Para añadir la nueva mascota al archivo.
                         //mascotas.add(nuevo);
+
                         break;
 
                     case 4 :
 
                         guardarEsteticas();
                         guardarClientes();
-                        //guardaMascotas();
+                        guardarMascotas();
+
                         System.exit(0);
+
                         break;
 
                     default: throw new InputMismatchException();

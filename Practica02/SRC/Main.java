@@ -65,7 +65,7 @@ public class Main {
             while ((line = input.readLine()) != null) {
                 String[] l = line.split(",");
 
-                clientes.add(new Cliente(l[0], l[1], l[2], l[3], l[4], l[5], l[6], l[7], l[8], l[9]));
+                clientes.add(new Cliente(l[0], l[1], l[2], l[3], l[4], l[5], Integer.parseInt(l[6]), l[7], l[8], l[9], l[10]));
             }
             
             input.close();
@@ -252,10 +252,7 @@ public class Main {
      */
     static boolean esHoraValida(String hora){
         
-        if(hora == null || hora.length() != 5)
-            return false;
-
-        if(!hora.contains(":"))
+        if(hora == null || hora.length() != 5 || !hora.contains(":"))
             return false;
 
         String[] array = hora.split(":");
@@ -268,6 +265,51 @@ public class Main {
         int intVal2 = Integer.parseInt(array[1]);
 
         return intVal1 >= 0 && intVal1 <= 24 && intVal2 >= 0 && intVal2 <= 59;
+
+    }
+
+    /**
+     * Verifica si una cadena coincide con el formato de fecha DD/MM/AA
+     * @param fecha la cadena a verificar
+     * @return si la cadena cumple con el formato o no
+     */
+    static boolean esFechaValida(String fecha){
+
+        if(fecha == null || fecha.length() != 8 || !fecha.contains("/"))
+            return false;
+
+        String[] array = fecha.split("/");
+
+        for(String i : array)
+            if (i.length() != 2)
+                return false;
+
+        int intVal1 = Integer.parseInt(array[0]);
+        int intVal2 = Integer.parseInt(array[1]);
+
+        return intVal1 <= 32 && intVal1 >= 1 && intVal2 <= 12 && intVal2 >= 1;
+
+    }
+
+    /**
+     * Verifica si una cadena coincide con el formato de fecha MM/AA
+     * @param fecha la cadena a verificar
+     * @return si la cadena cumple con el formato o no
+     */
+    static boolean verificarVencimiento(String fecha){
+
+        if(fecha == null || fecha.length() != 5 || !fecha.contains("/"))
+            return false;
+
+        String[] array = fecha.split("/");
+
+        for(String i : array)
+            if (i.length() != 2)
+                return false;
+
+        int intVal1 = Integer.parseInt(array[0]);
+
+        return intVal1 <= 12 && intVal1 >= 1;
 
     }
 
@@ -318,8 +360,8 @@ public class Main {
 
                         }
 
-                        EsteticaVeterinaria nuevo = new EsteticaVeterinaria();
-                        nuevo.setNombre(inputString);
+                        EsteticaVeterinaria nuevaVeterinaria = new EsteticaVeterinaria();
+                        nuevaVeterinaria.setNombre(inputString);
 
                         while (true) {
 
@@ -333,7 +375,7 @@ public class Main {
 
                         }
 
-                        nuevo.setTelefono(inputString);
+                        nuevaVeterinaria.setTelefono(inputString);
 
                         while (true) {
 
@@ -347,7 +389,7 @@ public class Main {
 
                         }
 
-                        nuevo.setHoraApertura(inputString);
+                        nuevaVeterinaria.setHoraApertura(inputString);
 
                         while (true) {
 
@@ -361,7 +403,7 @@ public class Main {
 
                         }
 
-                        nuevo.setHoraCierre(inputString);
+                        nuevaVeterinaria.setHoraCierre(inputString);
 
                         while (inputDouble == 0) {
 
@@ -379,7 +421,7 @@ public class Main {
 
                         }
 
-                        nuevo.setIngresos(inputDouble);
+                        nuevaVeterinaria.setIngresos(inputDouble);
 
                         while (true){
 
@@ -403,7 +445,7 @@ public class Main {
 
                         }
 
-                        nuevo.setCantConsultorios(inputInt);
+                        nuevaVeterinaria.setCantConsultorios(inputInt);
 
                         while (true) {
 
@@ -417,7 +459,7 @@ public class Main {
 
                         }
 
-                        nuevo.setEstado(inputString);
+                        nuevaVeterinaria.setEstado(inputString);
 
                         while (true) {
 
@@ -431,7 +473,7 @@ public class Main {
 
                         }
 
-                        nuevo.setCalle(inputString);
+                        nuevaVeterinaria.setCalle(inputString);
 
                         while (true) {
 
@@ -455,7 +497,7 @@ public class Main {
 
                         }
 
-                        nuevo.setNumero(inputInt);
+                        nuevaVeterinaria.setNumero(inputInt);
 
                         while (true) {
 
@@ -469,16 +511,276 @@ public class Main {
 
                         }
 
-                        nuevo.setCp(inputString);
+                        nuevaVeterinaria.setCp(inputString);
 
-                        esteticas.add(nuevo);
+                        esteticas.add(nuevaVeterinaria);
 
                         break;
 
                     case 2 :
 
-                        //Para añadir el nuevo cliente al archivo.
-                        //clientes.add(nuevo);
+                        while (true) {
+
+                            System.out.println("\nIntroduce el nombre(s) del cliente\n");
+                            inputString = lector.nextLine();
+
+                            if(esCadenaSimple(inputString))
+                                break;
+
+                            System.out.println("Ingresa una cadena solo con letras y espacios");
+
+                        }
+
+                        Cliente nuevoCliente = new Cliente();
+                        nuevoCliente.setNombre(inputString);
+
+                        while (true) {
+
+                            System.out.println("\nIntroduce el apellido paterno del cliente\n");
+                            inputString = lector.nextLine();
+
+                            if(esCadenaSimple(inputString))
+                                break;
+
+                            System.out.println("Ingresa una cadena solo con letras y espacios");
+
+                        }
+
+                        nuevoCliente.setApellidoPaterno(inputString);
+
+                        while (true) {
+
+                            System.out.println("\nIntroduce el apellido materno del cliente\n");
+                            inputString = lector.nextLine();
+
+                            if(esCadenaSimple(inputString))
+                                break;
+
+                            System.out.println("Ingresa una cadena solo con letras y espacios");
+
+                        }
+
+                        nuevoCliente.setApellidoMaterno(inputString);
+
+                        while (true) {
+
+                            System.out.println("\nIntroduce el CURP del cliente\n");
+                            inputString = lector.nextLine();
+
+                            if(esAlfanumerico(inputString.toUpperCase(),18))
+                                break;
+
+                            System.out.println("Ingresa una cadena solo con letras y espacios");
+
+                        }
+
+                        nuevoCliente.setCurp(inputString.toUpperCase());
+
+                        while (true) {
+
+                            System.out.println("\nIntroduce el estado donde vive el cliente\n");
+                            inputString = lector.nextLine();
+
+                            if(esCadenaSimple(inputString))
+                                break;
+
+                            System.out.println("Ingresa una cadena solo con letras y espacios");
+
+                        }
+
+                        nuevoCliente.setEstado(inputString);
+
+                        while (true) {
+
+                            System.out.println("\nIntroduce la calle donde vive el cliente\n");
+                            inputString = lector.nextLine();
+
+                            if(esCadenaSimple(inputString))
+                                break;
+
+                            System.out.println("Ingresa una cadena solo con letras y espacios");
+
+                        }
+
+                        nuevoCliente.setEstado(inputString);
+
+                        while (true) {
+
+                            System.out.println("\nIntroduce el numero donde vive el cliente\n");
+
+                            try {
+
+                                inputInt = lector.nextInt();
+
+                                if(inputInt < 1)
+                                    throw new InputMismatchException();
+
+                                break;
+
+                            } catch (InputMismatchException e) {
+
+                                lector.nextLine();
+                                System.out.println("Numero invalido, introduce un numero entero positivo");
+
+                            }
+
+                        }
+
+                        nuevoCliente.setCalleNum(inputInt);
+
+                        while (true) {
+
+                            System.out.println("\nIntroduce el CP de donde vive el cliente\n");
+                            inputString = lector.nextLine();
+
+                            if(esNumerico(inputString,5))
+                                break;
+
+                            System.out.println("Ingresa 5 numeros enteros");
+
+                        }
+
+                        nuevoCliente.setCP(inputString);
+
+                        do {
+
+                            System.out.println("\n¿Desea asociar un email con el cliente?\n" +
+                                    "\n" +
+                                    "si\n" +
+                                    "no\n");
+
+                            inputString = lector.nextLine();
+
+                            switch (inputString) {
+
+                                case "si":
+
+                                    System.out.println("\nIntroduzca el email\n");
+                                    inputString = lector.nextLine();
+
+                                    //Futura verificacion de email aqui
+
+                                    nuevoCliente.setEmail(inputString);
+
+                                    inputInt = 1;
+                                    break;
+
+                                case "no":
+                                    inputInt = 1;
+                                    break;
+
+                                default:
+                                    System.out.println("\nRespuesta invalida, vuelva a intentarlo\n");
+                                    break;
+
+                            }
+
+                        } while (inputInt != 1);
+
+                        inputInt = 0;
+
+                        while (true) {
+
+                            System.out.println("\nIntroduce el telefono del cliente\n");
+                            inputString = lector.nextLine();
+
+                            if(esNumerico(inputString,10))
+                                break;
+
+                            System.out.println("Ingresa 10 digitos");
+
+                        }
+
+                        nuevoCliente.setTelefono(inputString);
+
+                        while (true){
+
+                            System.out.println("\nIntroduzca la fecha de nacimiento del cliente en el formato DD/MM/AA\n");
+                            inputString = lector.nextLine();
+
+                            if(esHoraValida(inputString))
+                                break;
+
+                            System.out.println("\nFecha invalida, ingrese una fecha en el formato DD/MM/AA\n");
+
+                        }
+
+                        nuevoCliente.setFechaNacimiento(inputString);
+
+                        do {
+
+                            System.out.println("\n¿Desea asociar una tarjeta con el cliente?\n" +
+                                    "\n" +
+                                    "si\n" +
+                                    "no\n");
+
+                            inputString = lector.nextLine();
+
+                            switch (inputString) {
+
+                                case "si":
+
+                                    while (true) {
+
+                                        System.out.println("\nIntroduce el numero de la tarjeta del cliente\n");
+                                        inputString = lector.nextLine();
+
+                                        if(esNumerico(inputString,16))
+                                            break;
+
+                                        System.out.println("\nNumero de tarjeta invalido, Ingresa 16 digitos\n");
+
+                                    }
+
+                                    Tarjeta nuevaTarjeta = new Tarjeta();
+                                    nuevaTarjeta.setNumTarjeta(inputString);
+
+                                    while (true) {
+
+                                        System.out.println("\nIntroduce la fecha de vencimiento la tarjeta del cliente en formato MM/AA\n");
+                                        inputString = lector.nextLine();
+
+                                        if(verificarVencimiento(inputString))
+                                            break;
+
+                                        System.out.println("\nFecha invalida, ingresa un fecha en formato MM/AA\n");
+
+                                    }
+
+                                    nuevaTarjeta.setVencimiento(inputString);
+
+                                    while (true) {
+
+                                        System.out.println("\nIntroduce el CVV de la tarjeta del cliente\n");
+                                        inputString = lector.nextLine();
+
+                                        if(esNumerico(inputString,3))
+                                            break;
+
+                                        System.out.println("CVV, Ingresa 3 digitos");
+
+                                    }
+
+                                    nuevaTarjeta.setCvv(inputString);
+
+                                    //guardar tarjeta en un csv
+
+                                    inputInt = 1;
+                                    break;
+
+                                case "no":
+                                    inputInt = 1;
+                                    break;
+
+                                default:
+                                    System.out.println("\nRespuesta invalida, vuelva a intentarlo\n");
+                                    break;
+
+                            }
+
+                        } while (inputInt != 1);
+
+                        clientes.add(nuevoCliente);
 
                         break;
 

@@ -250,11 +250,12 @@ public class EsteticaVeterinaria {
 
     
     /** 
-     * Asigan el Código postal.
+     * Asigna el Código postal.
      * @param cp El Código postal.
      */
     public void setCp(String cp) {
         this.cp = cp;
     }
+
 
 }

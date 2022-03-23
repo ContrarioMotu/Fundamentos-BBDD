@@ -6,7 +6,11 @@ public class Tarjeta {
     private int idtarjeta;
     private String numtarjeta;
     private String vencimiento;
+    private String cvv;
     private String curp;
+
+    public Tarjeta() {
+    }
 
     /**
      * Constructor para Tarjeta.
@@ -14,15 +18,16 @@ public class Tarjeta {
      * @param idtarjeta id de la tarjeta del cliente.
      * @param numtarjeta numero de la tarjeta del cliente.
      * @param vencimiento vencimiento de la tarjeta.
+     * @param cvv eñ cvv de la tarjeta
      * @param curp Curp del cliente.
      */
-    public Tarjeta(int idtarjeta, String numtarjeta, String vencimiento, String curp) {
+    public Tarjeta(int idtarjeta, String numtarjeta, String vencimiento, String cvv, String curp) {
         this.idtarjeta = idtarjeta;
         this.numtarjeta = numtarjeta;
         this.vencimiento = vencimiento;
+        this.cvv = cvv;
         this.curp = curp;
     }
-
 
     /**
      * Regresa el ID de la tarjeta.
@@ -70,7 +75,6 @@ public class Tarjeta {
      * Asigna el numero de tarjeta
      * @param numtarjeta El número de la tarjeta
      */
-
     public void setNumTarjeta(String numtarjeta) {
         this.numtarjeta = numtarjeta;
     }
@@ -90,4 +94,21 @@ public class Tarjeta {
     public void setCurp(String curp) {
         this.curp = curp;
     }
+
+    /**
+     * Getter del cvv de la tarjeta
+     * @return el cvv de la tarjeta
+     */
+    public String getCvv() {
+        return cvv;
+    }
+
+    /**
+     * Setter del cvv de la tarjeta
+     * @param cvv nuevo valor del cvv de la tarjeta
+     */
+    public void setCvv(String cvv) {
+        this.cvv = cvv;
+    }
+
 }

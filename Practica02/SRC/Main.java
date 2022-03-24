@@ -859,9 +859,6 @@ public class Main {
 
                     case 3:
 
-                        // Para añadir la nueva mascota al archivo.
-                        // mascotas.add(nuevo);
-
                         while (true) {
 
                             System.out.println("\nIntroduce el nombre de la mascota\n");
@@ -902,7 +899,7 @@ public class Main {
 
                         }
 
-                        int edad = Integer.valueOf(inputString);
+                        int edad = Integer.parseInt(inputString);
 
                         while (true) {
 
@@ -911,13 +908,15 @@ public class Main {
                             inputString = lector.nextLine();
 
                             try {
-                                inputDouble = Double.valueOf(inputString);
+
+                                inputDouble = Double.parseDouble(inputString);
+                                break;
+
                             } catch (NumberFormatException e) {
 
                                 System.out.println("Entrada invalida, por favor ingrese un double.\n");
 
                             }
-                            break;
 
                         }
 

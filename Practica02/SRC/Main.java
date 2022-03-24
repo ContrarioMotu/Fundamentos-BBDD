@@ -183,7 +183,7 @@ public class Main {
     
             for(Mascota m : mascotas){
                 output.write(m.getIdMascota() + "," + m.getNombreMascota() + "," + m.getCurpDueño() + "," + m.getEdad()
-                             + "," + m.getPeso() + "," + m.getEspecie() + "," + m.getRaza());
+                             + "," + m.getPeso() + "," + m.getEspecie() + "," + m.getRaza() + "\n");
             }
 
             output.close();
@@ -788,6 +788,98 @@ public class Main {
 
                         //Para añadir la nueva mascota al archivo.
                         //mascotas.add(nuevo);
+                        
+                        while (true) {
+
+                            System.out.println("\nIntroduce el nombre de la mascota\n");
+                            inputString = lector.nextLine();
+
+                            if (esCadenaSimple(inputString))
+                                break;
+
+                            System.out.println("\nEntrada invalida, por favor ingrese un nombre solo con letras");
+
+                        }
+                        
+                        String nombre = inputString;
+                        
+                        while (true) {
+
+                            System.out.println("\nIntroduce el CURP del cliente\n");
+                            inputString = lector.nextLine();
+
+                            if(esAlfanumerico(inputString.toUpperCase(),18))
+                                break;
+
+                            System.out.println("Ingresa una cadena solo con letras y espacios");
+
+                        }
+                        
+                        String curp = inputString;
+
+			while (true) {
+
+                            System.out.println("\nIntroduce la edad de la mascota.\n");
+                            inputString = lector.nextLine();
+
+                            if (esNumerico(inputString, 2))
+                                break;
+
+                            System.out.println("\nEntrada invalida, por favor ingrese un numero de dos digitos\n");
+
+                        }
+
+			int edad = Integer.valueOf(inputString);
+			
+                        while (true) {
+
+                            System.out.println("\nIntroduce el peso de la mascota.\n");
+                            
+                            inputString = lector.nextLine();
+
+                            try {
+                                inputDouble = Double.valueOf(inputString);
+                            } catch (NumberFormatException e) {
+
+                                System.out.println("Entrada invalida, por favor ingrese un double.\n");
+
+                            }
+                            break;
+
+                        }
+
+			double peso = inputDouble;
+			                         
+                        while (true) {
+
+                            System.out.println("\nIntroduce la especie de la mascota.\n");
+                            inputString = lector.nextLine();
+
+                            if (esCadenaSimple(inputString))
+                                break;
+
+                            System.out.println("\nEntrada invalida, por favor ingrese una especie solo con letras");
+
+                        }
+                        
+                        String especie = inputString;
+
+			while (true) {
+
+                            System.out.println("\nIntroduce la raza de la mascota.\n");
+                            inputString = lector.nextLine();
+
+                            if (esCadenaSimple(inputString))
+                                break;
+
+                            System.out.println("\nEntrada invalida, por favor ingrese una raza solo con letras");
+
+                        }
+                        
+                        String raza = inputString;
+
+			Mascota nuevaMascota = new Mascota(1, nombre, curp, edad, peso, especie, raza);
+			mascotas.add(nuevaMascota);
 
                         break;
 

@@ -12,16 +12,17 @@ public class Main {
     private static LinkedList<EsteticaVeterinaria> esteticas = new LinkedList<EsteticaVeterinaria>();
     private static LinkedList<Cliente> clientes = new LinkedList<Cliente>();
     private static LinkedList<Mascota> mascotas = new LinkedList<Mascota>();
+    private static LinkedList<Tarjeta> tarjetas = new LinkedList<Tarjeta>();
 
     /**
      * Método para cargar el archivo esteticas.csv, si no existe el archivo
      * se crea uno con el mismo nombre.
      */
-    private static void cargarEsteticas(){
+    private static void cargarEsteticas() {
         try {
             File archivo = new File("esteticas.csv");
 
-            if(!archivo.exists()){
+            if (!archivo.exists()) {
                 archivo.createNewFile();
             }
 
@@ -33,12 +34,12 @@ public class Main {
                 String[] l = line.split(",");
 
                 esteticas.add(new EsteticaVeterinaria(Integer.parseInt(l[0]), l[1], l[2], l[3], l[4],
-                                                      Double.parseDouble(l[5]), Integer.parseInt(l[6]),
-                                                      l[7], l[8], Integer.parseInt(l[9]), l[10]));
+                        Double.parseDouble(l[5]), Integer.parseInt(l[6]),
+                        l[7], l[8], Integer.parseInt(l[9]), l[10]));
             }
-            
+
             input.close();
-            
+
         } catch (Exception e) {
             System.err.println("Error al cargar el archivo de estéticas...");
             System.exit(1);
@@ -50,11 +51,11 @@ public class Main {
      * Método para cargar el archivo clientes.csv, si no existe el archivo
      * se crea uno con el mismo nombre.
      */
-    private static void cargarClientes(){
+    private static void cargarClientes() {
         try {
             File archivo = new File("clientes.csv");
 
-            if(!archivo.exists()){
+            if (!archivo.exists()) {
                 archivo.createNewFile();
             }
 
@@ -65,11 +66,12 @@ public class Main {
             while ((line = input.readLine()) != null) {
                 String[] l = line.split(",");
 
-                clientes.add(new Cliente(l[0], l[1], l[2], l[3], l[4], l[5], Integer.parseInt(l[6]), l[7], l[8], l[9], l[10]));
+                clientes.add(new Cliente(l[0], l[1], l[2], l[3], l[4], l[5], Integer.parseInt(l[6]), l[7], l[8], l[9],
+                        l[10]));
             }
-            
+
             input.close();
-            
+
         } catch (Exception e) {
             System.err.println("Error al cargar el archivo de clientes...");
             System.exit(1);
@@ -81,53 +83,84 @@ public class Main {
      * Método para cargar el archivo mascotas.csv, si no existe el archivo
      * se crea uno con el mismo nombre.
      */
-    private static void cargarMascotas(){
+    private static void cargarMascotas() {
         try {
             File archivo = new File("mascotas.csv");
-    
-            if(!archivo.exists()){
+
+            if (!archivo.exists()) {
                 archivo.createNewFile();
             }
-    
+
             BufferedReader input = new BufferedReader(new FileReader(archivo));
-    
+
             String line;
-    
+
             while ((line = input.readLine()) != null) {
                 String[] l = line.split(",");
-    
+
                 mascotas.add(new Mascota(Integer.parseInt(l[0]), l[1], l[2], Integer.parseInt(l[3]),
-                                         Double.parseDouble(l[4]), l[5], l[6]));
+                        Double.parseDouble(l[4]), l[5], l[6]));
             }
-            
+
             input.close();
-            
+
         } catch (Exception e) {
             System.err.println("Error al cargar el archivo de mascotas...");
             System.exit(1);
         }
-    
+
+    }
+
+    /**
+     * Método para cargar el archivo tarjetas.csv, si no existe el archivo
+     * se crea uno con el mismo nombre.
+     */
+    private static void cargarTarjetas() {
+        try {
+            File archivo = new File("tarjetas.csv");
+
+            if (!archivo.exists()) {
+                archivo.createNewFile();
+            }
+
+            BufferedReader input = new BufferedReader(new FileReader(archivo));
+
+            String line;
+
+            while ((line = input.readLine()) != null) {
+                String[] l = line.split(",");
+
+                tarjetas.add(new Tarjeta(Integer.parseInt(l[0]), l[1], l[2], l[3], l[4]));
+            }
+
+            input.close();
+
+        } catch (Exception e) {
+            System.err.println("Error al cargar el archivo de mascotas...");
+            System.exit(1);
+        }
+
     }
 
     /**
      * Método para guardar el archivo esteticas.csv, si no existe el archivo
      * se crea uno con el mismo nombre.
      */
-    private static void guardarEsteticas(){
+    private static void guardarEsteticas() {
         try {
-            
+
             File archivo = new File("esteticas.csv");
-    
-            if(!archivo.exists()){
+
+            if (!archivo.exists()) {
                 archivo.createNewFile();
             }
 
             BufferedWriter output = new BufferedWriter(new FileWriter(archivo));
 
-            for(EsteticaVeterinaria e : esteticas){
+            for (EsteticaVeterinaria e : esteticas) {
                 output.write(e.getId() + "," + e.getNombre() + "," + e.getTelefono() + "," + e.getHoraApertura()
-                             + "," + e.getHoraCierre() + "," + e.getIngresos() + "," + e.getCantConsultorios()
-                             + "," + e.getEstado() + "," + e.getCalle() + "," + e.getNumero() + "," + e.getCp() + "\n");
+                        + "," + e.getHoraCierre() + "," + e.getIngresos() + "," + e.getCantConsultorios()
+                        + "," + e.getEstado() + "," + e.getCalle() + "," + e.getNumero() + "," + e.getCp() + "\n");
             }
 
             output.close();
@@ -142,21 +175,22 @@ public class Main {
      * Método para guardar el archivo clientes.csv, si no existe el archivo
      * se crea uno con el mismo nombre.
      */
-    private static void guardarClientes(){
+    private static void guardarClientes() {
         try {
-            
+
             File archivo = new File("clientes.csv");
-    
-            if(!archivo.exists()){
+
+            if (!archivo.exists()) {
                 archivo.createNewFile();
             }
 
             BufferedWriter output = new BufferedWriter(new FileWriter(archivo));
 
-            for(Cliente c : clientes){
-                output.write(c.getCurp() + "," + c.getApellidoPaterno() + "," + c.getApellidoMaterno() + "," + c.getNombre()
-                             + "," + c.getEstado() + "," + c.getCalle() + "," + c.getCP() + "," + c.getEmail()
-                             + "," + c.getTelefono() + "," + c.getFechaNacimiento() + "\n");
+            for (Cliente c : clientes) {
+                output.write(
+                        c.getCurp() + "," + c.getApellidoPaterno() + "," + c.getApellidoMaterno() + "," + c.getNombre()
+                                + "," + c.getEstado() + "," + c.getCalle() + "," + c.getCP() + "," + c.getEmail()
+                                + "," + c.getTelefono() + "," + c.getFechaNacimiento() + "\n");
             }
 
             output.close();
@@ -170,20 +204,48 @@ public class Main {
      * Método para guardar el archivo mascotas.csv, si no existe el archivo
      * se crea uno con el mismo nombre.
      */
-    private static void guardarMascotas(){
+    private static void guardarMascotas() {
         try {
-            
+
             File archivo = new File("mascotas.csv");
-    
-            if(!archivo.exists()){
+
+            if (!archivo.exists()) {
                 archivo.createNewFile();
             }
-    
+
             BufferedWriter output = new BufferedWriter(new FileWriter(archivo));
-    
-            for(Mascota m : mascotas){
+
+            for (Mascota m : mascotas) {
                 output.write(m.getIdMascota() + "," + m.getNombreMascota() + "," + m.getCurpDueño() + "," + m.getEdad()
-                             + "," + m.getPeso() + "," + m.getEspecie() + "," + m.getRaza() + "\n");
+                        + "," + m.getPeso() + "," + m.getEspecie() + "," + m.getRaza() + "\n");
+            }
+
+            output.close();
+
+        } catch (Exception e) {
+            System.err.println("Error al guardar el archivo de mascotas...");
+            System.exit(1);
+        }
+    }
+
+    /**
+     * Método para guardar el archivo tarjetas.csv, si no existe el archivo
+     * se crea uno con el mismo nombre.
+     */
+    private static void guardarTarjetas() {
+        try {
+
+            File archivo = new File("tarjetas.csv");
+
+            if (!archivo.exists()) {
+                archivo.createNewFile();
+            }
+
+            BufferedWriter output = new BufferedWriter(new FileWriter(archivo));
+
+            for (Tarjeta t : tarjetas) {
+                output.write(t.getIdTarjeta() + "," + t.getNumTarjeta() + "," + t.getVencimiento() + "," + t.getCvv()
+                        + "," + t.getCurp() + "\n");
             }
 
             output.close();
@@ -196,16 +258,17 @@ public class Main {
 
     /**
      * Método que revisa si un {@link String} solo contiene letras y espacios.
+     * 
      * @param cadena {@link String} a revisar.
      * @return {@code true} si la cadena solamente contiene letras y espacios,
-     * {@code false} en otro caso.
+     *         {@code false} en otro caso.
      */
-    static boolean esCadenaSimple(String cadena){
+    static boolean esCadenaSimple(String cadena) {
 
-        if(cadena == null)
+        if (cadena == null)
             return false;
 
-        cadena = cadena.replaceAll(" ","");
+        cadena = cadena.replaceAll(" ", "");
 
         return cadena.matches("[a-zA-Z]+");
 
@@ -213,52 +276,55 @@ public class Main {
 
     /**
      * Método que revisa si un {@link String} solo contiene letras y números.
+     * 
      * @param cadena {@Link String} a revisar.
      * @return {@code true} si la cadena solamente contiene letras y números,
-     * {@code false} en otro caso.
+     *         {@code false} en otro caso.
      */
-    static boolean esAlfanumerico(String cadena, int tamano){
+    static boolean esAlfanumerico(String cadena, int tamano) {
 
-        if(cadena == null)
+        if (cadena == null)
             return false;
 
         return cadena.matches("[A-Z0-9]{" + tamano + "}");
 
     }
 
-    //Revisa si un string solo contiene numeros
+    // Revisa si un string solo contiene numeros
     /**
      * Método que revisa si un {@link String} solo contienenúmeros.
+     * 
      * @param cadena {@link String} a revisar.
      * @return {@code true} si la cadena solamente contiene números,
-     * {@code false} en otro caso.
+     *         {@code false} en otro caso.
      */
-    static boolean esNumerico(String cadena, int tamano){
+    static boolean esNumerico(String cadena, int tamano) {
 
-        if(cadena == null)
+        if (cadena == null)
             return false;
 
         return cadena.matches("[0-9]{" + tamano + "}");
 
     }
 
-    //Revisa si un string coincide con el formato de hora HH:MM
+    // Revisa si un string coincide con el formato de hora HH:MM
     /**
      * Método que revisa si un {@link String} coincide con el formato
      * de hora HH:MM.
+     * 
      * @param hora {@link String} a revisar.
      * @return {@code true} si la cadena coincide con el formato,
-     * {@code false} en otro caso.
+     *         {@code false} en otro caso.
      */
-    static boolean esHoraValida(String hora){
-        
-        if(hora == null || hora.length() != 5 || !hora.contains(":"))
+    static boolean esHoraValida(String hora) {
+
+        if (hora == null || hora.length() != 5 || !hora.contains(":"))
             return false;
 
         String[] array = hora.split(":");
 
-        for (String i: array)
-            if (i.length() != 2 || !esNumerico(i,2))
+        for (String i : array)
+            if (i.length() != 2 || !esNumerico(i, 2))
                 return false;
 
         int intVal1 = Integer.parseInt(array[0]);
@@ -270,17 +336,18 @@ public class Main {
 
     /**
      * Verifica si una cadena coincide con el formato de fecha DD/MM/AA
+     * 
      * @param fecha la cadena a verificar
      * @return si la cadena cumple con el formato o no
      */
-    static boolean esFechaValida(String fecha){
+    static boolean esFechaValida(String fecha) {
 
-        if(fecha == null || fecha.length() != 8 || !fecha.contains("/"))
+        if (fecha == null || fecha.length() != 8 || !fecha.contains("/"))
             return false;
 
         String[] array = fecha.split("/");
 
-        for(String i : array)
+        for (String i : array)
             if (i.length() != 2)
                 return false;
 
@@ -293,17 +360,18 @@ public class Main {
 
     /**
      * Verifica si una cadena coincide con el formato de fecha MM/AA
+     * 
      * @param fecha la cadena a verificar
      * @return si la cadena cumple con el formato o no
      */
-    static boolean verificarVencimiento(String fecha){
+    static boolean verificarVencimiento(String fecha) {
 
-        if(fecha == null || fecha.length() != 5 || !fecha.contains("/"))
+        if (fecha == null || fecha.length() != 5 || !fecha.contains("/"))
             return false;
 
         String[] array = fecha.split("/");
 
-        for(String i : array)
+        for (String i : array)
             if (i.length() != 2)
                 return false;
 
@@ -324,11 +392,12 @@ public class Main {
         cargarEsteticas();
         cargarClientes();
         cargarMascotas();
+        cargarTarjetas();
 
-        //System.out.println(esAlfanumerico("3a1dfas31aaa",11));
-        //System.out.println(esCadenaSimple("Cadena Simple"));
+        // System.out.println(esAlfanumerico("3a1dfas31aaa",11));
+        // System.out.println(esCadenaSimple("Cadena Simple"));
 
-        while(inputInt != 4){
+        while (inputInt != 4) {
 
             System.out.println("Beinvenido al registro de Esteticas Veterinarias Little Friend\n" +
                     "\n" +
@@ -344,9 +413,9 @@ public class Main {
                 inputInt = lector.nextInt();
                 lector.nextLine();
 
-                switch(inputInt){
+                switch (inputInt) {
 
-                    case 1 :
+                    case 1:
 
                         while (true) {
 
@@ -385,7 +454,8 @@ public class Main {
                             if (esHoraValida(inputString))
                                 break;
 
-                            System.out.println("\nEntrada invalida, por favor ingrese un horario en el formato de 24 horas : HH:MM\n");
+                            System.out.println(
+                                    "\nEntrada invalida, por favor ingrese un horario en el formato de 24 horas : HH:MM\n");
 
                         }
 
@@ -399,7 +469,8 @@ public class Main {
                             if (esHoraValida(inputString))
                                 break;
 
-                            System.out.println("\nEntrada invalida, por favor ingrese un horario en el formato de 24 horas : HH:MM\n");
+                            System.out.println(
+                                    "\nEntrada invalida, por favor ingrese un horario en el formato de 24 horas : HH:MM\n");
 
                         }
 
@@ -423,7 +494,7 @@ public class Main {
 
                         nuevaVeterinaria.setIngresos(inputDouble);
 
-                        while (true){
+                        while (true) {
 
                             System.out.println("\nIngresa el numero de consultorios de la Estetica Veterinaria\n");
 
@@ -436,7 +507,7 @@ public class Main {
 
                                 break;
 
-                            } catch (InputMismatchException e){
+                            } catch (InputMismatchException e) {
 
                                 lector.nextLine();
                                 System.out.println("Cantidad invalida, por favor ingrese un numero entre 1 y 4");
@@ -483,7 +554,7 @@ public class Main {
 
                                 inputInt = lector.nextInt();
 
-                                if(inputInt < 1)
+                                if (inputInt < 1)
                                     throw new InputMismatchException();
 
                                 break;
@@ -501,10 +572,11 @@ public class Main {
 
                         while (true) {
 
-                            System.out.println("\nIntroduce el codigo postal de donde esta ubicada la Estetica Veterinaria\n");
+                            System.out.println(
+                                    "\nIntroduce el codigo postal de donde esta ubicada la Estetica Veterinaria\n");
                             inputString = lector.nextLine();
 
-                            if (esNumerico(inputString,5))
+                            if (esNumerico(inputString, 5))
                                 break;
 
                             System.out.println("Entrada invalida, ingresa un numero de cinco cifras");
@@ -517,14 +589,14 @@ public class Main {
 
                         break;
 
-                    case 2 :
+                    case 2:
 
                         while (true) {
 
                             System.out.println("\nIntroduce el nombre(s) del cliente\n");
                             inputString = lector.nextLine();
 
-                            if(esCadenaSimple(inputString))
+                            if (esCadenaSimple(inputString))
                                 break;
 
                             System.out.println("Ingresa una cadena solo con letras y espacios");
@@ -539,7 +611,7 @@ public class Main {
                             System.out.println("\nIntroduce el apellido paterno del cliente\n");
                             inputString = lector.nextLine();
 
-                            if(esCadenaSimple(inputString))
+                            if (esCadenaSimple(inputString))
                                 break;
 
                             System.out.println("Ingresa una cadena solo con letras y espacios");
@@ -553,7 +625,7 @@ public class Main {
                             System.out.println("\nIntroduce el apellido materno del cliente\n");
                             inputString = lector.nextLine();
 
-                            if(esCadenaSimple(inputString))
+                            if (esCadenaSimple(inputString))
                                 break;
 
                             System.out.println("Ingresa una cadena solo con letras y espacios");
@@ -567,7 +639,7 @@ public class Main {
                             System.out.println("\nIntroduce el CURP del cliente\n");
                             inputString = lector.nextLine();
 
-                            if(esAlfanumerico(inputString.toUpperCase(),18))
+                            if (esAlfanumerico(inputString.toUpperCase(), 18))
                                 break;
 
                             System.out.println("Ingresa una cadena solo con letras y espacios");
@@ -581,7 +653,7 @@ public class Main {
                             System.out.println("\nIntroduce el estado donde vive el cliente\n");
                             inputString = lector.nextLine();
 
-                            if(esCadenaSimple(inputString))
+                            if (esCadenaSimple(inputString))
                                 break;
 
                             System.out.println("Ingresa una cadena solo con letras y espacios");
@@ -595,7 +667,7 @@ public class Main {
                             System.out.println("\nIntroduce la calle donde vive el cliente\n");
                             inputString = lector.nextLine();
 
-                            if(esCadenaSimple(inputString))
+                            if (esCadenaSimple(inputString))
                                 break;
 
                             System.out.println("Ingresa una cadena solo con letras y espacios");
@@ -612,7 +684,7 @@ public class Main {
 
                                 inputInt = lector.nextInt();
 
-                                if(inputInt < 1)
+                                if (inputInt < 1)
                                     throw new InputMismatchException();
 
                                 break;
@@ -633,7 +705,7 @@ public class Main {
                             System.out.println("\nIntroduce el CP de donde vive el cliente\n");
                             inputString = lector.nextLine();
 
-                            if(esNumerico(inputString,5))
+                            if (esNumerico(inputString, 5))
                                 break;
 
                             System.out.println("Ingresa 5 numeros enteros");
@@ -658,7 +730,7 @@ public class Main {
                                     System.out.println("\nIntroduzca el email\n");
                                     inputString = lector.nextLine();
 
-                                    //Futura verificacion de email aqui
+                                    // Futura verificacion de email aqui
 
                                     nuevoCliente.setEmail(inputString);
 
@@ -684,7 +756,7 @@ public class Main {
                             System.out.println("\nIntroduce el telefono del cliente\n");
                             inputString = lector.nextLine();
 
-                            if(esNumerico(inputString,10))
+                            if (esNumerico(inputString, 10))
                                 break;
 
                             System.out.println("Ingresa 10 digitos");
@@ -693,12 +765,13 @@ public class Main {
 
                         nuevoCliente.setTelefono(inputString);
 
-                        while (true){
+                        while (true) {
 
-                            System.out.println("\nIntroduzca la fecha de nacimiento del cliente en el formato DD/MM/AA\n");
+                            System.out.println(
+                                    "\nIntroduzca la fecha de nacimiento del cliente en el formato DD/MM/AA\n");
                             inputString = lector.nextLine();
 
-                            if(esHoraValida(inputString))
+                            if (esHoraValida(inputString))
                                 break;
 
                             System.out.println("\nFecha invalida, ingrese una fecha en el formato DD/MM/AA\n");
@@ -725,7 +798,7 @@ public class Main {
                                         System.out.println("\nIntroduce el numero de la tarjeta del cliente\n");
                                         inputString = lector.nextLine();
 
-                                        if(esNumerico(inputString,16))
+                                        if (esNumerico(inputString, 16))
                                             break;
 
                                         System.out.println("\nNumero de tarjeta invalido, Ingresa 16 digitos\n");
@@ -737,10 +810,11 @@ public class Main {
 
                                     while (true) {
 
-                                        System.out.println("\nIntroduce la fecha de vencimiento la tarjeta del cliente en formato MM/AA\n");
+                                        System.out.println(
+                                                "\nIntroduce la fecha de vencimiento la tarjeta del cliente en formato MM/AA\n");
                                         inputString = lector.nextLine();
 
-                                        if(verificarVencimiento(inputString))
+                                        if (verificarVencimiento(inputString))
                                             break;
 
                                         System.out.println("\nFecha invalida, ingresa un fecha en formato MM/AA\n");
@@ -754,7 +828,7 @@ public class Main {
                                         System.out.println("\nIntroduce el CVV de la tarjeta del cliente\n");
                                         inputString = lector.nextLine();
 
-                                        if(esNumerico(inputString,3))
+                                        if (esNumerico(inputString, 3))
                                             break;
 
                                         System.out.println("CVV, Ingresa 3 digitos");
@@ -763,7 +837,7 @@ public class Main {
 
                                     nuevaTarjeta.setCvv(inputString);
 
-                                    //guardar tarjeta en un csv
+                                    // guardar tarjeta en un csv
 
                                     inputInt = 1;
                                     break;
@@ -784,11 +858,11 @@ public class Main {
 
                         break;
 
-                    case 3 :
+                    case 3:
 
-                        //Para añadir la nueva mascota al archivo.
-                        //mascotas.add(nuevo);
-                        
+                        // Para añadir la nueva mascota al archivo.
+                        // mascotas.add(nuevo);
+
                         while (true) {
 
                             System.out.println("\nIntroduce el nombre de la mascota\n");
@@ -800,24 +874,24 @@ public class Main {
                             System.out.println("\nEntrada invalida, por favor ingrese un nombre solo con letras");
 
                         }
-                        
+
                         String nombre = inputString;
-                        
+
                         while (true) {
 
                             System.out.println("\nIntroduce el CURP del cliente\n");
                             inputString = lector.nextLine();
 
-                            if(esAlfanumerico(inputString.toUpperCase(),18))
+                            if (esAlfanumerico(inputString.toUpperCase(), 18))
                                 break;
 
                             System.out.println("Ingresa una cadena solo con letras y espacios");
 
                         }
-                        
+
                         String curp = inputString;
 
-			while (true) {
+                        while (true) {
 
                             System.out.println("\nIntroduce la edad de la mascota.\n");
                             inputString = lector.nextLine();
@@ -829,12 +903,12 @@ public class Main {
 
                         }
 
-			int edad = Integer.valueOf(inputString);
-			
+                        int edad = Integer.valueOf(inputString);
+
                         while (true) {
 
                             System.out.println("\nIntroduce el peso de la mascota.\n");
-                            
+
                             inputString = lector.nextLine();
 
                             try {
@@ -848,8 +922,8 @@ public class Main {
 
                         }
 
-			double peso = inputDouble;
-			                         
+                        double peso = inputDouble;
+
                         while (true) {
 
                             System.out.println("\nIntroduce la especie de la mascota.\n");
@@ -861,10 +935,10 @@ public class Main {
                             System.out.println("\nEntrada invalida, por favor ingrese una especie solo con letras");
 
                         }
-                        
+
                         String especie = inputString;
 
-			while (true) {
+                        while (true) {
 
                             System.out.println("\nIntroduce la raza de la mascota.\n");
                             inputString = lector.nextLine();
@@ -875,25 +949,27 @@ public class Main {
                             System.out.println("\nEntrada invalida, por favor ingrese una raza solo con letras");
 
                         }
-                        
+
                         String raza = inputString;
 
-			Mascota nuevaMascota = new Mascota(1, nombre, curp, edad, peso, especie, raza);
-			mascotas.add(nuevaMascota);
+                        Mascota nuevaMascota = new Mascota(1, nombre, curp, edad, peso, especie, raza);
+                        mascotas.add(nuevaMascota);
 
                         break;
 
-                    case 4 :
+                    case 4:
 
                         guardarEsteticas();
                         guardarClientes();
                         guardarMascotas();
+                        guardarTarjetas();
 
                         System.exit(0);
 
                         break;
 
-                    default: throw new InputMismatchException();
+                    default:
+                        throw new InputMismatchException();
 
                 }
 

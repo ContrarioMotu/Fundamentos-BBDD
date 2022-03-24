@@ -836,8 +836,7 @@ public class Main {
                                     }
 
                                     nuevaTarjeta.setCvv(inputString);
-
-                                    // guardar tarjeta en un csv
+                                    tarjetas.add(nuevaTarjeta);
 
                                     inputInt = 1;
                                     break;

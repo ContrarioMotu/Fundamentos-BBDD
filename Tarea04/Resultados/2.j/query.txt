@@ -1,0 +1,11 @@
+-- obtenemos el mayor importe
+t = γ max(importe) -> importe (prestamo)
+-- obtenemos el numero del prestamo 
+r = prestamo ⨝ t
+-- proyectamos idcliente, nombresucursal e importe
+s= π idcliente, nombresucursal, importe (r ⨝ prestatario ⨝ sucursal)
+-- obtenemos el nombre del cliente 
+-- ponemos el importe en lugar del saldo ya que el 
+-- cliente no tiene cuenta en el banco.
+-- σ idcliente = 7359 ctacliente  
+π idcliente, nombrecliente, nombresucursal, importe (cliente ⨝ s) 

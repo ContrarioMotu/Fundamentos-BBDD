@@ -1,0 +1,1 @@
+π idcliente, nombrecliente,direccion,estado,nacimiento ((cliente - (cliente ⋉ (ctacliente ⨝(cuenta - σ saldo ≥ 30000 ∧ saldo ≤ 45000 (cuenta))))) - (cliente ⋉ (prestatario ⨝ prestamo)) - σ estado = 'GUERRERO' (cliente))

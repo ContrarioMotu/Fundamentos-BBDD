@@ -1,0 +1,10 @@
+-- clientes 
+g = π idcliente, numcta, numsucursal, saldo, fecha (cliente ⨝ ctacliente ⨝ cuenta)
+-- con saldo mayor 
+h= π idcliente, numsucursal, saldo, fecha (σ 90000 <= saldo ∧ saldo <= 120000 (g))
+-- entregada en 2012 o 2014
+i= π idcliente, numsucursal, fecha (σ (date('2012-01-01') <= fecha ∧ fecha <= date('2012-12-31') ∨ date('2014-01-01') <= fecha ∧ fecha <= date('2014-12-31')) (h))
+-- contamos clientes
+numclientes = γ count(idcliente) -> numclientes (i)
+-- proyección
+π estado, nombresucursal, numclientes (i ⨝ sucursal ⨝ numclientes)  

@@ -1,0 +1,1 @@
+cuenta - (σ saldo ≥ 75000 ∧ saldo ≤ 90000  (cuenta ⋉ (σ nombresucursal = 'CHILPANCINGO' (sucursal))))

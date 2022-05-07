@@ -1,0 +1,1 @@
+π numcta,numsucursal, saldonuevo ← saldo * 1.08 (cuenta ⨝ (σ nombresucursal = 'CARDENAS' (sucursal)))

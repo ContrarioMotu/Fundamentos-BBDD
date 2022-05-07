@@ -1,0 +1,12 @@
+cuentasbon = σ nombresucursal = 'BONAMPAK' (cuenta ⨝ sucursal)
+
+cuentas20 = σ saldo > 60000 ∧ saldo < 75000 (cuentasbon)
+cuentas30 = σ saldo > 75000 (cuentasbon)
+
+prestamos20 = prestamo ∪ (π numcta,numsucursal (cuentas20)) ⨯ {importe:number,fecha:date 
+20000,2022-05-06}
+
+prestamos30 = prestamo ∪ (π numcta,numsucursal (cuentas30)) ⨯ {importe:number,fecha:date 
+30000,2022-05-06}
+
+prestamos20 ∪ prestamos30

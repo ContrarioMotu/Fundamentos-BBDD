@@ -1,0 +1,9 @@
+cuentashuat = cuenta ⨝ (σ nombresucursal = 'HUATULCO' (sucursal))
+
+saldosmayores = σ saldo > 90000 (cuentashuat)
+
+dism8 = π numcta,numsucursal, saldonuevo ← saldo * 0.92 (saldosmayores)
+
+dism4 = π numcta,numsucursal, saldonuevo ← saldo * 0.96 (cuentashuat - saldosmayores)
+
+dism8 ∪ dism4

@@ -1,0 +1,10 @@
+-- clientes con prestamos 
+p= π idcliente, nombrecliente, numprestamo, importe, fecha, numsucursal (cliente ⨝ prestatario ⨝ prestamo)
+-- prestamos en oaxaca
+o= σ estado='OAXACA' (sucursal⨝p)
+-- prestamos en el rango 
+r= π nombrecliente, importe, fecha, estado (σ 95000 < importe (o))
+-- que hayan sido en el segundo trimestre
+s=σ date('2014-03-31') < fecha ∧ fecha < date('2014-07-01') (r)
+-- proyeccion
+π nombrecliente,importe (s)

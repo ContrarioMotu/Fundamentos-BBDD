@@ -1,0 +1,9 @@
+-- Clientes que no viven en Nayarit
+n= σ estado≠'NAYARIT' (cliente)
+-- Clientes con préstamos que no viven en Nayarit
+o= π idcliente, nombrecliente, numprestamo, importe, fecha, numsucursal (n ⨝ prestatario ⨝ prestamo)
+-- Sucursales en Yucatán
+m= σ estado='YUCATÁN' (sucursal)
+-- Proyección
+π numsucursal, nombresucursal, estado, activo (m ⨝ o)
+

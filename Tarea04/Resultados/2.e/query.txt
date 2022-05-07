@@ -1,0 +1,19 @@
+-- Prestatarios
+a= π idcliente, nombrecliente, direccion, estado, nacimiento, numprestamo (cliente ⨝ prestatario)
+-- Cuentahabientes
+b= π idcliente, nombrecliente, direccion, estado, nacimiento, numcta (cliente ⨝ ctacliente)
+-- prestatarios sin cuenta
+c= π idcliente, nombrecliente, direccion, estado, nacimiento, numprestamo (a-b) 
+-- prestamos del primer trimestre de 2013 
+d = σ date('2012-12-31') < fecha ∧ fecha < date('2013-04-01') (c⨝prestamo)
+-- proyección de la info de los clientes con prestamos
+e= π idcliente, nombrecliente, direccion, estado, nacimiento (d)
+-- cuentahabientes sin prestamos 
+f= π idcliente, nombrecliente, direccion, estado, nacimiento, numcta (b-a)
+-- cuentas dadas en el segundo trimestre de 2014
+g= σ date('2014-03-31')< fecha ∧ fecha < date('2014-07-01') (f ⨝ cuenta)
+-- proyeccion de la info de los cuentahabientes sin prestamos 
+h= π idcliente, nombrecliente, direccion, estado, nacimiento (g)
+-- proyeccion de la info de ambos clientes 
+π idcliente, nombrecliente, direccion, estado, nacimiento (e ∪ h)
+

@@ -1,3 +1,4 @@
+INSERT INTO mascota(idMascota,curpDuenio,nombre,fechaNacimiento,especie,raza,peso) VALUES (1,'TRBS435272IGDEMDK4','Björn','2003-08-24','Red-winged blackbird','Agelaius phoeniceus',64.99);
 INSERT INTO mascota(idMascota,curpDuenio,nombre,fechaNacimiento,especie,raza,peso) VALUES (2,'NGJM776022LFYHVBQ3','Åsa','2002-08-30','Pied crow','Corvus albus',85.51);
 INSERT INTO mascota(idMascota,curpDuenio,nombre,fechaNacimiento,especie,raza,peso) VALUES (3,'VUOX385532AZXRVBS6','Célia','2005-04-03','White-bellied sea eagle','Haliaetus leucogaster',31.61);
 INSERT INTO mascota(idMascota,curpDuenio,nombre,fechaNacimiento,especie,raza,peso) VALUES (4,'FXIV001011OUXQYVK3','Dorothée','2010-05-08','Wood pigeon','Columba palumbus',68.62);

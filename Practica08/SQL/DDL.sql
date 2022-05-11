@@ -265,7 +265,7 @@ CREATE TABLE ConsultaEmergencia(
     	idConsultaEmergencia SERIAL PRIMARY KEY,
     	idMascota INT NOT NULL REFERENCES Mascota (idMascota) ON DELETE CASCADE ON UPDATE CASCADE,
     	CURPVeterinario CHAR(18) NOT NULL REFERENCES Veterinario (CURP) ON DELETE CASCADE ON UPDATE CASCADE,
-    	codigoEmergencia INT NOT NULL,
+    	codigoEmergencia INT NOT NULL CHECK (codigoEmergencia > 0 AND codigoEmergencia < 4),
     	procedimiento TEXT NOT NULL
 	);
 COMMENT ON TABLE ConsultaEmergencia IS 'Tabla que contiene las consultas de emergencia';
@@ -314,7 +314,7 @@ CREATE TABLE metodoPago (
     	idMetodoPago SERIAL PRIMARY KEY,
     	CURPDuenio CHAR(18) NOT NULL REFERENCES Duenio (CURP) ON DELETE CASCADE ON UPDATE CASCADE,
     	fechaVencimiento DATE NOT NULL CHECK (fechaVencimiento != NOW()),
-    	numTarjeta CHAR(19) CHECK (CHAR_LENGTH(numTarjeta) = 16 AND numtarjeta SIMILAR TO '[0-9]{18}'),
+    	numTarjeta CHAR(16) CHECK (CHAR_LENGTH(numTarjeta) = 16 AND numtarjeta SIMILAR TO '[0-9]{16}'),
     	nombreTitular VARCHAR(60) NOT NULL,
     	esTarjeta BIT NOT NULL,
     	esEfectivo BIT NOT NULL

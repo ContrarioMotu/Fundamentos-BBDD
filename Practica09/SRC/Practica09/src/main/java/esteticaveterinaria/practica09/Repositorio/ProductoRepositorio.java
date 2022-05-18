@@ -20,9 +20,13 @@ import java.util.List;
  * @author The501st
  */
 public class ProductoRepositorio {
-    private ConexionBD c= new ConexionBD();
+    private ConexionBD c;
     private Statement stat;
     private PreparedStatement prestat;
+
+    public ProductoRepositorio() {
+        c = new ConexionBD();
+    }
     
     /**
      * Metodo que regresa una lista de todos los productos disponibles en la base de datos
@@ -36,7 +40,7 @@ public class ProductoRepositorio {
             c.conectar();
             prestat = c.prepararDeclaracionPreparada(query);
             //prestat.setString(1, String.valueOf(idProducto));
-            ResultSet rs= stat.executeQuery(query);
+            ResultSet rs= prestat.executeQuery();
             while(rs. next()) {
                 Producto producto = new Producto(
                 rs.getInt("idProducto"),

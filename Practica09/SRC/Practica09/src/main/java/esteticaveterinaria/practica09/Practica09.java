@@ -11,7 +11,7 @@ package esteticaveterinaria.practica09;
 
 import esteticaveterinaria.practica09.Conexion.*;
 import esteticaveterinaria.practica09.Modelo.*;
-import esteticaveterinaria.practica09.Repositorio.ProductoRepositorio;
+import esteticaveterinaria.practica09.Repositorio.*;
 import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -53,20 +53,15 @@ public class Practica09 {
     }
 
     public static void main(String[] args) throws SQLException{
-        
-        ConexionBD c = new ConexionBD();
-        try {
-            c.conectar();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
         Scanner in = new Scanner(System.in);
         Producto temp;
         int clave;
         ProductoRepositorio prodRepo = new ProductoRepositorio();
+        EsteticaRepositorio prodEste = new EsteticaRepositorio();
         
-        System.out.println("1. Mostrar tabla Producto.\n2.Añadir producto\n3.Modificar producto\n4.Eliminar producto");
+        System.out.println("1.Mostrar tabla Producto.\n2.Añadir producto\n3.Modificar producto\n4.Eliminar producto"); 
+        System.out.println("5.Mostrar tabla Estetica.\n6.Añadir estetica\n7.Modificar estetica\n8.Eliminar estetica");
 
         do {
             try {
@@ -117,6 +112,22 @@ public class Practica09 {
             case 4:
                 //Eliminar producto
                 break;
+                
+            case 5:
+                //Mostrar tabla Producto
+                List<Estetica> esteticas;
+                esteticas = prodEste.getListaEsteticas();
+                System.out.println(esteticas.size());
+                
+                for (Estetica e : esteticas)
+                    System.out.println(e.toString());
+                //Iterator it = esteticas.iterator();
+                
+                //while (it.hasNext()) {
+                //    System.out.println(it.next());
+                //}
+                break;
+
 
             default:
                 break;

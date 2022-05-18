@@ -6,7 +6,7 @@ package esteticaveterinaria.practica09.Modelo;
  *
  */
 public class Estetica {
-    
+    private int idEstetica;
     private String nombre;
     private String telefono;
     private String calle;
@@ -17,7 +17,7 @@ public class Estetica {
     private String horaFin;
     private int numConsultorios;
     
-    private int idEstetica;
+    
     public Estetica(int idEstetica, String nombre, String telefono, String calle, int numCalle, String estado,
             String codigoPostal, String horaInicio, String horaFin, int numConsultorios) {
         this.idEstetica = idEstetica;
@@ -90,6 +90,10 @@ public class Estetica {
     }
     public void setIdEstetica(int idEstetica) {
         this.idEstetica = idEstetica;
+    }
+
+    public String toString() {
+        return "Estetica{" + "idEstetica=" + idEstetica + ", nombre=" + nombre + ", telefono=" + telefono + ", calle=" + calle + ", numCalle=" + numCalle + ", estado=" + estado + ", codigoPostal=" + codigoPostal + ", horaInicio=" + horaInicio + ", horaFin=" + horaFin + ", numConsultorios=" + numConsultorios + '}';
     }
     
     

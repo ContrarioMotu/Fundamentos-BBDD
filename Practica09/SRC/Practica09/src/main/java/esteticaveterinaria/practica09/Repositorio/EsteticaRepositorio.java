@@ -1,0 +1,144 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package esteticaveterinaria.practica09.Repositorio;
+
+import esteticaveterinaria.practica09.Conexion.ConexionBD;
+import esteticaveterinaria.practica09.Modelo.Estetica;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.LinkedList;
+import java.util.List;
+
+/**
+ *
+ * @author ozzz
+ */
+public class EsteticaRepositorio {
+    private ConexionBD c;
+    private Statement stat;
+    private PreparedStatement prestat;
+    
+    public EsteticaRepositorio() {
+        c = new ConexionBD();
+    }
+    
+    
+    /**
+     * Metodo que regresa una lista de todos los esteticas disponibles en la base de datos
+     * @return una lista con las esteticas de la BD
+     * @throws SQLException
+     */
+    public List<Estetica> getListaEsteticas() throws SQLException {
+        String query = "SELECT * FROM Estetica";
+        LinkedList<Estetica> esteticas = new LinkedList<>();
+        try {
+            c.conectar();
+            prestat = c.prepararDeclaracionPreparada(query);
+            ResultSet rs= prestat.executeQuery();
+            while(rs. next()) {
+                Estetica estetica = new Estetica(
+                rs.getInt("idEstetica"),
+                rs.getString("nombre"),
+                rs.getString("telefono"),
+                rs.getString("calle"),
+                rs.getInt("numCalle"),
+                rs.getString("estado"),
+                rs.getString("codigoPostal"),
+                rs.getString("horaInicio"),
+                rs.getString("horaFin"),
+                rs.getInt("numConsultorios"));
+                esteticas.add(estetica);
+            }
+        } catch (SQLException sql) {
+            sql.printStackTrace();
+        } finally {
+            try {
+                c.cerrar();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        
+        return esteticas;
+    }
+    /**
+     * Metodo que regresa una estetica dado su id
+     * @param id ed de la estetica
+     * @return la estetica que se identifica con ese id
+     */
+    public Estetica getEstetica(int id) {
+        String query = "SELECT * FROM Estetica WHERE idEstetica = ?";
+        Estetica estetica = null;
+        try {
+            c.conectar();
+            prestat= c.prepararDeclaracionPreparada(query);
+            prestat.setString(1, String.valueOf(id));
+            ResultSet rs = prestat.executeQuery();
+            while (rs.next()) {
+                estetica = new Estetica(
+                rs.getInt("idEstetica"),
+                rs.getString("nombre"),
+                rs.getString("telefono"),
+                rs.getString("calle"),
+                rs.getInt("numCalle"),
+                rs.getString("estado"),
+                rs.getString("codigoPostal"),
+                rs.getString("horaInicio"),
+                rs.getString("horaFin"),
+                rs.getInt("numConsultorios"));
+            } 
+        } catch (SQLException sql) {
+            sql.printStackTrace();
+        } finally {
+            try {
+                c.cerrar();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        
+        return estetica;
+        
+    }
+    
+    /**
+     * Metodo que actualiza en la base de datos un nuevo producto
+     * @param prod Objeto producto que se añadirá a la BD
+     */
+    public void insertarEstetica(Estetica estetica) {
+        String query = "INSERT INTO Estetica " + 
+                "(idEstetica, nombre, telefono, calle,"
+                + "numCalle, estado, codigoPostal, horaInicio, "
+                + "horaFin, numConsultorios)"
+                + " VALUES (?,?,?,?,?,?,?,?,?,?)"; 
+        try {
+            c.conectar();
+            prestat = c.prepararDeclaracionPreparada(query);
+            prestat.setInt(1, estetica.getIdEstetica());
+            prestat.setString(2, estetica.getNombre());
+            prestat.setString(3, estetica.getTelefono());
+            prestat.setString(4, estetica.getCalle());
+            prestat.setInt(5, estetica.getNumCalle());
+            prestat.setString(6, estetica.getEstado());
+            prestat.setString(7, estetica.getCodigoPostal());
+            prestat.setString(8, estetica.getHoraInicio());
+            prestat.setString(9, estetica.getHoraFin());
+            prestat.setInt(10, estetica.getNumConsultorios());
+            prestat.executeUpdate();
+        } catch (SQLException sql) {
+            sql.printStackTrace();
+        } finally {
+            try {
+                c.cerrar();
+                System.out.println("Insertado correctamente");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    
+}

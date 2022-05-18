@@ -17,18 +17,26 @@ import java.sql.Statement;
 public class ConexionBD {
     private Connection c= null; 
     
+    /**
+     * Metodo que se conecta con la base de datos
+     * @throws SQLException
+     */
     public void conectar() throws SQLException{
         String jdbc= "jdbc:postgresql://localhost:5432/postgres";
         c= DriverManager.getConnection(jdbc, "postgres", "maitedt");
         System.out.println("Conexion exitosa");
     }
     
+    /**
+     * Metodo que cierra la conexión con la base de datos
+     * @throws SQLException
+     */
     public void cerrar () throws SQLException {
         c.close();
         System.out.println("Conexion cerrada");
     }
     
-        /**
+    /**
      * Metodo que se encarga de preparar la base de datos para recibir una 
      * sentencia
      * @return Statement -- Objeto que utilizaremos para crear sentencias sql

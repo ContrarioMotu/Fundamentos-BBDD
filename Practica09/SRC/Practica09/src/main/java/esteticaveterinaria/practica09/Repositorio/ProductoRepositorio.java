@@ -2,6 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+
 package esteticaveterinaria.practica09.Repositorio;
 
 import esteticaveterinaria.practica09.Conexion.ConexionBD;
@@ -14,21 +15,27 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- *
- * @author maite
+ * Clase que conecta con los productos en la base de datos
+ * 
+ * @author The501st
  */
 public class ProductoRepositorio {
     private ConexionBD c= new ConexionBD();
     private Statement stat;
     private PreparedStatement prestat;
     
-    public List<Producto> getProducto(int idProducto) throws SQLException(){
+    /**
+     * Metodo que regresa una lista de todos los productos disponibles en la base de datos
+     * @return una lista con los productos de la BD
+     * @throws SQLException
+     */
+    public List<Producto> getListaProductos() throws SQLException {
         String query = "SELECT * FROM Producto";
         LinkedList<Producto> listaProductos= new LinkedList<>();
         try {
             c.conectar();
             prestat.prepararDeclaracionPreparada(query);
-            prestat.setString(1, String.valueOf(idProducto));
+            //prestat.setString(1, String.valueOf(idProducto));
             ResultSet rs= stat.executeQuery(query);
             while(rs. next()) {
                 Producto producto = new Producto(
@@ -53,7 +60,11 @@ public class ProductoRepositorio {
         return listaProductos;
     }
     
-    
+    /**
+     * Metodo que regresa un producto que es buscado por su id
+     * @param id id del producto que se va a buscar
+     * @return objeto del tipo Producto con toda su informacion correspondiente
+     */
     public Producto getProducto(int id) {
         String query= "SELECT * FROM Producto WHERE idProducto = ?";
         Producto producto= null; 
@@ -83,6 +94,10 @@ public class ProductoRepositorio {
         return producto;
     }
     
+    /**
+     * Metodo que actualiza en la base de datos un nuevo producto
+     * @param prod Objeto producto que se añadirá a la BD
+     */
     public void insertarProducto(Producto prod) {
         String query = "INSERT INTO Producto " + 
                 "(idProducto, nombre, precio, descripcion, cantidadDisponible, imagen)"
@@ -110,6 +125,11 @@ public class ProductoRepositorio {
         }
     }
     
+    /**
+     * Metodo que se utiliza para actualizar un producto
+     * @param idProd para saber cual producto se va a modificar
+     * @param producto la información a ser actualizada en dicho producto
+     */
     public void actualizarProducto(int idProd, Producto producto) {
         String query = "UPDATE Producto SET idProducto = ?, nombre = ?, "
                 + "precio = ?, descripcion = ?, "

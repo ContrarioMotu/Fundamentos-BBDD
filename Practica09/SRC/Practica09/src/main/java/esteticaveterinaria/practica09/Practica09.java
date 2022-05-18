@@ -11,7 +11,11 @@ package esteticaveterinaria.practica09;
 
 import esteticaveterinaria.practica09.Conexion.*;
 import esteticaveterinaria.practica09.Modelo.*;
+import esteticaveterinaria.practica09.Repositorio.ProductoRepositorio;
 import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -42,7 +46,7 @@ public class Practica09 {
 
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException{
         
         ConexionBD c = new ConexionBD();
         try {
@@ -54,7 +58,8 @@ public class Practica09 {
         Scanner in = new Scanner(System.in);
         Producto temp;
         int clave;
-
+        ProductoRepositorio prodRepo = new ProductoRepositorio();
+        
         System.out.println("1. Mostrar tabla Producto.\n2.Añadir producto\n3.Modificar producto\n4.Eliminar producto");
 
         do {
@@ -69,6 +74,13 @@ public class Practica09 {
         switch (clave) {
             case 1:
                 //Mostrar tabla Producto
+                List<Producto> productos = new LinkedList<>();
+                productos = prodRepo.getListaProductos();
+                Iterator it = productos.iterator();
+                System.out.println(productos.size());
+                while (it.hasNext()) {
+                    System.out.println(it.next());
+                }
                 break;
 
             case 2:

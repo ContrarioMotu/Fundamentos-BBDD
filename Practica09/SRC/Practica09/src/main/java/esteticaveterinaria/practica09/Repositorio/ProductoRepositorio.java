@@ -34,7 +34,7 @@ public class ProductoRepositorio {
         LinkedList<Producto> listaProductos= new LinkedList<>();
         try {
             c.conectar();
-            prestat.prepararDeclaracionPreparada(query);
+            prestat = c.prepararDeclaracionPreparada(query);
             //prestat.setString(1, String.valueOf(idProducto));
             ResultSet rs= stat.executeQuery(query);
             while(rs. next()) {

@@ -74,7 +74,7 @@ public class Practica09 {
         switch (clave) {
             case 1:
                 //Mostrar tabla Producto
-                List<Producto> productos = new LinkedList<>();
+                List<Producto> productos;
                 productos = prodRepo.getListaProductos();
                 Iterator it = productos.iterator();
                 System.out.println(productos.size());
@@ -84,9 +84,10 @@ public class Practica09 {
                 break;
 
             case 2:
-                //Añadir Producto
 
+                //Añadir Producto
                 temp = obtenerDatosProducto();
+                prodRepo.insertarProducto(temp);
 
                 break;
         
@@ -101,12 +102,5 @@ public class Practica09 {
             default:
                 break;
         }
-        /*ConexionBD c= new ConexionBD();
-        try{
-            c.conectar();
-            c.cerrar();
-    } catch (SQLException e){
-        System.out.println(e.toString());
-    }*/
-}
+    }
 }

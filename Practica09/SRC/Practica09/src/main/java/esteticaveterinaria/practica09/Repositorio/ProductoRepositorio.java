@@ -141,13 +141,13 @@ public class ProductoRepositorio {
         try {
             c.conectar();
             prestat = c.prepararDeclaracionPreparada(query);
-            prestat = c.prepararDeclaracionPreparada(query);
             prestat.setInt(1, producto.getIdProducto());
             prestat.setString(2, producto.getNombre());
             prestat.setDouble(3, producto.getPrecio());
             prestat.setString(4, producto.getDescripcion());
             prestat.setInt(5, producto.getCantidadDisponible());
             prestat.setString(6, producto.getImagen());
+            prestat.setInt(7, idProd);
             prestat.executeUpdate();
         }catch (SQLException sql) {
             sql.printStackTrace();

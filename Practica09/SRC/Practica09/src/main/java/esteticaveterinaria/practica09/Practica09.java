@@ -65,6 +65,7 @@ public class Practica09 {
         do {
             try {
                 clave = in.nextInt();
+                in.nextLine();
                 break;
             } catch (NumberFormatException e) {
                 System.out.println("Sólo se admiten numeros");
@@ -73,6 +74,7 @@ public class Practica09 {
 
         switch (clave) {
             case 1:
+
                 //Mostrar tabla Producto
                 List<Producto> productos;
                 productos = prodRepo.getListaProductos();
@@ -86,13 +88,24 @@ public class Practica09 {
             case 2:
 
                 //Añadir Producto
+
+                System.out.println("Introduzca los datos del nuevo producto");
+
                 temp = obtenerDatosProducto();
                 prodRepo.insertarProducto(temp);
 
                 break;
         
             case 3:
+
                 //Modificar producto
+                System.out.println("Introduce el id del producto a modificar\n");
+                clave = Integer.parseInt(in.nextLine());
+                System.out.println("Introduzca los datos actualizados del producto");
+                temp = obtenerDatosProducto();
+
+                prodRepo.actualizarProducto(clave,temp);
+
                 break;
 
             case 4:

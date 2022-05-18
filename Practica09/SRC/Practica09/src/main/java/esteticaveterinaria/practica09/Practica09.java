@@ -7,10 +7,10 @@
   * Clase main
   */
 
-package Practica09.src.main.java.esteticaveterinaria.practica09;
+package esteticaveterinaria.practica09;
 
-import Practica09.src.main.java.esteticaveterinaria.practica09.Conexion.ConexionBD;
-import Practica09.src.main.java.esteticaveterinaria.practica09.Modelo.Producto;
+import esteticaveterinaria.practica09.Conexion.*;
+import esteticaveterinaria.practica09.Modelo.*;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -43,6 +43,13 @@ public class Practica09 {
     }
 
     public static void main(String[] args) {
+        
+        ConexionBD c = new ConexionBD();
+        try {
+            c.conectar();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         Scanner in = new Scanner(System.in);
         Producto temp;

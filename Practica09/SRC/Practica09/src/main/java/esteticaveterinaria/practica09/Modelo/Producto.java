@@ -34,6 +34,10 @@ public class Producto {
         this.imagen = imagen;
     }
 
+    public Producto() {
+        // TODO Auto-generated constructor stub
+    }
+
     /**
      * Regresa el id
      * @return id

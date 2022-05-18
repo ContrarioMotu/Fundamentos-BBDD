@@ -29,6 +29,8 @@ public class Practica09 {
         Scanner lector = new Scanner(System.in);
         Producto resp = new Producto();
 
+        do {
+        try {
         System.out.println("Introduzca el id del producto \n");
         resp.setIdProducto(Integer.parseInt(lector.nextLine()));
         System.out.println("Introduzca el nombre del producto \n");
@@ -39,9 +41,13 @@ public class Practica09 {
         resp.setDescripcion(lector.nextLine());
         System.out.println("Introduzca la cantidad disponible del producto \n");
         resp.setCantidadDisponible(Integer.parseInt(lector.nextLine()));
-        System.out.println("Introduzca la direecion de la imagen del producto \n");
+        System.out.println("Introduzca la direccion de la imagen del producto \n");
         resp.setImagen(lector.nextLine());
-
+        break;
+        } catch (Exception e) {
+            System.out.println("Formato incorrecto");
+        }
+        } while (true);
         return resp;
 
     }

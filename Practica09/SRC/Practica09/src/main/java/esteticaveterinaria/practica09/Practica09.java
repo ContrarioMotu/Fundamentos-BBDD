@@ -101,11 +101,12 @@ public class Practica09 {
 
         Scanner in = new Scanner(System.in);
         Producto temp;
+        Estetica tempE;
         int clave;
         ProductoRepositorio prodRepo = new ProductoRepositorio();
         EsteticaRepositorio esteticaRepo = new EsteticaRepositorio();
-        
-        System.out.println("1.Mostrar tabla Producto.\n2.Añadir producto\n3.Modificar producto\n4.Eliminar producto"); 
+
+        System.out.println("1.Mostrar tabla Producto.\n2.Añadir producto\n3.Modificar producto\n4.Eliminar producto");
         System.out.println("5.Mostrar tabla Estetica.\n6.Añadir estetica\n7.Modificar estetica\n8.Eliminar estetica");
 
         do {
@@ -141,7 +142,7 @@ public class Practica09 {
                 prodRepo.insertarProducto(temp);
 
                 break;
-        
+
             case 3:
 
                 //Modificar producto
@@ -161,32 +162,50 @@ public class Practica09 {
                 prodRepo.borrarProducto(clave);
 
                 break;
-                
+
             case 5:
                 //Mostrar tabla Producto
                 List<Estetica> esteticas;
                 esteticas = esteticaRepo.getListaEsteticas();
                 System.out.println(esteticas.size());
-                
+
                 for (Estetica e : esteticas)
                     System.out.println(e.toString());
                 //Iterator it = esteticas.iterator();
-                
+
                 //while (it.hasNext()) {
                 //    System.out.println(it.next());
                 //}
                 break;
-	     case 6:
-		 System.out.println("Introduzca los datos de la estetica a insertar.");
+            case 6:
+		        System.out.println("Introduzca los datos de la estetica a insertar.");
 
-                Estetica e = obtenerDatosEstetica();
-                esteticaRepo.insertarEstetica(e);
+                tempE = obtenerDatosEstetica();
+                esteticaRepo.insertarEstetica(tempE);
 
                 break;
 
+            case 7:
 
-            default:
+                //Modificar producto
+                System.out.println("Introduce el id de la estetica a modificar\n");
+                clave = Integer.parseInt(in.nextLine());
+                System.out.println("Introduzca los datos actualizados de la estetica");
+                tempE = obtenerDatosEstetica();
+                esteticaRepo.actualizarEstetica(clave,tempE);
+
                 break;
+
+            case 8:
+
+                System.out.println("Introduce el id de la estetica a eliminar\n");
+                clave = Integer.parseInt(in.nextLine());
+                esteticaRepo.borrarEstetica(clave);
+
+            default: break;
+
         }
+
     }
+
 }

@@ -171,6 +171,7 @@ public class EsteticaRepositorio {
             prestat.setTime(8, Time.valueOf(LocalTime.parse(act.getHoraInicio())));
             prestat.setTime(9, Time.valueOf(LocalTime.parse(act.getHoraFin())));
             prestat.setInt(10, act.getNumConsultorios());
+            prestat.setInt(11,idEstetica);
             prestat.executeUpdate();
 
         } catch (SQLException e) {

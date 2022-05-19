@@ -201,7 +201,7 @@ public class EsteticaRepositorio {
                 System.out.println("¿Estas seguro de borrar el siguiente registro?\n" + temp.toString() + "\n\nY/N");
                 resp = lector.nextLine();
 
-                if ("Y".equals(resp))
+                if ("Y".equals(resp.toUpperCase()))
                     try {
                         c.conectar();
                         prestat = c.prepararDeclaracionPreparada(query);

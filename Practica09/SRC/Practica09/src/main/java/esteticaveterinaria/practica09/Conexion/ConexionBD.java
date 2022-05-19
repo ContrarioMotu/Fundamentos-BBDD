@@ -23,7 +23,7 @@ public class ConexionBD {
      */
     public void conectar() throws SQLException{
         String jdbc= "jdbc:postgresql://localhost:5432/postgres";
-        c= DriverManager.getConnection(jdbc, "postgres", "17@");
+        c= DriverManager.getConnection(jdbc, "postgres", "maitedt");
         System.out.println("Conexion exitosa");
     }
     

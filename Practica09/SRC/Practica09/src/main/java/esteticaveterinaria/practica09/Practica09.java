@@ -78,10 +78,10 @@ public class Practica09 {
 		System.out.println("Introduzca el codigo postal \n");
 		estetica.setCodigoPostal(lector.nextLine());
 
-		System.out.println("Introduzca la hora en la que abre formato 12 horas ejemplo 12:00 AM \n");
+		System.out.println("Introduzca la hora en la que abre formato 24 horas ejemplo 12:00:00 \n");
 		estetica.setHoraInicio(lector.nextLine());
 
-		System.out.println("Introduzca la hora en la que cierra formato formato 12 horas ejemplo 06:45 PM \n");
+		System.out.println("Introduzca la hora en la que cierra formato formato 24 horas ejemplo 20:45:00 \n");
 		estetica.setHoraFin(lector.nextLine());
 
 		System.out.println("Introduzca el numero de consultorios \n");

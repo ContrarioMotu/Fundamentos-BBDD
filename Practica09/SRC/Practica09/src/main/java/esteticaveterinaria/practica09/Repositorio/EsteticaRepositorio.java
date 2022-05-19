@@ -12,7 +12,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
-
+import java.time.OffsetDateTime;
+import java.sql.Timestamp;
+import java.sql.Time;
+import java.time.LocalTime;
 /**
  *
  * @author ozzz
@@ -125,8 +128,8 @@ public class EsteticaRepositorio {
             prestat.setInt(5, estetica.getNumCalle());
             prestat.setString(6, estetica.getEstado());
             prestat.setString(7, estetica.getCodigoPostal());
-            prestat.setString(8, estetica.getHoraInicio());
-            prestat.setString(9, estetica.getHoraFin());
+            prestat.setTime(8, Time.valueOf(LocalTime.parse(estetica.getHoraInicio())));
+            prestat.setTime(9, Time.valueOf(LocalTime.parse(estetica.getHoraFin())));
             prestat.setInt(10, estetica.getNumConsultorios());
             prestat.executeUpdate();
         } catch (SQLException sql) {

@@ -17,8 +17,8 @@ import java.sql.Timestamp;
 import java.sql.Time;
 import java.time.LocalTime;
 /**
- *
- * @author ozzz
+ * Clase que conecta las esteticas con la base de datos
+ * @author The501st
  */
 public class EsteticaRepositorio {
     private ConexionBD c;

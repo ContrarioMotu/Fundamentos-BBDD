@@ -84,7 +84,7 @@ public class EsteticaRepositorio {
         try {
             c.conectar();
             prestat= c.prepararDeclaracionPreparada(query);
-            prestat.setString(1, String.valueOf(id));
+            prestat.setInt(1, id);
             ResultSet rs = prestat.executeQuery();
             while (rs.next()) {
                 estetica = new Estetica(
@@ -188,7 +188,7 @@ public class EsteticaRepositorio {
 
     public void borrarEstetica(int idEstetica){
 
-        String query = "DELETE FROM producto where idEstetica = ?";
+        String query = "DELETE FROM estetica where idEstetica = ?";
         Scanner lector = new Scanner(System.in);
         Estetica temp;
         String resp;

@@ -52,13 +52,58 @@ public class Practica09 {
 
     }
 
+    private static Estetica obtenerDatosEstetica() {
+	Scanner lector = new Scanner(System.in);
+	Estetica estetica = new Estetica();
+	do {
+	    try {
+		System.out.println("Introduzca el id de la estetica \n");
+		estetica.setIdEstetica(Integer.parseInt(lector.nextLine()));
+
+		System.out.println("Introduzca el nombre de la estetica \n");
+		estetica.setNombre(lector.nextLine());
+
+		System.out.println("Introduzca el telefono de la estetica (10 digitos)\n");
+		estetica.setTelefono(lector.nextLine());
+
+		System.out.println("Introduzca el nombre de la calle donde se encuentra la estetica\n");
+		estetica.setCalle(lector.nextLine());
+
+		System.out.println("Introduzca el numero exterior \n");
+		estetica.setNumCalle(Integer.parseInt(lector.nextLine()));
+
+		System.out.println("Introduzca el estado\n");
+		estetica.setEstado(lector.nextLine());
+
+		System.out.println("Introduzca el codigo postal \n");
+		estetica.setCodigoPostal(lector.nextLine());
+
+		System.out.println("Introduzca la hora en la que abre formato 12 horas ejemplo 12:00 AM \n");
+		estetica.setHoraInicio(lector.nextLine());
+
+		System.out.println("Introduzca la hora en la que cierra formato formato 12 horas ejemplo 06:45 PM \n");
+		estetica.setHoraFin(lector.nextLine());
+
+		System.out.println("Introduzca el numero de consultorios \n");
+		estetica.setNumConsultorios(Integer.parseInt(lector.nextLine()));
+		break;
+		
+	    } catch (Exception e) {
+		System.out.println("Formato incorrecto.");
+	    }
+	    
+	} while (true);
+	return estetica;
+	
+    }
+
     public static void main(String[] args) throws SQLException{
 
         Scanner in = new Scanner(System.in);
         Producto temp;
         int clave;
         ProductoRepositorio prodRepo = new ProductoRepositorio();
-        EsteticaRepositorio prodEste = new EsteticaRepositorio();
+        EsteticaRepositorio esteticaRepo = new EsteticaRepositorio();
         
         System.out.println("1.Mostrar tabla Producto.\n2.Añadir producto\n3.Modificar producto\n4.Eliminar producto"); 
         System.out.println("5.Mostrar tabla Estetica.\n6.Añadir estetica\n7.Modificar estetica\n8.Eliminar estetica");
@@ -116,7 +161,7 @@ public class Practica09 {
             case 5:
                 //Mostrar tabla Producto
                 List<Estetica> esteticas;
-                esteticas = prodEste.getListaEsteticas();
+                esteticas = esteticaRepo.getListaEsteticas();
                 System.out.println(esteticas.size());
                 
                 for (Estetica e : esteticas)
@@ -126,6 +171,13 @@ public class Practica09 {
                 //while (it.hasNext()) {
                 //    System.out.println(it.next());
                 //}
+                break;
+	     case 6:
+		 System.out.println("Introduzca los datos de la estetica a insertar.");
+
+                Estetica e = obtenerDatosEstetica();
+                esteticaRepo.insertarEstetica(e);
+
                 break;
 
 

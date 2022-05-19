@@ -17,7 +17,19 @@ public class Estetica {
     private String horaFin;
     private int numConsultorios;
     
-    
+    /**
+     * 
+     * @param idEstetica
+     * @param nombre
+     * @param telefono
+     * @param calle
+     * @param numCalle
+     * @param estado
+     * @param codigoPostal
+     * @param horaInicio
+     * @param horaFin
+     * @param numConsultorios 
+     */
     public Estetica(int idEstetica, String nombre, String telefono, String calle, int numCalle, String estado,
             String codigoPostal, String horaInicio, String horaFin, int numConsultorios) {
         this.idEstetica = idEstetica;
@@ -31,15 +43,50 @@ public class Estetica {
         this.horaFin = horaFin;
         this.numConsultorios = numConsultorios;
     }
+    
+    /**
+     * 
+     */
+    public Estetica() {
+	
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public int getIdEstetica() {
+        return idEstetica;
+    }
+    
+    /**
+     * 
+     * @return 
+     */
     public String getNombre() {
         return nombre;
     }
+    
+    /**
+     * 
+     * @return 
+     */
     public String getTelefono() {
         return telefono;
     }
+    
+    /**
+     * 
+     * @return 
+     */
     public String getCalle() {
         return calle;
     }
+    
+    /**
+     * 
+     * @return 
+     */
     public int getNumCalle() {
         return numCalle;
     }
@@ -58,9 +105,7 @@ public class Estetica {
     public int getNumConsultorios() {
         return numConsultorios;
     }
-    public int getIdEstetica() {
-        return idEstetica;
-    }
+    
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }

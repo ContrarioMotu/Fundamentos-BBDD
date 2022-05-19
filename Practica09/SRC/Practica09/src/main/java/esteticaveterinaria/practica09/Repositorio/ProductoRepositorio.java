@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * Clase que conecta con los productos en la base de datos
@@ -75,7 +76,7 @@ public class ProductoRepositorio {
         try {
             c.conectar();
             prestat= c.prepararDeclaracionPreparada(query);
-            prestat.setString(1, String.valueOf(id));
+            prestat.setInt(1, id);
             ResultSet rs = prestat.executeQuery();
             while (rs.next()) {
                 producto = new Producto (
@@ -159,4 +160,46 @@ public class ProductoRepositorio {
             }
         }
     }
+
+    public void borrarProducto(int idProducto){
+
+        String query = "DELETE FROM producto where idProducto = ?";
+        Scanner lector = new Scanner(System.in);
+        Producto temp;
+        String resp;
+
+        do {
+
+            try{
+
+                temp = getProducto(idProducto);
+                System.out.println("¿Estas seguro de borrar el siguiente registro?\n" + temp.toString() + "\n\nY/N");
+                resp = lector.nextLine();
+
+                if ("Y".equals(resp))
+                    try {
+                        c.conectar();
+                        prestat = c.prepararDeclaracionPreparada(query);
+                        prestat.setInt(1, idProducto);
+                        prestat.executeUpdate();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+
+                break;
+
+            } catch (Exception e) {
+                System.out.println("Formato incorrecto");
+            } finally {
+                try {
+                    c.cerrar();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        } while (true);
+
+    }
+
 }

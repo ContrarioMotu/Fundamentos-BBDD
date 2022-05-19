@@ -155,7 +155,11 @@ public class Practica09 {
                 break;
 
             case 4:
-                //Eliminar producto
+
+                System.out.println("Introduce el id del producto a eliminar\n");
+                clave = Integer.parseInt(in.nextLine());
+                prodRepo.borrarProducto(clave);
+
                 break;
                 
             case 5:

@@ -21,8 +21,8 @@ import java.time.LocalTime;
 import java.util.Scanner;
 
 /**
- *
- * @author ozzz
+ * Clase que conecta las esteticas con la base de datos
+ * @author The501st
  */
 public class EsteticaRepositorio {
 

@@ -182,6 +182,7 @@ public class ProductoRepositorio {
                         prestat = c.prepararDeclaracionPreparada(query);
                         prestat.setInt(1, idProducto);
                         prestat.executeUpdate();
+                        break;
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
@@ -190,11 +191,13 @@ public class ProductoRepositorio {
 
             } catch (Exception e) {
                 System.out.println("Formato incorrecto");
+                break;
             } finally {
                 try {
                     c.cerrar();
                 } catch (SQLException e) {
                     e.printStackTrace();
+                    break;
                 }
             }
 

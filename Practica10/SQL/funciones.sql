@@ -5,9 +5,7 @@ CREATE OR REPLACE FUNCTION edadCliente (curp_cliente char(18))
 	RETURNS int 
 	AS $$
 	DECLARE 
-		edad int;
 		fecha DATE;
-		curpABuscar char(18);
 		anioNacimiento int;
 	BEGIN 
 		SELECT duenio.fechaNacimiento INTO fecha 
@@ -25,9 +23,7 @@ CREATE OR REPLACE FUNCTION ingresosEstetica (id_estetica int)
 	RETURNS REAL
 	AS $$
 	DECLARE
-	 cos REAL; 
 	 ganancia REAL;
-	 medio REAL;
 	BEGIN 
 	SELECT SUM(Recibo.costo) INTO ganancia 
 			   FROM public.Recibo
@@ -39,4 +35,4 @@ CREATE OR REPLACE FUNCTION ingresosEstetica (id_estetica int)
 
 --SELECT idEstetica, costo FROM Recibo WHERE idEstetica = 22;
 --SELECT ingresosEstetica(22);
---SELECT edadCliente ('IBLO812442JSHWRQC1');
+SELECT edadCliente ('IBLO812442JSHWRQC1');

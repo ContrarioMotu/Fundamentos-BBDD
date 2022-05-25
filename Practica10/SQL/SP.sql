@@ -6,9 +6,9 @@ CREATE OR REPLACE PROCEDURE agregarVeterinario(
 	AS $$
 	BEGIN
 		ASSERT calleN SIMILAR TO '[a-zA-Z]{1,30}',
-			'La calle: '|| $10 ||' no puede contener símbolos, números ni acentos...';
+			'La calle: '|| $6 ||' no puede contener símbolos, números ni acentos...';
 		ASSERT estadoN SIMILAR TO '[a-zA-Z]{1,30}',
-			'El estado: '|| $10 ||' no puede contener símbolos, números ni acentos...';
+			'El estado: '|| $8 ||' no puede contener símbolos, números ni acentos...';
 		ASSERT nombreN SIMILAR TO '[a-zA-Z]{1,30}',
 			'El nombre: '|| $10 ||' no puede contener símbolos, números ni acentos...';
 		ASSERT paternoN SIMILAR TO '[a-zA-Z]{1,30}',

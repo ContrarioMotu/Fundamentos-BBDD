@@ -13,7 +13,20 @@ CREATE TABLE Sucursal (
 	numeroExt INT NOT NULL CHECK (numeroExt > 0),
 	colonia VARCHAR(30) NOT NULL,
 	telefono CHAR(10) NOT NULL CHECK (CHAR_LENGTH(telefono) = 10 AND telefono SIMILAR TO '[0-9]{10}'),
-	correo VARCHAR(64));
+	correo VARCHAR(64)
+);
+COMMENT ON TABLE Sucursal IS 'Tabla donde se guarda la informacion de las sucursales';
+COMMENT ON COLUMN Sucursal.idSucursal IS 'El id de la sucursal que sirve de identificador';
+COMMENT ON COLUMN Sucursal.nombre IS 'Nombre de la sucursal';
+COMMENT ON COLUMN Sucursal.RFC IS 'RFC de la sucursal';
+COMMENT ON COLUMN Sucursal.codigoPostal IS 'Código postal de donde está ubicada de la sucursal';
+COMMENT ON COLUMN Sucursal.estado IS 'Estado donde está ubicada de la sucursal';
+COMMENT ON COLUMN Sucursal.calle IS 'Calle donde está ubicada de la sucursal';
+COMMENT ON COLUMN Sucursal.municipio IS 'Municipio donde está ubicada de la sucursal';
+COMMENT ON COLUMN Sucursal.numeroExt IS 'Nuumero exterior de donde está ubicada de la sucursal';
+COMMENT ON COLUMN Sucursal.colonia IS 'Colonia está ubicada de la sucursal';
+COMMENT ON COLUMN Sucursal.telefono IS 'Telefono de la sucursal';
+COMMENT ON COLUMN Sucursal.correo IS 'Correo de la sucursal';
 
 CREATE TABLE Persona (
 	CURP CHAR(18) NOT NULL UNIQUE CHECK (CHAR_LENGTH(CURP) = 18 AND CURP SIMILAR TO '[A-Z0-9]{18}') PRIMARY KEY ,
@@ -30,34 +43,70 @@ CREATE TABLE Persona (
 	telefono CHAR(10) NOT NULL CHECK (CHAR_LENGTH(telefono) = 10 AND telefono SIMILAR TO '[0-9]{10}'),
 	correo VARCHAR(64)
 );
-	
+COMMENT ON TABLE Persona IS 'Tabla donde se guarda la informacion de las personas';
+COMMENT ON COLUMN Persona.CURP IS 'CURP identificador de la persona';
+COMMENT ON COLUMN Persona.nombre IS 'Nombre de la persona';
+COMMENT ON COLUMN Persona.apellidoPaterno IS 'Apellido paterno de la persona';
+COMMENT ON COLUMN Persona.apellidoMaterno IS 'Apellido materno de la persona';
+COMMENT ON COLUMN Persona.fechaNacimiento IS 'Fecha de nacimiento de la persona';
+COMMENT ON COLUMN Persona.codigoPostal IS 'Código postal de la dirección de la persona';
+COMMENT ON COLUMN Persona.estado IS 'Estado de la dirección de la persona';
+COMMENT ON COLUMN Persona.calle IS 'Calle de la dirección de la persona';
+COMMENT ON COLUMN Persona.municipio IS 'Municipio de la dirección de la persona';
+COMMENT ON COLUMN Persona.numeroExt IS 'Numero exterior de la dirección de la persona';
+COMMENT ON COLUMN Persona.colonia IS 'Colonia de la dirección de la persona';
+COMMENT ON COLUMN Persona.telefono IS 'Telefono de la persona';
+COMMENT ON COLUMN Persona.correo IS 'Correo de la persona';	
+
 CREATE TABLE Empleado (
 	CURP CHAR(18) NOT NULL REFERENCES Persona (CURP) ON DELETE CASCADE ON UPDATE CASCADE,
 	idTipoEmpleado INT NOT NULL CHECK (IdTipoEmpleado  > 0),
 	idSucursal INT NOT NULL CHECK (idSucursal   > 0) REFERENCES Sucursal(idSucursal) ON DELETE CASCADE ON UPDATE CASCADE
 	);
+COMMENT ON TABLE Empleado IS 'Tabla donde se guarda la informacion de los empleados';
+COMMENT ON COLUMN Empleado.CURP IS 'CURP identificador del empleado';
+COMMENT ON COlUMN Empleado.idTipoEmpleado IS 'Dependiendo del numero es el tipo de empleado';
+COMMENT ON COLUMN Empleado.idSucursal IS 'El id de la sucursal en la que el empleado trabaja';
+
 
 CREATE TABLE Repartidor (
 	CURP CHAR(18) NOT NULL UNIQUE REFERENCES Persona (CURP) ON DELETE CASCADE ON UPDATE CASCADE,
 	tieneTransporte BIT NOT NULL,
 	noLicencia CHAR(9) NOT NULL UNIQUE
 );
+COMMENT ON TABLE Repartidor IS 'Tabla donde se guarda la informacion de los repartidores';
+COMMENT ON COLUMN Repartidor.CURP IS 'CURP identificador del repartidor';
+COMMENT ON COLUMN Repartidor.tieneTransporte IS 'Nos permite saber si un repartidor cuenta con transporte propio';
+COMMENT ON COLUMN Repartidor.noLicencia IS 'El numero de la licencia del repartidor';
 
 CREATE TABLE Vehiculo (
 	idVehiculo SERIAL NOT NULL CHECK (idVehiculo  > 0),
-	CURP CHAR(18) NOT NULL REFERENCES Repartidor (CURP) ON DELETE CASCADE ON UPDATE CASCADE,
+	CURPRepartidor CHAR(18) NOT NULL REFERENCES Repartidor (CURP) ON DELETE CASCADE ON UPDATE CASCADE,
 	tipo INT NOT NULL CHECK (tipo  > 0),
 	marca VARCHAR(30) NOT NULL,
 	modelo VARCHAR(30) NOT NULL
 );
+COMMENT ON TABLE Vehiculo IS 'Tabla donde se guarda la informacion de los vehiculos de los repartidores';
+COMMENT ON COLUMN Vehiculo.idVehiculo IS 'Id del vehiculo';
+COMMENT ON COLUMN Vehiculo.CURPRepartidor IS 'CURP del repartidor';
+COMMENT ON COLUMN Vehiculo.tipo IS 'Tipo del vehiculo';
+COMMENT ON COLUMN Vehiculo.marca IS 'Marca del vehiculo';
+COMMENT ON COLUMN Vehiculo.modelo IS 'Modelo del vehiculo';
 
 CREATE TABLE Cliente (
 	CURP CHAR(18) NOT NULL UNIQUE REFERENCES Persona (CURP) ON DELETE CASCADE ON UPDATE CASCADE,
 	puntos INT NOT NULL
 );
+COMMENT ON TABLE Cliente IS 'Tabla donde se guarda la informacion de los clientes';
+COMMENT ON COLUMN Cliente.CURP IS 'CURP identificador del cliente';
+COMMENT ON COLUMN Cliente.puntos IS 'Puntos que el cliente tiene acumulados';
 
 CREATE TABLE MetodoPago (
 	idMetodoPago SERIAL NOT NULL,
  	idTipo INT NOT NULL CHECK (idTipo  > 0),
 	CURPCliente CHAR(18) NOT NULL REFERENCES Cliente (CURP) ON DELETE CASCADE ON UPDATE CASCADE
 );
+COMMENT ON TABLE MetodoPago IS 'Tabla donde se guarda la informacion de los metodos de pago';
+COMMENT ON COLUMN MetodoPago.idMetodoPago IS 'Identificador de los metodos de pago';
+COMMENT ON COLUMN MetodoPago.idTipo IS 'Tipo de metodo de pago';
+COMMENT ON COLUMN MetodoPago.CURPCliente IS 'CURP del cliente que va a pagar';

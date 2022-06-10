@@ -110,3 +110,73 @@ COMMENT ON TABLE MetodoPago IS 'Tabla donde se guarda la informacion de los meto
 COMMENT ON COLUMN MetodoPago.idMetodoPago IS 'Identificador de los metodos de pago';
 COMMENT ON COLUMN MetodoPago.idTipo IS 'Tipo de metodo de pago';
 COMMENT ON COLUMN MetodoPago.CURPCliente IS 'CURP del cliente que va a pagar';
+
+
+
+CREATE TABLE Provedor (
+	idProvedor SERIAL PRIMARY KEY,
+	nombre VARCHAR(64) NOT NULL,
+	telefono CHAR(10) NOT NULL CHECK (CHAR_LENGTH(telefono) = 10 AND telefono SIMILAR TO '[0-9]{10}')	       
+);
+
+COMMENT ON TABLE Provedor IS 'Tabla donde se guarda la información de los provedores.';
+COMMENT ON COLUMN Provedor.idProvedor IS 'El id del provedor que sirve de identificador.';
+COMMENT ON COLUMN Provedor.nombre IS 'Nombre de la provedor.';
+COMMENT ON COLUMN Provedor.telefono IS 'Telefono del provedor.';
+
+CREATE TABLE RegistroProductoNoPerecedero (
+	idRegistroProductoNoPerecedero SERIAL PRIMARY KEY,
+	idProvedor INT NOT NULL REFERENCES Provedor (idProvedor) ON DELETE CASCADE ON UPDATE CASCADE,
+	nombre VARCHAR(64) NOT NULL,
+	cantidad INT NOT NULL CHECK (cantidad > 0),
+	marca VARCHAR(30) NOT NULL,
+	fechaAdquisicion DATE NOT NULL,
+	precioCompra REAL NOT NULL CHECK (PrecioCompra > 0)
+);
+
+COMMENT ON TABLE RegistroProductoNoPerecedero IS 'Tabla donde se guarda la información de los registros de los productos no perecedero.';
+COMMENT ON COLUMN RegistroProductoNoPerecedero.idRegistroProductoNoPerecedero IS 'El id del registro que sirve de identificador.';
+COMMENT ON COLUMN RegistroProductoNoPerecedero.idProvedor IS 'El id del provedor del producto.';
+COMMENT ON COLUMN RegistroProductoNoPerecedero.nombre IS 'Nombre del producto.';
+COMMENT ON COLUMN RegistroProductoNoPerecedero.cantidad IS 'Cantidad comprada.';
+COMMENT ON COLUMN RegistroProductoNoPerecedero.marca IS 'Marca del producto';
+COMMENT ON COLUMN RegistroProductoNoPerecedero.fechaAdquisicion IS 'Fecha de adquisicion del producto.';
+COMMENT ON COLUMN RegistroProductoNoPerecedero.precioCompra IS 'Precio de compra del producto';
+
+CREATE TABLE RegistroIngrediente (
+	idRegistroIngrediente SERIAL PRIMARY KEY,
+	idProvedor INT NOT NULL REFERENCES Provedor (idProvedor) ON DELETE CASCADE ON UPDATE CASCADE,
+	nombre VARCHAR(64) NOT NULL,
+	cantidad INT NOT NULL CHECK (cantidad > 0),
+	marca VARCHAR(30) NOT NULL,
+	fechaAdquisicion DATE NOT NULL,
+	precioCompra REAL NOT NULL CHECK (PrecioCompra > 0),
+	fechaCaducidad DATE NOT NULL
+);
+
+COMMENT ON TABLE RegistroIngrediente IS 'Tabla donde se guarda la información de los registros de los productos no perecedero.';
+COMMENT ON COLUMN RegistroIngrediente.idRegistroIngrediente IS 'El id del registro que sirve de identificador.';
+COMMENT ON COLUMN RegistroIngrediente.idProvedor IS 'El id del provedor del producto.';
+COMMENT ON COLUMN RegistroIngrediente.nombre IS 'Nombre del producto.';
+COMMENT ON COLUMN RegistroIngrediente.cantidad IS 'Cantidad comprada.';
+COMMENT ON COLUMN RegistroIngrediente.marca IS 'Marca del producto';
+COMMENT ON COLUMN RegistroIngrediente.fechaAdquisicion IS 'Fecha de adquisicion del producto.';
+COMMENT ON COLUMN RegistroIngrediente.precioCompra IS 'Precio de compra del producto';
+COMMENT ON COLUMN RegistroIngrediente.fechaCaducidad IS 'Fecha de caducidad del producto';
+
+-- CREATE TABLE RegistroProductoAlimenticio (
+-- 	idRegistroProductoAlimenticio SERIAL PRIMARY KEY,
+-- 	idTipo INT NOT NULL REFERENCES TipoProductoAlimenticio (idTipo) ON DELETE CASCADE ON UPDATE CASCADE,
+-- 	nombre VARCHAR(64) NOT NULL,
+-- 	precioVenta REAL NOT NULL CHECK (PrecioVenta > 0),
+-- 	fechaPrecio DATE NOT NULL
+-- );
+
+-- COMMENT ON TABLE RegistroProductoAlimenticio IS 'Tabla donde se guarda la información de los registros de los productos alimenticios ofertados.';
+-- COMMENT ON COLUMN RegistroProductoAlimenticio.idRegistroProductoAlimenticio IS 'El id del registro que sirve de identificador.';
+-- COMMENT ON COLUMN RegistroProductoAlimenticio.idTipo IS 'El id del tipo de producto.';
+-- COMMENT ON COLUMN RegistroProductoAlimenticio.nombre IS 'Nombre del producto.';
+-- COMMENT ON COLUMN RegistroProductoAlimenticio.precioVenta IS 'Precio a lo que se vende el producto';
+-- COMMENT ON COLUMN RegistroProductoAlimenticio.fechaAdquisicion IS 'Fecha a partir donde el precio del producto es  vigente.';
+
+

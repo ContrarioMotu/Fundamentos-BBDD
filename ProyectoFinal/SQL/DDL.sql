@@ -79,10 +79,19 @@ COMMENT ON COLUMN Repartidor.CURP IS 'CURP identificador del repartidor';
 COMMENT ON COLUMN Repartidor.tieneTransporte IS 'Nos permite saber si un repartidor cuenta con transporte propio';
 COMMENT ON COLUMN Repartidor.noLicencia IS 'El numero de la licencia del repartidor';
 
+CREATE TABLE TipoVehiculo (
+    idTipoVehiculo SERIAL PRIMARY KEY,
+    descripcion VARCHAR(30) NOT NULL
+);
+
+COMMENT ON TABLE TipoVehiculo IS 'Tabla donde se guarda la información de los diferentes tipos de vehiculos.';
+COMMENT ON COLUMN TipoVehiculo.idTipoVehiculo IS 'Identificador para el tipo del vehiculo.';
+COMMENT ON COLUMN TipoVehiculo.descripcion IS 'Descripcion del tipo de vehiculo.';
+
 CREATE TABLE Vehiculo (
 	idVehiculo SERIAL NOT NULL CHECK (idVehiculo  > 0),
 	CURPRepartidor CHAR(18) NOT NULL REFERENCES Repartidor (CURP) ON DELETE CASCADE ON UPDATE CASCADE,
-	tipo INT NOT NULL CHECK (tipo  > 0),
+	tipo INT NOT NULL CHECK (tipo  > 0) REFERENCES TipoVehiculo (idTipoVehiculo) ON DELETE CASCADE ON UPDATE CASCADE,
 	marca VARCHAR(30) NOT NULL,
 	modelo VARCHAR(30) NOT NULL
 );

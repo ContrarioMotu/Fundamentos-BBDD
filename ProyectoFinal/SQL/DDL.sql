@@ -9,9 +9,7 @@ CREATE TABLE Sucursal (
 	codigoPostal  CHAR(5) NOT NULL CHECK (CHAR_LENGTH(codigoPostal) = 5 AND codigoPostal SIMILAR TO '[0-9]{5}'),
 	estado VARCHAR(30) NOT NULL,
 	calle VARCHAR(30) NOT NULL,
-	municipio VARCHAR(30) NOT NULL,
 	numeroExt INT NOT NULL CHECK (numeroExt > 0),
-	colonia VARCHAR(30) NOT NULL,
 	telefono CHAR(10) NOT NULL CHECK (CHAR_LENGTH(telefono) = 10 AND telefono SIMILAR TO '[0-9]{10}'),
 	correo VARCHAR(64)
 );
@@ -22,9 +20,7 @@ COMMENT ON COLUMN Sucursal.RFC IS 'RFC de la sucursal';
 COMMENT ON COLUMN Sucursal.codigoPostal IS 'Código postal de donde está ubicada de la sucursal';
 COMMENT ON COLUMN Sucursal.estado IS 'Estado donde está ubicada de la sucursal';
 COMMENT ON COLUMN Sucursal.calle IS 'Calle donde está ubicada de la sucursal';
-COMMENT ON COLUMN Sucursal.municipio IS 'Municipio donde está ubicada de la sucursal';
 COMMENT ON COLUMN Sucursal.numeroExt IS 'Nuumero exterior de donde está ubicada de la sucursal';
-COMMENT ON COLUMN Sucursal.colonia IS 'Colonia está ubicada de la sucursal';
 COMMENT ON COLUMN Sucursal.telefono IS 'Telefono de la sucursal';
 COMMENT ON COLUMN Sucursal.correo IS 'Correo de la sucursal';
 
@@ -37,9 +33,7 @@ CREATE TABLE Persona (
 	codigoPostal  CHAR(5) NOT NULL CHECK (CHAR_LENGTH(codigoPostal) = 5 AND codigoPostal SIMILAR TO '[0-9]{5}'),
 	estado VARCHAR(30) NOT NULL,
 	calle VARCHAR(30) NOT NULL,
-	municipio VARCHAR(30) NOT NULL,
 	numeroExt INT NOT NULL CHECK (numeroExt > 0),
-	colonia VARCHAR(30) NOT NULL,
 	telefono CHAR(10) NOT NULL CHECK (CHAR_LENGTH(telefono) = 10 AND telefono SIMILAR TO '[0-9]{10}'),
 	correo VARCHAR(64)
 );
@@ -52,9 +46,7 @@ COMMENT ON COLUMN Persona.fechaNacimiento IS 'Fecha de nacimiento de la persona'
 COMMENT ON COLUMN Persona.codigoPostal IS 'Código postal de la dirección de la persona';
 COMMENT ON COLUMN Persona.estado IS 'Estado de la dirección de la persona';
 COMMENT ON COLUMN Persona.calle IS 'Calle de la dirección de la persona';
-COMMENT ON COLUMN Persona.municipio IS 'Municipio de la dirección de la persona';
 COMMENT ON COLUMN Persona.numeroExt IS 'Numero exterior de la dirección de la persona';
-COMMENT ON COLUMN Persona.colonia IS 'Colonia de la dirección de la persona';
 COMMENT ON COLUMN Persona.telefono IS 'Telefono de la persona';
 COMMENT ON COLUMN Persona.correo IS 'Correo de la persona';	
 

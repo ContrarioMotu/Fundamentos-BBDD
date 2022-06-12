@@ -356,3 +356,13 @@ INSERT INTO Empleado(CURP,idTipoEmpleado,idSucursal,salario,fechaInicio,nss,fech
 INSERT INTO Empleado(CURP,idTipoEmpleado,idSucursal,salario,fechaInicio,nss,fechaUltAumento,rfc) VALUES ('TTIT236509JQQFBZV6',2,3,11836.61,'2020-08-19','3XSEVVJPDZ4','2020-08-19','LIHA6800594K5');
 INSERT INTO Empleado(CURP,idTipoEmpleado,idSucursal,salario,fechaInicio,nss,fechaUltAumento,rfc) VALUES ('XICZ867826LKPGIKR4',6,2,8277.15,'2021-10-22','936BOKLZ7KE','2021-10-22','YYDB100722AH2');
 INSERT INTO Empleado(CURP,idTipoEmpleado,idSucursal,salario,fechaInicio,nss,fechaUltAumento,rfc) VALUES ('SOEC446634EKCNHWG1',5,4,10566.79,'2021-01-29','579HZNZ5FPA','2021-01-29','VXAY228025N1K');
+
+--Provedor
+INSERT INTO Provedor(idProvedor,nombre,telefono) VALUES (1,'Harris-Mraz','4875015848');
+INSERT INTO Provedor(idProvedor,nombre,telefono) VALUES (2,'Cummerata and Sons','6112434081');
+INSERT INTO Provedor(idProvedor,nombre,telefono) VALUES (3,'Prohaska and Sons','0244161543');
+INSERT INTO Provedor(idProvedor,nombre,telefono) VALUES (4,'Rippin, Hahn and Beer','2935025839');
+INSERT INTO Provedor(idProvedor,nombre,telefono) VALUES (5,'Wilkinson-Price','8361570158');
+INSERT INTO Provedor(idProvedor,nombre,telefono) VALUES (6,'Lindgren-Thompson','6930611316');
+INSERT INTO Provedor(idProvedor,nombre,telefono) VALUES (7,'Price Inc','7730547861');
+INSERT INTO Provedor(idProvedor,nombre,telefono) VALUES (8,'Wolff Inc','0853756807');

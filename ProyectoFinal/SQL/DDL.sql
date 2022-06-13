@@ -61,7 +61,7 @@ COMMENT ON COlUMN TipoEmpleado.rol IS 'Lo que hace ese tipo de empleado.';
 
 
 CREATE TABLE Empleado (
-	CURP CHAR(18) NOT NULL REFERENCES Persona (CURP) ON DELETE CASCADE ON UPDATE CASCADE,
+	CURP CHAR(18) NOT NULL REFERENCES Persona (CURP) ON DELETE CASCADE ON UPDATE CASCADE PRIMARY KEY,
 	idTipoEmpleado INT NOT NULL CHECK (IdTipoEmpleado  > 0) REFERENCES TipoEmpleado(idTipoEmpleado) ON DELETE CASCADE ON UPDATE CASCADE,
 	idSucursal INT NOT NULL CHECK (idSucursal   > 0) REFERENCES Sucursal(idSucursal) ON DELETE CASCADE ON UPDATE CASCADE,
     salario REAL NOT NULL CHECK (salario > 0),
@@ -123,8 +123,17 @@ COMMENT ON TABLE Cliente IS 'Tabla donde se guarda la informacion de los cliente
 COMMENT ON COLUMN Cliente.CURP IS 'CURP identificador del cliente';
 COMMENT ON COLUMN Cliente.puntos IS 'Puntos que el cliente tiene acumulados';
 
+CREATE TABLE TipoMetodoPago (
+	idTipoMP SERIAL PRIMARY KEY,
+    descripcion VARCHAR(30) NOT NULL
+);
+
+COMMENT ON TABLE TipoMetodoPago IS 'Tabla donde se guarda la información de los diferentes formas de pagar.';
+COMMENT ON COLUMN TipoMetodoPago.idTipoMP IS 'Identificador para la forma de pago.';
+COMMENT ON COLUMN TipoMetodoPago.descripcion IS 'Descripcion de la forma de pago.';
+
 CREATE TABLE MetodoPago (
-	idMetodoPago SERIAL NOT NULL,
+	idMetodoPago SERIAL PRIMARY KEY,
  	idTipo INT NOT NULL CHECK (idTipo  > 0),
 	CURPCliente CHAR(18) NOT NULL REFERENCES Cliente (CURP) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -133,13 +142,6 @@ COMMENT ON COLUMN MetodoPago.idMetodoPago IS 'Identificador de los metodos de pa
 COMMENT ON COLUMN MetodoPago.idTipo IS 'Tipo de metodo de pago';
 COMMENT ON COLUMN MetodoPago.CURPCliente IS 'CURP del cliente que va a pagar';
 
-CREATE TABLE TipoMetodoPago (
-	idTipoMP SERIAL NOT NULL,
-    descripcion VARCHAR(30) NOT NULL
-);
-COMMENT ON TABLE TipoMetodoPago IS 'Tabla donde se guarda la información de los diferentes formas de pagar.';
-COMMENT ON COLUMN TipoMetodoPago.idTipoMP IS 'Identificador para la forma de pago.';
-COMMENT ON COLUMN TipoMetoodoPago.descripcion IS 'Descripcion de la forma de pago.';
 
 CREATE TABLE Tarjeta (
     idMetodoPago INT NOT NULL REFERENCES MetodoPago (idMetodoPago) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -163,9 +165,15 @@ COMMENT ON COLUMN Pedido.CURPCLiente IS 'CURP del cliente que pidio el pedido.';
 COMMENT ON COLUMN Pedido.CURPEmpleado IS 'CURP del empleado que tomo la orden.';
 COMMENT ON COLUMN Pedido.tipo IS 'Tipo del pedido(Llevar/comer aquí).';
 
+CREATE TABLE TipoProductoAlimenticio(
+       idTipo SERIAL PRIMARY KEY,
+       descripcion VARCHAR(32) NOT NULL
+);
+
+
 CREATE TABLE ProductoAlimenticio(
        idProductoAlimenticio SERIAL PRIMARY KEY,
-       idTipo INT NOT NULL REFERENCES TipoProdcutoAlimenticio(idTipo) ON DELETE CASCADE ON UPDATE CASCADE,
+       idTipo INT NOT NULL REFERENCES TipoProductoAlimenticio(idTipo) ON DELETE CASCADE ON UPDATE CASCADE,
        nombre VARCHAR(32) NOT NULL,
        precioVenta REAL NOT NULL CHECK(precioVenta > 0)
 );
@@ -177,10 +185,6 @@ CREATE TABLE Salsa(
 );
 
 
-CREATE TABLE TipoProductoAlimenticio(
-       idTipo SERIAL PRIMARY KEY,
-       descripcion VARCHAR(32) NOT NULL
-);
 
 
 CREATE TABLE Recibo(
@@ -270,17 +274,6 @@ COMMENT ON TABLE Pedir IS 'Tabla donde se guarda la referencia de un pedido y el
 COMMENT ON COLUMN Pedir.idPedido IS 'Id del pedido que se realizó.';
 COMMENT ON COLUMN Pedir.idProductoAlimenticio IS 'Id del producto alimenticio que se ordenó.';
 
-CREATE TABLE Preparar(
-	idProductoAlimenticio INT NOT NULL REFERENCES ProductoAlimenticio (idProductoAlimenticio) ON DELETE CASCADE ON UPDATE CASCADE,
-	idIngrediente INT NOT NULL REFERENCES Ingrediente (idIngrediente) ON DELETE CASCADE ON UPDATE CASCADE,
-	porcion INT NOT NULL CHECK (porcion > 0)
-);
-
-COMMENT ON TABLE Preparar IS 'Tabla donde se guarda la información para preparar un producto alimenticio.';
-COMMENT ON COLUMN Prepara.idProductoAlimenticio IS 'Id del producto alimenticio que se prepará.';
-COMMENT ON COLUMN Prepara.idIngrediente IS 'Id del ingrediente usado en la preparación.';
-COMMENT ON COLUMN Prepara.porcion IS 'Porción usada del ingrediente.';
-
 CREATE TABLE Ingrediente(
 	idIngrediente SERIAL PRIMARY KEY,
 	idProvedor INT NOT NULL REFERENCES Provedor (idProvedor) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -292,15 +285,28 @@ CREATE TABLE Ingrediente(
 	fechaCaducidad DATE NOT NULL
 );
 
-COMMENT ON TABLE RegistroIngrediente IS 'Tabla donde se guarda la información de los productos no perecedero.';
-COMMENT ON COLUMN RegistroIngrediente.idIngrediente IS 'Id del ingrediente que sirve de identificador.';
-COMMENT ON COLUMN RegistroIngrediente.idProvedor IS 'Id del provedor del producto.';
-COMMENT ON COLUMN RegistroIngrediente.nombre IS 'Nombre del producto.';
-COMMENT ON COLUMN RegistroIngrediente.cantidad IS 'Cantidad comprada.';
-COMMENT ON COLUMN RegistroIngrediente.marca IS 'Marca del producto.';
-COMMENT ON COLUMN RegistroIngrediente.fechaAdquisicion IS 'Fecha de adquisicion del producto.';
-COMMENT ON COLUMN RegistroIngrediente.precioCompra IS 'Precio de compra del producto.';
-COMMENT ON COLUMN RegistroIngrediente.fechaCaducidad IS 'Fecha de caducidad del producto.';
+COMMENT ON TABLE Ingrediente IS 'Tabla donde se guarda la información de los productos no perecedero.';
+COMMENT ON COLUMN Ingrediente.idIngrediente IS 'Id del ingrediente que sirve de identificador.';
+COMMENT ON COLUMN Ingrediente.idProvedor IS 'Id del provedor del producto.';
+COMMENT ON COLUMN Ingrediente.nombre IS 'Nombre del producto.';
+COMMENT ON COLUMN Ingrediente.cantidad IS 'Cantidad comprada.';
+COMMENT ON COLUMN Ingrediente.marca IS 'Marca del producto.';
+COMMENT ON COLUMN Ingrediente.fechaAdquisicion IS 'Fecha de adquisicion del producto.';
+COMMENT ON COLUMN Ingrediente.precioCompra IS 'Precio de compra del producto.';
+COMMENT ON COLUMN Ingrediente.fechaCaducidad IS 'Fecha de caducidad del producto.';
+
+CREATE TABLE Preparar(
+	idProductoAlimenticio INT NOT NULL REFERENCES ProductoAlimenticio (idProductoAlimenticio) ON DELETE CASCADE ON UPDATE CASCADE,
+	idIngrediente INT NOT NULL REFERENCES Ingrediente (idIngrediente) ON DELETE CASCADE ON UPDATE CASCADE,
+	porcion INT NOT NULL CHECK (porcion > 0)
+);
+
+COMMENT ON TABLE Preparar IS 'Tabla donde se guarda la información para preparar un producto alimenticio.';
+COMMENT ON COLUMN Preparar.idProductoAlimenticio IS 'Id del producto alimenticio que se prepará.';
+COMMENT ON COLUMN Preparar.idIngrediente IS 'Id del ingrediente usado en la preparación.';
+COMMENT ON COLUMN Preparar.porcion IS 'Porción usada del ingrediente.';
+
+
 
 CREATE TABLE ProductoNoPerecedero(
 	idProductoNoPerecedero SERIAL PRIMARY KEY,

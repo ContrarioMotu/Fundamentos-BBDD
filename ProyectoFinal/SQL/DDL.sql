@@ -133,7 +133,67 @@ COMMENT ON COLUMN MetodoPago.idMetodoPago IS 'Identificador de los metodos de pa
 COMMENT ON COLUMN MetodoPago.idTipo IS 'Tipo de metodo de pago';
 COMMENT ON COLUMN MetodoPago.CURPCliente IS 'CURP del cliente que va a pagar';
 
+CREATE TABLE TipoMetodoPago (
+	idTipoMP SERIAL NOT NULL,
+    descripcion VARCHAR(30) NOT NULL
+);
+COMMENT ON TABLE TipoMetodoPago IS 'Tabla donde se guarda la información de los diferentes formas de pagar.';
+COMMENT ON COLUMN TipoMetodoPago.idTipoMP IS 'Identificador para la forma de pago.';
+COMMENT ON COLUMN TipoMetoodoPago.descripcion IS 'Descripcion de la forma de pago.';
 
+CREATE TABLE Tarjeta (
+    idMetodoPago INT NOT NULL REFERENCES MetodoPago (idMetodoPago) ON DELETE CASCADE ON UPDATE CASCADE,
+    numTarjeta CHAR(13) NOT NULL UNIQUE CHECK (CHAR_LENGTH(numTarjeta) = 13 AND numTarjeta SIMILAR TO '[0-9]{13}'),
+    fechaVencimiento DATE NOT NULL 
+);
+COMMENT ON TABLE Tarjeta IS 'Tabla para guardar la informacion de las tarjetas.';
+COMMENT ON COLUMN Tarjeta.idMetodoPago IS 'Identificador para la tarjeta.';
+COMMENT ON COLUMN Tarjeta.numTarjeta IS 'Numero de tarjeta.';
+COMMENT ON COLUMN Tarjeta.fechaVencimiento IS 'Fecha en la que vence la tarjeta.';
+
+CREATE TABLE Pedido(
+    idPedido SERIAL PRIMARY KEY,
+    CURPCliente CHAR(18) NOT NULL REFERENCES Cliente (CURP),
+    CURPEmpleado CHAR(18) NOT NULL REFERENCES Empleado (CURP),
+    tipo INT NOT NULL CHECK (tipo BETWEEN 0 AND 1)
+);
+COMMENT ON TABLE Pedido IS 'Tabla para guardar la informacion de los pedidos.';
+COMMENT ON COLUMN Pedido.idPedido IS 'Identificador para el pedido.';
+COMMENT ON COLUMN Pedido.CURPCLiente IS 'CURP del cliente que pidio el pedido.';
+COMMENT ON COLUMN Pedido.CURPEmpleado IS 'CURP del empleado que tomo la orden.';
+COMMENT ON COLUMN Pedido.tipo IS 'Tipo del pedido(Llevar/comer aquí).';
+
+CREATE TABLE ProductoAlimenticio(
+       idProductoAlimenticio SERIAL PRIMARY KEY,
+       idTipo INT NOT NULL REFERENCES TipoProdcutoAlimenticio(idTipo) ON DELETE CASCADE ON UPDATE CASCADE,
+       nombre VARCHAR(32) NOT NULL,
+       precioVenta REAL NOT NULL CHECK(precioVenta > 0)
+);
+
+CREATE TABLE Salsa(
+       idProductoAlimenticio INT NOT NULL UNIQUE REFERENCES ProductoAlimenticio(idProductoAlimenticio) ON DELETE CASCADE ON UPDATE CASCADE,
+       nivelPicante INT NOT NULL CHECK(nivelPicante BETWEEN 1 AND 5),
+       tamanio REAL NOT NULL CHECK (tamanio > 0)
+);
+
+
+CREATE TABLE TipoProductoAlimenticio(
+       idTipo SERIAL PRIMARY KEY,
+       descripcion VARCHAR(32) NOT NULL
+);
+
+
+CREATE TABLE Recibo(
+    idRecibo SERIAL PRIMARY KEY,
+    idPedido INT NOT NULL REFERENCES Pedido (idPedido) ON DELETE CASCADE ON UPDATE CASCADE,
+    idMetodoPago INT NOT NULL REFERENCES MetodoPago (idMetodoPago) ON DELETE CASCADE ON UPDATE CASCADE,
+    fecha DATE NOT NULL
+);
+COMMENT ON TABLE Recibo IS 'Tabla para guardar la informacion de los recibos.';
+COMMENT ON COLUMN Recibo.idRecibo IS 'Identificador para el recibo.';
+COMMENT ON COLUMN Recibo.idPedido IS 'El identificador del pedido sobre el cual se esta haciendo el recibo.';
+COMMENT ON COLUMN Recibo.idMetodoPago IS 'El metodo de pago utilizado para pagar el recibo.';
+COMMENT ON COLUMN Recibo.fecha IS 'Fecha en la que se emite el recibo.';
 
 CREATE TABLE Provedor (
 	idProvedor SERIAL PRIMARY KEY,

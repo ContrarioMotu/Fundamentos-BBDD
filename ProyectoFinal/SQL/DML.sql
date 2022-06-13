@@ -357,6 +357,13 @@ INSERT INTO Empleado(CURP,idTipoEmpleado,idSucursal,salario,fechaInicio,nss,fech
 INSERT INTO Empleado(CURP,idTipoEmpleado,idSucursal,salario,fechaInicio,nss,fechaUltAumento,rfc) VALUES ('XICZ867826LKPGIKR4',6,2,8277.15,'2021-10-22','936BOKLZ7KE','2021-10-22','YYDB100722AH2');
 INSERT INTO Empleado(CURP,idTipoEmpleado,idSucursal,salario,fechaInicio,nss,fechaUltAumento,rfc) VALUES ('SOEC446634EKCNHWG1',5,4,10566.79,'2021-01-29','579HZNZ5FPA','2021-01-29','VXAY228025N1K');
 
+--Tipo Vehiculo
+INSERT INTO TipoVehiculo(idTipoVehiculo,descripcion) VALUES (1,'Motocicleta');
+INSERT INTO TipoVehiculo(idTipoVehiculo,descripcion) VALUES (2,'Bicicleta');
+
+-- Repartidor
+
+
 --Provedor
 INSERT INTO Provedor(idProvedor,nombre,telefono) VALUES (1,'Harris-Mraz','4875015848');
 INSERT INTO Provedor(idProvedor,nombre,telefono) VALUES (2,'Cummerata and Sons','6112434081');

@@ -50,15 +50,36 @@ COMMENT ON COLUMN Persona.numeroExt IS 'Numero exterior de la dirección de la p
 COMMENT ON COLUMN Persona.telefono IS 'Telefono de la persona';
 COMMENT ON COLUMN Persona.correo IS 'Correo de la persona';	
 
+CREATE TABLE TipoEmpleado(
+    idTipoEmpleado INT PRIMARY KEY,
+    rol VARCHAR(32) NOT NULL
+);
+
+COMMENT ON TABLE TipoEmpleado IS 'Tabla donde se guarda los tipos de empleados que trabajan.';
+COMMENT ON COLUMN TipoEmpleado.idTipoEmpleado IS 'Identificador del tipo de empleado';
+COMMENT ON COlUMN TipoEmpleado.rol IS 'Lo que hace ese tipo de empleado.';
+
+
 CREATE TABLE Empleado (
 	CURP CHAR(18) NOT NULL REFERENCES Persona (CURP) ON DELETE CASCADE ON UPDATE CASCADE,
-	idTipoEmpleado INT NOT NULL CHECK (IdTipoEmpleado  > 0),
-	idSucursal INT NOT NULL CHECK (idSucursal   > 0) REFERENCES Sucursal(idSucursal) ON DELETE CASCADE ON UPDATE CASCADE
+	idTipoEmpleado INT NOT NULL CHECK (IdTipoEmpleado  > 0) REFERENCES TipoEmpleado(idTipoEmpleado) ON DELETE CASCADE ON UPDATE CASCADE,
+	idSucursal INT NOT NULL CHECK (idSucursal   > 0) REFERENCES Sucursal(idSucursal) ON DELETE CASCADE ON UPDATE CASCADE,
+    salario REAL NOT NULL CHECK (salario > 0),
+    fechaInicio DATE NOT NULL,
+    nss CHAR(11) NOT NULL UNIQUE CHECK (CHAR_LENGTH(nss) = 11 AND nss SIMILAR TO '[A-Z0-9]{11}'),
+    fechaUltAumento DATE NOT NULL,
+    RFC CHAR(13) NOT NULL UNIQUE CHECK (CHAR_LENGTH(RFC) = 13 AND RFC SIMILAR TO '[A-Z0-9]{13}')
 	);
 COMMENT ON TABLE Empleado IS 'Tabla donde se guarda la informacion de los empleados';
 COMMENT ON COLUMN Empleado.CURP IS 'CURP identificador del empleado';
 COMMENT ON COlUMN Empleado.idTipoEmpleado IS 'Dependiendo del numero es el tipo de empleado';
 COMMENT ON COLUMN Empleado.idSucursal IS 'El id de la sucursal en la que el empleado trabaja';
+COMMENT ON COLUMN Empleado.salario IS 'Salario del empleado.';
+COMMENT ON COlUMN Empleado.fechaInicio IS 'Fecha cuando empezo a trabajar.';
+COMMENT ON COLUMN Empleado.nss IS 'Numero de seguridad social del empleado';
+COMMENT ON COLUMN Empleado.fechaUltAumento IS 'Fecha del ultimo aumento para poder generar el abono cada dos años.';
+COMMENT ON COLUMN Empleado.rfc IS 'RFC del empleado';
+
 
 
 CREATE TABLE Repartidor (

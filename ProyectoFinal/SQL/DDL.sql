@@ -180,4 +180,62 @@ COMMENT ON COLUMN RegistroIngrediente.fechaCaducidad IS 'Fecha de caducidad del 
 -- COMMENT ON COLUMN RegistroProductoAlimenticio.precioVenta IS 'Precio a lo que se vende el producto';
 -- COMMENT ON COLUMN RegistroProductoAlimenticio.fechaAdquisicion IS 'Fecha a partir donde el precio del producto es  vigente.';
 
+CREATE TABLE Pedir(
+	idPedido INT NOT NULL REFERENCES Pedido (idPedido) ON DELETE CASCADE ON UPDATE CASCADE,
+	idProductoAlimenticio INT NOT NULL REFERENCES ProductoAlimenticio (idProductoAlimenticio) ON DELETE CASCADE ON UPDATE CASCADE
+);
 
+COMMENT ON TABLE Pedir IS 'Tabla donde se guarda la referencia de un pedido y el producto alimenticio que se ordenó.';
+COMMENT ON COLUMN Pedir.idPedido IS 'Id del pedido que se realizó.';
+COMMENT ON COLUMN Pedir.idProductoAlimenticio IS 'Id del producto alimenticio que se ordenó.';
+
+CREATE TABLE Preparar(
+	idProductoAlimenticio INT NOT NULL REFERENCES ProductoAlimenticio (idProductoAlimenticio) ON DELETE CASCADE ON UPDATE CASCADE,
+	idIngrediente INT NOT NULL REFERENCES Ingrediente (idIngrediente) ON DELETE CASCADE ON UPDATE CASCADE,
+	porcion INT NOT NULL CHECK (porcion > 0)
+);
+
+COMMENT ON TABLE Preparar IS 'Tabla donde se guarda la información para preparar un producto alimenticio.';
+COMMENT ON COLUMN Prepara.idProductoAlimenticio IS 'Id del producto alimenticio que se prepará.';
+COMMENT ON COLUMN Prepara.idIngrediente IS 'Id del ingrediente usado en la preparación.';
+COMMENT ON COLUMN Prepara.porcion IS 'Porción usada del ingrediente.';
+
+CREATE TABLE Ingrediente(
+	idIngrediente SERIAL PRIMARY KEY,
+	idProvedor INT NOT NULL REFERENCES Provedor (idProvedor) ON DELETE CASCADE ON UPDATE CASCADE,
+	nombre VARCHAR(60) NOT NULL,
+	cantidad INT NOT NULL CHECK (Cantidad > 0),
+	marca VARCHAR(60) NOT NULL,
+	fechaAdquisicion DATE NOT NULL,
+	precioCompra REAL NOT NULL,
+	fechaCaducidad DATE NOT NULL
+);
+
+COMMENT ON TABLE RegistroIngrediente IS 'Tabla donde se guarda la información de los productos no perecedero.';
+COMMENT ON COLUMN RegistroIngrediente.idIngrediente IS 'Id del ingrediente que sirve de identificador.';
+COMMENT ON COLUMN RegistroIngrediente.idProvedor IS 'Id del provedor del producto.';
+COMMENT ON COLUMN RegistroIngrediente.nombre IS 'Nombre del producto.';
+COMMENT ON COLUMN RegistroIngrediente.cantidad IS 'Cantidad comprada.';
+COMMENT ON COLUMN RegistroIngrediente.marca IS 'Marca del producto.';
+COMMENT ON COLUMN RegistroIngrediente.fechaAdquisicion IS 'Fecha de adquisicion del producto.';
+COMMENT ON COLUMN RegistroIngrediente.precioCompra IS 'Precio de compra del producto.';
+COMMENT ON COLUMN RegistroIngrediente.fechaCaducidad IS 'Fecha de caducidad del producto.';
+
+CREATE TABLE ProductoNoPerecedero(
+	idProductoNoPerecedero SERIAL PRIMARY KEY,
+	idProvedor INT NOT NULL REFERENCES Provedor (idProvedor) ON DELETE CASCADE ON UPDATE CASCADE,
+	nombre VARCHAR(64) NOT NULL,
+	cantidad INT NOT NULL CHECK (cantidad > 0),
+	marca VARCHAR(30) NOT NULL,
+	fechaAdquisicion DATE NOT NULL,
+	precioCompra REAL NOT NULL CHECK (PrecioCompra > 0)
+);
+
+COMMENT ON TABLE ProductoNoPerecedero IS 'Tabla donde se guarda la información de los productos no perecedero.';
+COMMENT ON COLUMN ProductoNoPerecedero.idProductoNoPerecedero IS 'Id del producto que sirve de identificador.';
+COMMENT ON COLUMN ProductoNoPerecedero.idProvedor IS 'Id del provedor del producto.';
+COMMENT ON COLUMN ProductoNoPerecedero.nombre IS 'Nombre del producto.';
+COMMENT ON COLUMN ProductoNoPerecedero.cantidad IS 'Cantidad comprada.';
+COMMENT ON COLUMN ProductoNoPerecedero.marca IS 'Marca del producto.';
+COMMENT ON COLUMN ProductoNoPerecedero.fechaAdquisicion IS 'Fecha de adquisicion del producto.';
+COMMENT ON COLUMN ProductoNoPerecedero.precioCompra IS 'Precio de compra del producto.';

@@ -250,20 +250,20 @@ COMMENT ON COLUMN RegistroIngrediente.fechaAdquisicion IS 'Fecha de adquisicion 
 COMMENT ON COLUMN RegistroIngrediente.precioCompra IS 'Precio de compra del producto';
 COMMENT ON COLUMN RegistroIngrediente.fechaCaducidad IS 'Fecha de caducidad del producto';
 
--- CREATE TABLE RegistroProductoAlimenticio (
--- 	idRegistroProductoAlimenticio SERIAL PRIMARY KEY,
--- 	idTipo INT NOT NULL REFERENCES TipoProductoAlimenticio (idTipo) ON DELETE CASCADE ON UPDATE CASCADE,
--- 	nombre VARCHAR(64) NOT NULL,
--- 	precioVenta REAL NOT NULL CHECK (PrecioVenta > 0),
--- 	fechaPrecio DATE NOT NULL
--- );
+CREATE TABLE RegistroProductoAlimenticio (
+ 	idRegistroProductoAlimenticio SERIAL PRIMARY KEY,
+ 	idTipo INT NOT NULL REFERENCES TipoProductoAlimenticio (idTipo) ON DELETE CASCADE ON UPDATE CASCADE,
+ 	nombre VARCHAR(64) NOT NULL,
+ 	precioVenta REAL NOT NULL CHECK (PrecioVenta > 0),
+ 	fechaPrecio DATE NOT NULL
+ );
 
--- COMMENT ON TABLE RegistroProductoAlimenticio IS 'Tabla donde se guarda la información de los registros de los productos alimenticios ofertados.';
--- COMMENT ON COLUMN RegistroProductoAlimenticio.idRegistroProductoAlimenticio IS 'El id del registro que sirve de identificador.';
--- COMMENT ON COLUMN RegistroProductoAlimenticio.idTipo IS 'El id del tipo de producto.';
--- COMMENT ON COLUMN RegistroProductoAlimenticio.nombre IS 'Nombre del producto.';
--- COMMENT ON COLUMN RegistroProductoAlimenticio.precioVenta IS 'Precio a lo que se vende el producto';
--- COMMENT ON COLUMN RegistroProductoAlimenticio.fechaAdquisicion IS 'Fecha a partir donde el precio del producto es  vigente.';
+ COMMENT ON TABLE RegistroProductoAlimenticio IS 'Tabla donde se guarda la información de los registros de los productos alimenticios ofertados.';
+ COMMENT ON COLUMN RegistroProductoAlimenticio.idRegistroProductoAlimenticio IS 'El id del registro que sirve de identificador.';
+ COMMENT ON COLUMN RegistroProductoAlimenticio.idTipo IS 'El id del tipo de producto.';
+ COMMENT ON COLUMN RegistroProductoAlimenticio.nombre IS 'Nombre del producto.';
+ COMMENT ON COLUMN RegistroProductoAlimenticio.precioVenta IS 'Precio a lo que se vende el producto';
+ COMMENT ON COLUMN RegistroProductoAlimenticio.fechaPrecio IS 'Fecha a partir donde el precio del producto es  vigente.';
 
 CREATE TABLE Pedir(
 	idPedido INT NOT NULL REFERENCES Pedido (idPedido) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -305,8 +305,6 @@ COMMENT ON TABLE Preparar IS 'Tabla donde se guarda la información para prepara
 COMMENT ON COLUMN Preparar.idProductoAlimenticio IS 'Id del producto alimenticio que se prepará.';
 COMMENT ON COLUMN Preparar.idIngrediente IS 'Id del ingrediente usado en la preparación.';
 COMMENT ON COLUMN Preparar.porcion IS 'Porción usada del ingrediente.';
-
-
 
 CREATE TABLE ProductoNoPerecedero(
 	idProductoNoPerecedero SERIAL PRIMARY KEY,

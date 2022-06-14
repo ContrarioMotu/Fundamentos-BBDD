@@ -380,3 +380,15 @@ INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantid
 INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra) VALUES (13,2,'Cuchillo',47,'Breitenberg and Sons','7/25/2019',521.74);
 INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra) VALUES (14,1,'Tenedor',17,'Glover-Botsford','11/16/2018',1266.18);
 
+
+--TipoProductoAlimenticio
+INSERT INTO TipoProductoAlimenticio(idTipo, descripcion) VALUES (1, 'Taco');
+INSERT INTO TipoProductoAlimenticio(idTipo, descripcion) VALUES (2, 'Burrito');
+INSERT INTO TipoProductoAlimenticio(idTipo, descripcion) VALUES (3, 'Quesadilla');
+INSERT INTO TipoProductoAlimenticio(idTipo, descripcion) VALUES (4, 'Gringa');
+INSERT INTO TipoProductoAlimenticio(idTipo, descripcion) VALUES (5, 'Tortas');
+INSERT INTO TipoProductoAlimenticio(idTipo, descripcion) VALUES (6, 'Platillo mexicano');
+INSERT INTO TipoProductoAlimenticio(idTipo, descripcion) VALUES (7, 'Salsa');
+INSERT INTO TipoProductoAlimenticio(idTipo, descripcion) VALUES (8, 'Bebida');
+
+--ProductoAlimenticio

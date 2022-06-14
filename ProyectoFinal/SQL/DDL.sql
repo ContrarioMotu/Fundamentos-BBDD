@@ -185,7 +185,15 @@ CREATE TABLE Salsa(
 );
 
 
+CREATE TABLE Ofertar (
+	IdSucursal INT NOT NULL REFERENCES Sucursal(IdSucursal) ON DELETE CASCADE ON UPDATE CASCADE,
+	IdProductoAlimenticio INT NOT NULL REFERENCES ProductoAlimenticio (idProductoAlimenticio) ON DELETE CASCADE ON UPDATE CASCADE
+);
 
+CREATE TABLE RecomendarConSalsa(
+	IdSalsa INT NOT NULL REFERENCES Salsa (idProductoAlimenticio) ON DELETE CASCADE ON UPDATE CASCADE,
+	IdProductoAlimenticio INT NOT NULL REFERENCES ProductoAlimenticio (idProductoAlimenticio) ON DELETE CASCADE ON UPDATE CASCADE
+);
 
 CREATE TABLE Recibo(
     idRecibo SERIAL PRIMARY KEY,

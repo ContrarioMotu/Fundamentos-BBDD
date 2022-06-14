@@ -316,11 +316,11 @@ INSERT INTO TipoEmpleado(idTipoEmpleado,rol) VALUES (5,'Parrillero');
 INSERT INTO TipoEmpleado(idTipoEmpleado,rol) VALUES (6,'Mesero');
 
 --Empleado
-INSERT INTO Empleado(CURP,idTipoEmpleado,idSucursal,salario,fechaInicio,nss,fechaUltAumento,rfc) VALUES ('YYKR237365FBNFDZG7',6,3,8226.78,'2022-03-14','36XMAF1Z4NR','2022-03-14','WGLU302766ZWB');
+INSERT INTO Empleado(CURP,idTipoEmpleado,idSucursal,salario,fechaInicio,nss,fechaUltAumento,rfc) VALUES ('YYKR237365FBNFDZG7',1,3,8226.78,'2022-03-14','36XMAF1Z4NR','2022-03-14','WGLU302766ZWB');
 INSERT INTO Empleado(CURP,idTipoEmpleado,idSucursal,salario,fechaInicio,nss,fechaUltAumento,rfc) VALUES ('HYYN819653BOZNAMB9',6,5,6008.63,'2021-07-22','TM8N36S0P6W','2021-07-22','CJZX806533V1G');
-INSERT INTO Empleado(CURP,idTipoEmpleado,idSucursal,salario,fechaInicio,nss,fechaUltAumento,rfc) VALUES ('VEYY005756DWVCKAQ0',5,5,6566.04,'2022-01-19','L9BFNSBLY36','2022-01-19','BDRU3322439DD');
+INSERT INTO Empleado(CURP,idTipoEmpleado,idSucursal,salario,fechaInicio,nss,fechaUltAumento,rfc) VALUES ('VEYY005756DWVCKAQ0',1,5,6566.04,'2022-01-19','L9BFNSBLY36','2022-01-19','BDRU3322439DD');
 INSERT INTO Empleado(CURP,idTipoEmpleado,idSucursal,salario,fechaInicio,nss,fechaUltAumento,rfc) VALUES ('JMXU732448WNSEMIU1',2,3,7685.33,'2021-06-04','FCXISJR4FHE','2021-06-04','PNKA576315EB9');
-INSERT INTO Empleado(CURP,idTipoEmpleado,idSucursal,salario,fechaInicio,nss,fechaUltAumento,rfc) VALUES ('CQRQ687173MDFLXJZ5',4,4,9486.94,'2020-12-20','G9YH8R57YHO','2020-12-20','GKPD106510QWS');
+INSERT INTO Empleado(CURP,idTipoEmpleado,idSucursal,salario,fechaInicio,nss,fechaUltAumento,rfc) VALUES ('CQRQ687173MDFLXJZ5',1,4,9486.94,'2020-12-20','G9YH8R57YHO','2020-12-20','GKPD106510QWS');
 INSERT INTO Empleado(CURP,idTipoEmpleado,idSucursal,salario,fechaInicio,nss,fechaUltAumento,rfc) VALUES ('LQUW431029CNDZGDI7',2,1,10345.35,'2021-07-09','RLUE6M4QYWS','2021-07-09','MQAK122195QVS');
 INSERT INTO Empleado(CURP,idTipoEmpleado,idSucursal,salario,fechaInicio,nss,fechaUltAumento,rfc) VALUES ('BGTO614896CZJYTKS2',4,1,8530.33,'2021-09-23','NPYEE6OX1MM','2021-09-23','WLVW434790RZI');
 INSERT INTO Empleado(CURP,idTipoEmpleado,idSucursal,salario,fechaInicio,nss,fechaUltAumento,rfc) VALUES ('IHYS472390FFLYSTU5',1,1,5967.58,'2021-11-05','BFP653JGL6V','2021-11-05','VQYA3149655A0');
@@ -337,8 +337,8 @@ INSERT INTO Empleado(CURP,idTipoEmpleado,idSucursal,salario,fechaInicio,nss,fech
 INSERT INTO Empleado(CURP,idTipoEmpleado,idSucursal,salario,fechaInicio,nss,fechaUltAumento,rfc) VALUES ('TXEC326117EDBZSJW4',4,1,9515.35,'2022-01-16','HEPC7H9WDO4','2022-01-16','YFKX707480M8B');
 INSERT INTO Empleado(CURP,idTipoEmpleado,idSucursal,salario,fechaInicio,nss,fechaUltAumento,rfc) VALUES ('SABQ648945JEVASMM5',3,4,11079.46,'2020-09-14','J3JSQHOFIRF','2020-09-14','KDPN224496XV2');
 INSERT INTO Empleado(CURP,idTipoEmpleado,idSucursal,salario,fechaInicio,nss,fechaUltAumento,rfc) VALUES ('HEEP254346MKGRNPD9',5,1,8893.1,'2020-07-27','CCX91K7YYDD','2020-07-27','ELER969178RR0');
-INSERT INTO Empleado(CURP,idTipoEmpleado,idSucursal,salario,fechaInicio,nss,fechaUltAumento,rfc) VALUES ('TTIT236509JQQFBZV6',6,2,7494.32,'2021-07-30','W9TBNV3Q60W','2021-07-30','HBDI6323859P0');
-INSERT INTO Empleado(CURP,idTipoEmpleado,idSucursal,salario,fechaInicio,nss,fechaUltAumento,rfc) VALUES ('PTJV012724ULFHNWD7',1,5,5353.78,'2020-07-04','OEMXUZAG1OY','2020-07-04','DCLX748796LAD');
+INSERT INTO Empleado(CURP,idTipoEmpleado,idSucursal,salario,fechaInicio,nss,fechaUltAumento,rfc) VALUES ('TTIT236509JQQFBZV6',1,2,7494.32,'2021-07-30','W9TBNV3Q60W','2021-07-30','HBDI6323859P0');
+INSERT INTO Empleado(CURP,idTipoEmpleado,idSucursal,salario,fechaInicio,nss,fechaUltAumento,rfc) VALUES ('PTJV012724ULFHNWD7',2,5,5353.78,'2020-07-04','OEMXUZAG1OY','2020-07-04','DCLX748796LAD');
 INSERT INTO Empleado(CURP,idTipoEmpleado,idSucursal,salario,fechaInicio,nss,fechaUltAumento,rfc) VALUES ('HARG025205XLHEDDH4',2,3,7038.93,'2021-01-16','EL4IGL8DH6D','2021-01-16','KASK8899666R8');
 INSERT INTO Empleado(CURP,idTipoEmpleado,idSucursal,salario,fechaInicio,nss,fechaUltAumento,rfc) VALUES ('ALSL166356ZZHYQBA5',4,2,11991.16,'2020-08-19','0QC1R9QWY6K','2020-08-19','TWAK403228HT8');
 INSERT INTO Empleado(CURP,idTipoEmpleado,idSucursal,salario,fechaInicio,nss,fechaUltAumento,rfc) VALUES ('YGRV965353QDMHZTV4',3,5,11868.42,'2021-03-06','IQX6O90HA6I','2021-03-06','JYHE5284468A9');
@@ -352,7 +352,19 @@ INSERT INTO TipoVehiculo(idTipoVehiculo,descripcion) VALUES (1,'Motocicleta');
 INSERT INTO TipoVehiculo(idTipoVehiculo,descripcion) VALUES (2,'Bicicleta');
 
 -- Repartidor
+INSERT INTO Repartidor(CURP,tieneTransporte,noLicencia) VALUES ('YYKR237365FBNFDZG7','1','0880252814');
+INSERT INTO Repartidor(CURP,tieneTransporte,noLicencia) VALUES ('VEYY005756DWVCKAQ0','1','4597909310');
+INSERT INTO Repartidor(CURP,tieneTransporte,noLicencia) VALUES ('CQRQ687173MDFLXJZ5','1','7540312386');
+INSERT INTO Repartidor(CURP,tieneTransporte,noLicencia) VALUES ('IHYS472390FFLYSTU5','0','3080384393');
+INSERT INTO Repartidor(CURP,tieneTransporte,noLicencia) VALUES ('KYDO570991SLNTUTJ5','1','5168226131');
+INSERT INTO Repartidor(CURP,tieneTransporte,noLicencia) VALUES ('TTIT236509JQQFBZV6','1','2878736107');
 
+--Vehiculo
+INSERT INTO Vehiculo(idVehiculo,CURPRepartidor,tipo,marca,modelo) VALUES (1,'YYKR237365FBNFDZG7',2,'VonRueden, Hartmann and Cremin','Enclave');
+INSERT INTO Vehiculo(idVehiculo,CURPRepartidor,tipo,marca,modelo) VALUES (2,'VEYY005756DWVCKAQ0',1,'Ratke, Kunde and Trantow','9-2X');
+INSERT INTO Vehiculo(idVehiculo,CURPRepartidor,tipo,marca,modelo) VALUES (3,'CQRQ687173MDFLXJZ5',1,'Howe-Bins','CR-V');
+INSERT INTO Vehiculo(idVehiculo,CURPRepartidor,tipo,marca,modelo) VALUES (4,'KYDO570991SLNTUTJ5',2,'Moore-Wilkinson','Thunderbird');
+INSERT INTO Vehiculo(idVehiculo,CURPRepartidor,tipo,marca,modelo) VALUES (5,'TTIT236509JQQFBZV6',1,'Farrell-Feeney','LeBaron');
 
 --Provedor
 INSERT INTO Provedor(idProvedor,nombre,telefono) VALUES (1,'Harris-Mraz','4875015848');
@@ -442,21 +454,21 @@ INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta)
 INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta) VALUES (48,8,'Refresco',25);
 
 --Salsas
-INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamaño) VALUES (27,'Bajo',250);
-INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamaño) VALUES (28,'Bajo',500);
-INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamaño) VALUES (29,'Bajo',1000);
-INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamaño) VALUES (30,'Medio',250);
-INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamaño) VALUES (31,'Medio',500);
-INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamaño) VALUES (32,'Medio',1000);
-INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamaño) VALUES (33,'Alto',250);
-INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamaño) VALUES (34,'Alto',500);
-INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamaño) VALUES (35,'Alto',1000);
-INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamaño) VALUES (36,'Alto',250);
-INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamaño) VALUES (37,'Alto',500);
-INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamaño) VALUES (38,'Alto',1000);
-INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamaño) VALUES (39,'Dulce',250);
-INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamaño) VALUES (40,'Dulce',500);
-INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamaño) VALUES (41,'Dulce',1000);
-INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamaño) VALUES (42,'Extremo',250);
-INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamaño) VALUES (43,'Extremo',500);
-INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamaño) VALUES (44,'Extremo',1000);
+INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamanio) VALUES (27,'Bajo',250);
+INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamanio) VALUES (28,'Bajo',500);
+INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamanio) VALUES (29,'Bajo',1000);
+INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamanio) VALUES (30,'Medio',250);
+INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamanio) VALUES (31,'Medio',500);
+INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamanio) VALUES (32,'Medio',1000);
+INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamanio) VALUES (33,'Alto',250);
+INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamanio) VALUES (34,'Alto',500);
+INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamanio) VALUES (35,'Alto',1000);
+INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamanio) VALUES (36,'Alto',250);
+INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamanio) VALUES (37,'Alto',500);
+INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamanio) VALUES (38,'Alto',1000);
+INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamanio) VALUES (39,'Dulce',250);
+INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamanio) VALUES (40,'Dulce',500);
+INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamanio) VALUES (41,'Dulce',1000);
+INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamanio) VALUES (42,'Extremo',250);
+INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamanio) VALUES (43,'Extremo',500);
+INSERT INTO Salsa(idProductoAlimenticio,nivelPicante,tamanio) VALUES (44,'Extremo',1000);

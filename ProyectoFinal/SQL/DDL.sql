@@ -85,7 +85,7 @@ COMMENT ON COLUMN Empleado.rfc IS 'RFC del empleado';
 CREATE TABLE Repartidor (
 	CURP CHAR(18) NOT NULL UNIQUE REFERENCES Persona (CURP) ON DELETE CASCADE ON UPDATE CASCADE,
 	tieneTransporte BIT NOT NULL,
-	noLicencia CHAR(9) NOT NULL UNIQUE
+	noLicencia CHAR(10) NOT NULL UNIQUE
 );
 COMMENT ON TABLE Repartidor IS 'Tabla donde se guarda la informacion de los repartidores';
 COMMENT ON COLUMN Repartidor.CURP IS 'CURP identificador del repartidor';
@@ -169,7 +169,9 @@ CREATE TABLE TipoProductoAlimenticio(
        idTipo SERIAL PRIMARY KEY,
        descripcion VARCHAR(32) NOT NULL
 );
-
+COMMENT ON TABLE TipoProductoAlimenticio IS 'Tabla para guardar la informacion de los diferentes tipos de alimentos que ofrece.';
+COMMENT ON COLUMN TipoProductoAlimenticio.idTipo IS 'Identificador para el tipo de producto.';
+COMMENT ON COLUMN TipoProductoAlimenticio.descripcion IS 'Descripcion del tipo de producto.';
 
 CREATE TABLE ProductoAlimenticio(
        idProductoAlimenticio SERIAL PRIMARY KEY,
@@ -177,13 +179,23 @@ CREATE TABLE ProductoAlimenticio(
        nombre VARCHAR(32) NOT NULL,
        precioVenta REAL NOT NULL CHECK(precioVenta > 0)
 );
+COMMENT ON TABLE ProductoAlimenticio IS 'Tabla para guardar de los todos los productos alimenticios que ofrece la taqueria.';
+COMMENT ON COLUMN ProductoAlimenticio.idProductoAlimenticio IS 'Identificador para el alimento.';
+COMMENT ON COLUMN ProductoAlimenticio.idTipo IS 'Tipo del alimento.';
+COMMENT ON COLUMN ProductoAlimenticio.nombre IS 'Descripcion del alimento.';
+COMMENT ON COLUMN ProductoAlimenticio.precioVenta IS 'Precio al que se oferta el alimento.';
+
 
 CREATE TABLE Salsa(
        idProductoAlimenticio INT NOT NULL UNIQUE REFERENCES ProductoAlimenticio(idProductoAlimenticio) ON DELETE CASCADE ON UPDATE CASCADE,
-       nivelPicante INT NOT NULL CHECK(nivelPicante BETWEEN 1 AND 5),
+       --nivelPicante INT NOT NULL CHECK(nivelPicante BETWEEN 1 AND 5),
+       nivelPicante VARCHAR(32) NOT NULL,  
        tamanio REAL NOT NULL CHECK (tamanio > 0)
 );
-
+COMMENT ON TABLE Salsa IS 'Tabla para guardar la informacion de las salsas que ofrece la taqueria.';
+COMMENT ON COLUMN Salsa.idProductoAlimenticio IS 'Identificador para el alimento.';
+COMMENT ON COLUMN Salsa.nivelPicante IS 'Nivel de picante de la salsa.';
+COMMENT ON COLUMN Salsa.tamanio IS 'Tamaño en ml de la salsa.';
 
 
 

@@ -81,4 +81,22 @@ CREATE TRIGGER registro_hist_pnoperecedero_trigger
 	AFTER UPDATE OR DELETE ON ProductoNoPerecedero
 	FOR EACH ROW
 	EXECUTE PROCEDURE agrega_hist_pnoperecedero();
-    
+
+
+CREATE OR REPLACE FUNCTION agrega_hist_ingrediente() RETURNS TRIGGER
+	AS $$
+	BEGIN
+		INSERT INTO  RegistroIngrediente(idProvedor,nombre,cantidad, marca, fechaAdquisicion, precioCompra, fechaCaducidad)
+		VALUES (OLD.idProvedor,OLD.nombre, OLD.cantidad, OLD.marca, OLD.fechaAdquisicion, OLD.precioCompra, OlD.fechaCaducidad);
+		RETURN OLD;
+		--
+	END;
+	$$
+	LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS registro_hist_ingrediente_trigger ON ingrediente;
+
+CREATE TRIGGER registro_hist_ingrediente_trigger
+	AFTER UPDATE OR DELETE ON ingrediente
+	FOR EACH ROW
+	EXECUTE PROCEDURE agrega_hist_ingrediente();

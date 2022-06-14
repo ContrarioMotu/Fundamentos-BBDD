@@ -404,7 +404,7 @@ INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdqu
 INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (9,8,'jamon',85,'Torp, Pagac and Gerlach','2021-08-31',569,'2022-06-08');
 INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (10,3,'tocino',77,'Cormier-Weimann','2021-09-26',814,'2023-04-25');
 INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (11,2,'queso',65,'Smitham-Tillman','2021-10-03',547,'2022-12-10');
-INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (12,5,'tortilla',05,'Jenkins Group','2021-11-18',288,'2022-08-25');
+INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (12,5,'tortilla de maiz',05,'Jenkins Group','2021-11-18',288,'2022-08-25');
 INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (13,7,'bistec',70,'Lubowitz LLC','2021-09-09',410,'2023-03-14');
 INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (14,6,'suadero',67,'Bauch, Rosenbaum and Ankunding','2021-10-29',619,'2022-05-30');
 INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (15,8,'frijol',51,'McKenzie, Stark and Johns','2021-09-04',224,'2023-02-16');
@@ -412,7 +412,12 @@ INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdqu
 INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (17,5,'longaniza',85,'Toy, Prosacco and Yost','2021-09-10',499,'2023-02-26');
 INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (18,7,'pollo',36,'Becker-Hauck','2021-08-05',548,'2023-05-25');
 INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (19,3,'aguacate',98,'Robel-Ankunding','2021-12-16',112,'2022-11-12');
-INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (20,7,'arrachera',36,'Blanda Group','2021-09-09',731,'2022-06-03');
+INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (20,1,'arrachera',36,'Blanda Group','2021-09-09',731,'2022-06-03');
+INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (21,7,'tortilla de harina',32,'Blanda Group','2021-09-09',731,'2022-06-03');
+INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (22,4,'huitlacoche',36,'Blanda Group','2021-09-09',731,'2022-06-03');
+INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (23,5,'pan',40,'Bimbo Group','2021-09-09',731,'2022-06-03');
+INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (24,2,'concentrado jamaica',36,'Blanda Group','2021-09-09',731,'2022-06-03');
+INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (25,6,'concentrado de horchata',36,'Blanda Group','2021-09-09',731,'2022-06-03');
 
 
 
@@ -424,6 +429,11 @@ INSERT INTO TipoProductoAlimenticio(idTipo, descripcion) VALUES (4, 'Gringa');
 INSERT INTO TipoProductoAlimenticio(idTipo, descripcion) VALUES (5, 'Torta');
 INSERT INTO TipoProductoAlimenticio(idTipo, descripcion) VALUES (6, 'Platillo mexicano');
 INSERT INTO TipoProductoAlimenticio(idTipo, descripcion) VALUES (7, 'Bebida');
+
+
+
+
+
 
 --ProductoAlimenticio
 INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (1,1,'Taco de bistek',20,'Taco');
@@ -627,3 +637,59 @@ INSERT INTO OfertarSalsa(idSucursal,idSalsa) VALUES (5,2);
 INSERT INTO OfertarSalsa(idSucursal,idSalsa) VALUES (5,3);
 INSERT INTO OfertarSalsa(idSucursal,idSalsa) VALUES (5,4);
 INSERT INTO OfertarSalsa(idSucursal,idSalsa) VALUES (5,5);
+
+--Preparar
+--Taco bistec
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (1,12,2);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (1,13,2);
+--Taco pastor
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (2,12,2);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (2,16,2);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (2,8,1);
+--Taco longaniza
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (3,12,2);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (3,17,2);
+--Taco suadero
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (4,12,2);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (4,14,2);
+--Burrito de bistec
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (5,21,2);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (5,13,2);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (5,11,2);
+--Burrito vegetariano
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (6,21,2);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (6,7,2);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (6,11,2);
+--Burrito arrachera 
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (7,21,2);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (7,20,2);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (7,11,2);
+--Quesadilla queso
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (8,12,2);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (8,11,2);
+--Quesadilla tinga
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (9,12,2);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (9,18,2);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (9,11,2);
+--Quesadilla huitlacoche
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (10,12,2);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (10,22,2);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (10,11,2);
+--Gringa pastor
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (10,21,2);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (10,16,2);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (10,11,2);
+--Gringa de champiñones
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (10,21,2);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (10,7,2);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (10,11,2);
+--Torta de milanesa
+--Torta de jamon
+--Torta de salchicha
+--Pozole
+--Mole de olla
+--Chilaquiles verdes
+--Agua de jamaica
+--Agua de horchata
+--Refresco
+--Salsa

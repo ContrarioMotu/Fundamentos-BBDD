@@ -187,25 +187,51 @@ COMMENT ON COLUMN ProductoAlimenticio.precioVenta IS 'Precio al que se oferta el
 
 
 CREATE TABLE Salsa(
-       idProductoAlimenticio INT NOT NULL UNIQUE REFERENCES ProductoAlimenticio(idProductoAlimenticio) ON DELETE CASCADE ON UPDATE CASCADE,
-       --nivelPicante INT NOT NULL CHECK(nivelPicante BETWEEN 1 AND 5),
-       nivelPicante VARCHAR(32) NOT NULL,  
-       tamanio REAL NOT NULL CHECK (tamanio > 0)
+       idSalsa SERIAL PRIMARY KEY,
+       nombre VARCHAR(40) NOT NULL,
+       nivelPicante VARCHAR(32) NOT NULL
 );
 COMMENT ON TABLE Salsa IS 'Tabla para guardar la informacion de las salsas que ofrece la taqueria.';
-COMMENT ON COLUMN Salsa.idProductoAlimenticio IS 'Identificador para el alimento.';
-COMMENT ON COLUMN Salsa.nivelPicante IS 'Nivel de picante de la salsa.';
-COMMENT ON COLUMN Salsa.tamanio IS 'Tamaño en ml de la salsa.';
+COMMENT ON COLUMN Salsa.idSalsa IS 'Identificador para la salsa.';
+COMMENT ON COLUMN Salsa.nivelPicante IS 'Nivel de picante de la salsa (Dulce/Bajo/Medio/Alto/Extremo).';
 
-CREATE TABLE Ofertar (
+
+CREATE TABLE TamañoSalsa (
+	idSalsa INT NOT NULL REFERENCES Salsa(idSalsa) ON DELETE CASCADE ON UPDATE CASCADE,
+	tamaño INT NOT NULL,
+	precio REAL NOT NULL
+);
+COMMENT ON TABLE TamañoSalsa IS 'Tabla para guardar la información del precio de las salsas con respecto a su tamaño';
+COMMENT ON COLUMN TamañoSalsa.idSalsa IS 'Identificador de la salsa';
+COMMENT ON COLUMN TamañoSalsa.tamaño IS 'El tamaño del envase(250/500/1000)';
+COMMENT ON COLUMN TamañoSalsa.precio IS 'Precio de la salsa segun su tamaño';
+
+
+CREATE TABLE OfertarAlimento (
 	IdSucursal INT NOT NULL REFERENCES Sucursal(IdSucursal) ON DELETE CASCADE ON UPDATE CASCADE,
 	IdProductoAlimenticio INT NOT NULL REFERENCES ProductoAlimenticio (idProductoAlimenticio) ON DELETE CASCADE ON UPDATE CASCADE
 );
+COMMENT ON TABLE OfertarAlimento IS 'Tabla de la relación ofertar alimento';
+COMMENT ON COLUMN OfertarAlimento.idSucursal IS 'El id de la sucursal en donde se va a ofertar tal alimento';
+COMMENT ON COLUMN OfertarAlimento.idProductoAlimenticio IS 'El id del alimento que se va a ofertar en la sucursal';
+
+
+CREATE TABLE OfertarSalsa (
+	IdSucursal INT NOT NULL REFERENCES Sucursal(IdSucursal) ON DELETE CASCADE ON UPDATE CASCADE,
+	IdSalsa INT NOT NULL REFERENCES Salsa (idSalsa) ON DELETE CASCADE ON UPDATE CASCADE
+);
+COMMENT ON TABLE OfertarSalsa IS 'Tabla de la relacion ofertar salsa';
+COMMENT ON COLUMN OfertarSalsa.idSucursal IS 'La sucursal en donde se ofrece la salsa';
+COMMENT ON COLUMN OfertarSalsa.idSalsa IS 'La salsa que se ofrece en la sucursal';
 
 CREATE TABLE RecomendarConSalsa(
-	IdSalsa INT NOT NULL REFERENCES Salsa (idProductoAlimenticio) ON DELETE CASCADE ON UPDATE CASCADE,
+	IdSalsa INT NOT NULL REFERENCES Salsa (idSalsa) ON DELETE CASCADE ON UPDATE CASCADE,
 	IdProductoAlimenticio INT NOT NULL REFERENCES ProductoAlimenticio (idProductoAlimenticio) ON DELETE CASCADE ON UPDATE CASCADE
 );
+COMMENT ON TABLE RecomendarConSalsa IS 'Tabla donde se guarda qué salsa se recomienda con qué platillo';
+COMMENT ON COLUMN RecomendarConSalsa.idSalsa IS 'El id de la salsa que se va a recomendar';
+COMMENT ON COLUMN RecomendarConSalsa.idProductoAlimenticio IS 'El id del producto con el que se recomienda la salsa';
+
 
 CREATE TABLE Recibo(
     idRecibo SERIAL PRIMARY KEY,

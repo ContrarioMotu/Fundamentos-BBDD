@@ -42,3 +42,21 @@ CREATE TRIGGER repartidor_coincidente
     FOR EACH ROW
     EXECUTE PROCEDURE verifica_tipo_repartidor();    
     
+    
+    
+CREATE OR REPLACE FUNCTION agrega_hist_prdalim() RETURNS TRIGGER
+	AS $$
+	BEGIN
+		INSERT INTO RegistroProductoAlimenticio(idTipo,nombre,precioVenta,fechaPrecio)
+		VALUES (OLD.idTipo,OLD.nombre,OLD.precioVenta,OLD.fechaPrecio);
+		RETURN OLD;
+		--
+	END;
+	$$
+	LANGUAGE plpgsql;
+
+CREATE TRIGGER registro_hist_prdalim_trigger
+	BEFORE UPDATE OR DELETE ON ProductoAlimenticio
+	FOR EACH ROW
+	EXECUTE PROCEDURE agrega_hist_prdalim();
+    

@@ -377,20 +377,43 @@ INSERT INTO Provedor(idProvedor,nombre,telefono) VALUES (7,'Price Inc','77305478
 INSERT INTO Provedor(idProvedor,nombre,telefono) VALUES (8,'Wolff Inc','0853756807');
 
 --ProductoNoPerecedero
-INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra) VALUES (1,4,'MesaCorta',43,'Fritsch-Kemmer','8/4/2020',4407.6);
-INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra) VALUES (2,8,'MesaLarga',16,'Oberbrunner Inc','12/18/2018',1917.79);
-INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra) VALUES (3,4,'Servilletero',24,'Blick, Hills and Pagac','10/28/2019',5311.66);
-INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra) VALUES (4,3,'Salero',45,'Hansen Inc','8/25/2018',6211.66);
-INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra) VALUES (5,3,'Mantel',18,'Moen, Schuppe and Leffler','8/20/2021',9612.41);
-INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra) VALUES (6,7,'Perchero',11,'Will and Sons','8/19/2019',4861.36);
-INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra) VALUES (7,2,'Silla',19,'Hahn-Volkman','7/20/2020',5850.52);
-INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra) VALUES (8,4,'Servilletas',12,'Halvorson-Nitzsche','6/1/2021',6404.79);
-INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra) VALUES (9,3,'Cuchara',47,'Wehner, Sawayn and Kunze','3/22/2021',6418.0);
-INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra) VALUES (10,2,'Plato',43,'Rempel, Hoppe and Homenick','10/18/2021',6641.62);
-INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra) VALUES (11,7,'Vaso',28,'Conroy, Berge and Lynch','4/9/2022',2744.29);
-INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra) VALUES (12,3,'Bolsas',34,'Bernier, Armstrong and Denesik','12/15/2018',639.64);
-INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra) VALUES (13,2,'Cuchillo',47,'Breitenberg and Sons','7/25/2019',521.74);
-INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra) VALUES (14,1,'Tenedor',17,'Glover-Botsford','11/16/2018',1266.18);
+INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra) VALUES (1,4,'MesaCorta',43,'Fritsch-Kemmer','2022-05-16',4407.6);
+INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra) VALUES (2,8,'MesaLarga',16,'Oberbrunner Inc','2022-06-16',1917.79);
+INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra) VALUES (3,4,'Servilletero',24,'Blick, Hills and Pagac','2022-04-26',5311.66);
+INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra) VALUES (4,3,'Salero',45,'Hansen Inc','2022-01-01',6211.66);
+INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra) VALUES (5,3,'Mantel',18,'Moen, Schuppe and Leffler','2022-05-17',9612.41);
+INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra) VALUES (6,7,'Perchero',11,'Will and Sons','2022-01-16',4861.36);
+INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra) VALUES (7,2,'Silla',19,'Hahn-Volkman','2022-01-16',5850.52);
+INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra) VALUES (8,4,'Servilletas',12,'Halvorson-Nitzsche','2022-01-16',6404.79);
+INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra) VALUES (9,3,'Cuchara',47,'Wehner, Sawayn and Kunze','2022-01-16',6418.0);
+INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra) VALUES (10,2,'Plato',43,'Rempel, Hoppe and Homenick','2022-01-16',6641.62);
+INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra) VALUES (11,7,'Vaso',28,'Conroy, Berge and Lynch','2022-01-16',2744.29);
+INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra) VALUES (12,3,'Bolsas',34,'Bernier, Armstrong and Denesik','2022-01-16',639.64);
+INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra) VALUES (13,2,'Cuchillo',47,'Breitenberg and Sons','2022-01-16',521.74);
+INSERT INTO ProductoNoPerecedero(idProductoNoPerecedero,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra) VALUES (14,1,'Tenedor',17,'Glover-Botsford','2022-01-16',1266.18);
+
+--Ingrediente
+INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (1,7,'tomate',18,'Collins, Schaden and Weissnat','2021-06-18',105,'2022-12-22');
+INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (2,4,'chile morron',88,'McCullough and Sons','2021-12-20',928,'2022-06-08');
+INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (3,5,'sal',45,'Abernathy-Watsica','2021-11-17',60,'2022-08-25');
+INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (4,4,'limon',18,'O''Reilly, Quigley and Windler','2021-08-21',766,'2022-09-28');
+INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (5,3,'cebolla',90,'Paucek, Schoen and O''Connell','2021-12-03',914,'2022-05-23');
+INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (6,6,'nopal',26,'Heller Group','2021-08-09',699,'2023-05-27');
+INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (7,5,'champiñones',78,'Kautzer and Sons','2021-09-07',24,'2023-04-04');
+INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (8,4,'piña',10,'Stehr Inc','2021-09-02',743,'2022-07-21');
+INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (9,8,'jamon',85,'Torp, Pagac and Gerlach','2021-08-31',569,'2022-06-08');
+INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (10,3,'tocino',77,'Cormier-Weimann','2021-09-26',814,'2023-04-25');
+INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (11,2,'queso',65,'Smitham-Tillman','2021-10-03',547,'2022-12-10');
+INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (12,5,'tortilla',05,'Jenkins Group','2021-11-18',288,'2022-08-25');
+INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (13,7,'bistec',70,'Lubowitz LLC','2021-09-09',410,'2023-03-14');
+INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (14,6,'suadero',67,'Bauch, Rosenbaum and Ankunding','2021-10-29',619,'2022-05-30');
+INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (15,8,'frijol',51,'McKenzie, Stark and Johns','2021-09-04',224,'2023-02-16');
+INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (16,3,'carne de pastor',16,'Hamill LLC','2021-11-15',259,'2022-03-31');
+INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (17,5,'longaniza',85,'Toy, Prosacco and Yost','2021-09-10',499,'2023-02-26');
+INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (18,7,'pollo',36,'Becker-Hauck','2021-08-05',548,'2023-05-25');
+INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (19,3,'aguacate',98,'Robel-Ankunding','2021-12-16',112,'2022-11-12');
+INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (20,7,'arrachera',36,'Blanda Group','2021-09-09',731,'2022-06-03');
+
 
 
 --TipoProductoAlimenticio

@@ -5,7 +5,7 @@ CREATE OR REPLACE FUNCTION agrega_cliente() RETURNS TRIGGER
     BEGIN 
         curp_sucursal = CONCAT(NEW.RFC, '00000');
         INSERT INTO Persona(curp,nombre,apellidoPaterno,apellidoMaterno,fechanacimiento,codigopostal,estado,calle,numeroExt,telefono,correo) 
-        VALUES (curp_sucursal, NEW.nombre,NEW.nombre,NEW.nombre,'1948-08-17',NEW.codigoPostal,NEW.estado,NEW.calle,NEW.numeroExt,NEW.telefono,NEW.correo);
+        VALUES (curp_sucursal, NEW.nombre,NEW.nombre,NEW.nombre,'2000-08-17',NEW.codigoPostal,NEW.estado,NEW.calle,NEW.numeroExt,NEW.telefono,NEW.correo);
         INSERT INTO Cliente(curp, puntos) 
         VALUES (curp_sucursal, 0);
         RETURN NEW;

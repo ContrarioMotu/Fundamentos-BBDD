@@ -197,7 +197,15 @@ COMMENT ON COLUMN Salsa.idProductoAlimenticio IS 'Identificador para el alimento
 COMMENT ON COLUMN Salsa.nivelPicante IS 'Nivel de picante de la salsa.';
 COMMENT ON COLUMN Salsa.tamanio IS 'Tamaño en ml de la salsa.';
 
+CREATE TABLE Ofertar (
+	IdSucursal INT NOT NULL REFERENCES Sucursal(IdSucursal) ON DELETE CASCADE ON UPDATE CASCADE,
+	IdProductoAlimenticio INT NOT NULL REFERENCES ProductoAlimenticio (idProductoAlimenticio) ON DELETE CASCADE ON UPDATE CASCADE
+);
 
+CREATE TABLE RecomendarConSalsa(
+	IdSalsa INT NOT NULL REFERENCES Salsa (idProductoAlimenticio) ON DELETE CASCADE ON UPDATE CASCADE,
+	IdProductoAlimenticio INT NOT NULL REFERENCES ProductoAlimenticio (idProductoAlimenticio) ON DELETE CASCADE ON UPDATE CASCADE
+);
 
 CREATE TABLE Recibo(
     idRecibo SERIAL PRIMARY KEY,

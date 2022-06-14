@@ -213,7 +213,7 @@ CREATE TABLE OfertarAlimento (
 );
 COMMENT ON TABLE OfertarAlimento IS 'Tabla de la relación ofertar alimento';
 COMMENT ON COLUMN OfertarAlimento.idSucursal IS 'El id de la sucursal en donde se va a ofertar tal alimento';
-COMMENT ON COLUMN OfertarAlimento.isProductoAlimenticio IS 'El id del alimento que se va a ofertar en la sucursal';
+COMMENT ON COLUMN OfertarAlimento.idProductoAlimenticio IS 'El id del alimento que se va a ofertar en la sucursal';
 
 
 CREATE TABLE OfertarSalsa (

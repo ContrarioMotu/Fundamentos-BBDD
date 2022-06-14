@@ -177,7 +177,8 @@ CREATE TABLE ProductoAlimenticio(
        idProductoAlimenticio SERIAL PRIMARY KEY,
        idTipo INT NOT NULL REFERENCES TipoProductoAlimenticio(idTipo) ON DELETE CASCADE ON UPDATE CASCADE,
        nombre VARCHAR(32) NOT NULL,
-       precioVenta REAL NOT NULL CHECK(precioVenta > 0)
+       precioVenta REAL NOT NULL CHECK(precioVenta > 0),
+       descripcion VARCHAR(32) 
 );
 COMMENT ON TABLE ProductoAlimenticio IS 'Tabla para guardar de los todos los productos alimenticios que ofrece la taqueria.';
 COMMENT ON COLUMN ProductoAlimenticio.idProductoAlimenticio IS 'Identificador para el alimento.';

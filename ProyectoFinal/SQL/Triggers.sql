@@ -14,6 +14,7 @@ CREATE OR REPLACE FUNCTION agrega_cliente() RETURNS TRIGGER
     $$
     LANGUAGE plpgsql;
 
+DROP TRIGGER IF EXISTS cliente_default_trigger ON sucursal;
 
 CREATE TRIGGER cliente_default_trigger
     AFTER INSERT ON sucursal
@@ -36,6 +37,7 @@ CREATE OR REPLACE FUNCTION verifica_tipo_repartidor() RETURNS TRIGGER
     $$
     LANGUAGE plpgsql;
     
+DROP TRIGGER IF EXISTS repartidor_coincidente ON repartidor;
     
 CREATE TRIGGER repartidor_coincidente
     BEFORE INSERT ON repartidor
@@ -55,6 +57,8 @@ CREATE OR REPLACE FUNCTION agrega_hist_prdalim() RETURNS TRIGGER
 	$$
 	LANGUAGE plpgsql;
 
+DROP TRIGGER IF EXISTS registro_hist_prdalim_trigger ON ProductoAlimenticio;
+
 CREATE TRIGGER registro_hist_prdalim_trigger
 	BEFORE UPDATE OR DELETE ON ProductoAlimenticio
 	FOR EACH ROW
@@ -71,7 +75,8 @@ CREATE OR REPLACE FUNCTION agrega_hist_pnoperecedero() RETURNS TRIGGER
 	$$
 	LANGUAGE plpgsql;
 
-DROP TRIGGER IF EXISTS registro_hist_pnoperecedero_trigger ON ProductoNoPerecedero 
+DROP TRIGGER IF EXISTS registro_hist_pnoperecedero_trigger ON ProductoNoPerecedero;
+
 CREATE TRIGGER registro_hist_pnoperecedero_trigger
 	AFTER UPDATE OR DELETE ON ProductoNoPerecedero
 	FOR EACH ROW

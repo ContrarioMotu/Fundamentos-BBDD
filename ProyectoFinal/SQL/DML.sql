@@ -424,3 +424,7 @@ INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre) VALUES (29,
 INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre) VALUES (30,7,'Salsa de habanero');
 INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre) VALUES (31,7,'Pico de gallo');
 INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre) VALUES (32,7,'Salsa ranchera');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre) VALUES (33,8,'Agua de jamaica');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre) VALUES (34,8,'Agua de horchata');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre) VALUES (35,8,'Agua de tamarindo');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre) VALUES (36,8,'Refresco');

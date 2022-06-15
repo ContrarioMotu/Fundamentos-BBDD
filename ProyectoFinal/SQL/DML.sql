@@ -424,7 +424,7 @@ INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdqu
 INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (29,4,'maiz pozolero',78,'Doyle-Cartwright','2021-09-20',71,'2022-10-25');
 INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (30,2,'carne de res',62,'Quitzon-Schowalter','2021-06-29',151,'2023-04-17');
 INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (31,6,'elote',59,'Von and Sons','2021-08-15',179,'2022-05-13');
-INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (31,3,'chile habanero',30,'Toy, Tremblay and Stamm','2021-06-23',127,'2022-12-12');
+INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (32,3,'chile habanero',30,'Toy, Tremblay and Stamm','2021-06-23',127,'2022-12-12');
 
 
 

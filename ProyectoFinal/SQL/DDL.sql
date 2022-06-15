@@ -353,6 +353,17 @@ COMMENT ON COLUMN Preparar.idProductoAlimenticio IS 'Id del producto alimenticio
 COMMENT ON COLUMN Preparar.idIngrediente IS 'Id del ingrediente usado en la preparación.';
 COMMENT ON COLUMN Preparar.porcion IS 'Porción usada del ingrediente.';
 
+CREATE TABLE PrepararSalsa(
+	idSalsa INT NOT NULL REFERENCES Salsa (idSalsa) ON DELETE CASCADE ON UPDATE CASCADE,
+	idIngrediente INT NOT NULL REFERENCES Ingrediente (idIngrediente) ON DELETE CASCADE ON UPDATE CASCADE,
+	porcion INT NOT NULL CHECK (porcion > 0)
+);
+
+COMMENT ON TABLE PrepararSalsa IS 'Tabla donde se guarda la información para preparar una salsa';
+COMMENT ON COLUMN PrepararSalsa.idSalsa IS 'Id de la salsa que se prepará.';
+COMMENT ON COLUMN PrepararSalsa.idIngrediente IS 'Id del ingrediente usado en la preparación.';
+COMMENT ON COLUMN PrepararSalsa.porcion IS 'Porción usada del ingrediente.';
+
 CREATE TABLE ProductoNoPerecedero(
 	idProductoNoPerecedero SERIAL PRIMARY KEY,
 	idProvedor INT NOT NULL REFERENCES Provedor (idProvedor) ON DELETE CASCADE ON UPDATE CASCADE,

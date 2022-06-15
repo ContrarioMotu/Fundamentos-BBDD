@@ -424,7 +424,7 @@ INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdqu
 INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (29,4,'maiz pozolero',78,'Doyle-Cartwright','2021-09-20',71,'2022-10-25');
 INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (30,2,'carne de res',62,'Quitzon-Schowalter','2021-06-29',151,'2023-04-17');
 INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (31,6,'elote',59,'Von and Sons','2021-08-15',179,'2022-05-13');
-
+INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (31,3,'chile habanero',30,'Toy, Tremblay and Stamm','2021-06-23',127,'2022-12-12');
 
 
 
@@ -724,7 +724,26 @@ INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (19,2
 INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (19,27,12);
 --Refresco
 
---Salsa
+
+--PrepararSalsa
+--Salsa ranchera
+INSERT INTO PrepararSalsa(idSalsa, idIngrediente, porcion) VALUES (1,1,4);
+INSERT INTO PrepararSalsa(idSalsa, idIngrediente, porcion) VALUES (1,31,2);
+INSERT INTO PrepararSalsa(idSalsa, idIngrediente, porcion) VALUES (1,2,2);
+--Salsa de habanero
+INSERT INTO PrepararSalsa(idSalsa, idIngrediente, porcion) VALUES (2,1,3);
+INSERT INTO PrepararSalsa(idSalsa, idIngrediente, porcion) VALUES (2,31,3);
+--Salsa roja
+INSERT INTO PrepararSalsa(idSalsa, idIngrediente, porcion) VALUES (3,1,4);
+INSERT INTO PrepararSalsa(idSalsa, idIngrediente, porcion) VALUES (3,2,2);
+--Salsa verde 
+INSERT INTO PrepararSalsa(idSalsa, idIngrediente, porcion) VALUES (4,1,4);
+INSERT INTO PrepararSalsa(idSalsa, idIngrediente, porcion) VALUES (4,19,1);
+INSERT INTO PrepararSalsa(idSalsa, idIngrediente, porcion) VALUES (4,2,1);
+--Pico de gallo
+INSERT INTO PrepararSalsa(idSalsa, idIngrediente, porcion) VALUES (5,1,3);
+INSERT INTO PrepararSalsa(idSalsa, idIngrediente, porcion) VALUES (5,5,3);
+
 
 --Cliente
 insert into Cliente (CURP, puntos) values ('YYKR237365FBNFDZG7', '0');

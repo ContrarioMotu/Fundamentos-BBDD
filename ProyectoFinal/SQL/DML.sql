@@ -425,7 +425,7 @@ INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdqu
 INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (30,2,'carne de res',62,'Quitzon-Schowalter','2021-06-29',151,'2023-04-17');
 INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (31,6,'elote',59,'Von and Sons','2021-08-15',179,'2022-05-13');
 INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (32,3,'chile habanero',30,'Toy, Tremblay and Stamm','2021-06-23',127,'2022-12-12');
-
+INSERT INTO Ingrediente(idIngrediente,idProvedor,nombre,cantidad,marca,fechaAdquisicion,precioCompra,fechaCaducidad) VALUES (33,4,'Refresco',77,'Hegmann, Davis and McClure','2021-08-06',45,'2022-09-22');
 
 
 
@@ -438,6 +438,7 @@ INSERT INTO TipoProductoAlimenticio(idTipo, descripcion) VALUES (4, 'Gringa');
 INSERT INTO TipoProductoAlimenticio(idTipo, descripcion) VALUES (5, 'Torta');
 INSERT INTO TipoProductoAlimenticio(idTipo, descripcion) VALUES (6, 'Platillo mexicano');
 INSERT INTO TipoProductoAlimenticio(idTipo, descripcion) VALUES (7, 'Bebida');
+INSERT INTO TipoProductoAlimenticio(idTipo, descripcion) VALUES (8, 'Salsa');
 
 
 
@@ -466,30 +467,46 @@ INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,
 INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (19,7,'Agua de jamaica',25,'Bebida');
 INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (20,7,'Agua de horchata',27,'Bebida');
 INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (21,7,'Refresco',30,'Refresco');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (22,8,'Salsa ranchera',30,'Salsa');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (23,8,'Salsa ranchera',45,'Salsa');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (24,8,'Salsa ranchera',80,'Salsa');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (25,8,'Salsa de habanero',30,'Salsa');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (26,8,'Salsa de habanero',45,'Salsa');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (27,8,'Salsa de habanero',80,'Salsa');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (28,8,'Salsa roja',30,'Salsa');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (29,8,'Salsa roja',45,'Salsa');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (30,8,'Salsa roja',80,'Salsa');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (31,8,'Salsa verde',30,'Salsa');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (32,8,'Salsa verde',45,'Salsa');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (33,8,'Salsa verde',80,'Salsa');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (34,8,'Pico de gallo',30,'Salsa');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (35,8,'Pico de gallo',45,'Salsa');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (36,8,'Pico de gallo',80,'Salsa');
 
 --Salsa
-INSERT INTO Salsa(idSalsa,nombre,nivelPicante) VALUES (1,'Salsa ranchera','Extremo');
-INSERT INTO Salsa(idSalsa,nombre,nivelPicante) VALUES (2,'Salsa de habanero','Alto');
-INSERT INTO Salsa(idSalsa,nombre,nivelPicante) VALUES (3,'Salsa roja','Medio');
-INSERT INTO Salsa(idSalsa,nombre,nivelPicante) VALUES (4,'Salsa verde','Bajo');
-INSERT INTO Salsa(idSalsa,nombre,nivelPicante) VALUES (5,'Pico de gallo','Dulce');
+INSERT INTO Salsa(idSalsa,nivelPicante,descripcion) VALUES (1,'Extremo', 'Salsa ranchera');
+INSERT INTO Salsa(idSalsa,nivelPicante,descripcion) VALUES (2,'Alto', 'Salsa de habanero');
+INSERT INTO Salsa(idSalsa,nivelPicante,descripcion) VALUES (3,'Medio','Salsa roja');
+INSERT INTO Salsa(idSalsa,nivelPicante,descripcion) VALUES (4,'Bajo','Salsa verde');
+INSERT INTO Salsa(idSalsa,nivelPicante,descripcion) VALUES (5,'Dulce','Pico de gallo');
 
 --TamañoSalsa
-INSERT INTO TamañoSalsa(idSalsa,tamaño,precio) VALUES (1,250,30);
-INSERT INTO TamañoSalsa(idSalsa,tamaño,precio) VALUES (1,500,50);
-INSERT INTO TamañoSalsa(idSalsa,tamaño,precio) VALUES (1,1000,80);
-INSERT INTO TamañoSalsa(idSalsa,tamaño,precio) VALUES (2,250,30);
-INSERT INTO TamañoSalsa(idSalsa,tamaño,precio) VALUES (2,500,50);
-INSERT INTO TamañoSalsa(idSalsa,tamaño,precio) VALUES (2,1000,80);
-INSERT INTO TamañoSalsa(idSalsa,tamaño,precio) VALUES (3,250,30);
-INSERT INTO TamañoSalsa(idSalsa,tamaño,precio) VALUES (3,500,50);
-INSERT INTO TamañoSalsa(idSalsa,tamaño,precio) VALUES (3,1000,80);
-INSERT INTO TamañoSalsa(idSalsa,tamaño,precio) VALUES (4,250,30);
-INSERT INTO TamañoSalsa(idSalsa,tamaño,precio) VALUES (4,500,50);
-INSERT INTO TamañoSalsa(idSalsa,tamaño,precio) VALUES (4,1000,80);
-INSERT INTO TamañoSalsa(idSalsa,tamaño,precio) VALUES (5,250,30);
-INSERT INTO TamañoSalsa(idSalsa,tamaño,precio) VALUES (5,500,50);
-INSERT INTO TamañoSalsa(idSalsa,tamaño,precio) VALUES (5,1000,80);
+INSERT INTO TamañoSalsa(idProductoAlimenticio,idSalsa,tamaño) VALUES (22,1,250);
+INSERT INTO TamañoSalsa(idProductoAlimenticio,idSalsa,tamaño) VALUES (23,1,500);
+INSERT INTO TamañoSalsa(idProductoAlimenticio,idSalsa,tamaño) VALUES (24,1,1000);
+INSERT INTO TamañoSalsa(idProductoAlimenticio,idSalsa,tamaño) VALUES (25,2,250);
+INSERT INTO TamañoSalsa(idProductoAlimenticio,idSalsa,tamaño) VALUES (26,2,500);
+INSERT INTO TamañoSalsa(idProductoAlimenticio,idSalsa,tamaño) VALUES (27,2,1000);
+INSERT INTO TamañoSalsa(idProductoAlimenticio,idSalsa,tamaño) VALUES (28,3,250);
+INSERT INTO TamañoSalsa(idProductoAlimenticio,idSalsa,tamaño) VALUES (29,3,500);
+INSERT INTO TamañoSalsa(idProductoAlimenticio,idSalsa,tamaño) VALUES (30,3,1000);
+INSERT INTO TamañoSalsa(idProductoAlimenticio,idSalsa,tamaño) VALUES (31,4,250);
+INSERT INTO TamañoSalsa(idProductoAlimenticio,idSalsa,tamaño) VALUES (32,4,500);
+INSERT INTO TamañoSalsa(idProductoAlimenticio,idSalsa,tamaño) VALUES (33,4,1000);
+INSERT INTO TamañoSalsa(idProductoAlimenticio,idSalsa,tamaño) VALUES (34,5,250);
+INSERT INTO TamañoSalsa(idProductoAlimenticio,idSalsa,tamaño) VALUES (35,5,500);
+INSERT INTO TamañoSalsa(idProductoAlimenticio,idSalsa,tamaño) VALUES (36,5,1000);
+
 
 --RecomendarConSalsa
 INSERT INTO RecomendarConSalsa(idSalsa,idProductoAlimenticio) VALUES (4,4);
@@ -621,31 +638,82 @@ INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (5,20);
 INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (5,21);
 
 --OfertarSalsa
-INSERT INTO OfertarSalsa(idSucursal,idSalsa) VALUES (1,1);
-INSERT INTO OfertarSalsa(idSucursal,idSalsa) VALUES (1,2);
-INSERT INTO OfertarSalsa(idSucursal,idSalsa) VALUES (1,3);
-INSERT INTO OfertarSalsa(idSucursal,idSalsa) VALUES (1,4);
-INSERT INTO OfertarSalsa(idSucursal,idSalsa) VALUES (1,5);
-INSERT INTO OfertarSalsa(idSucursal,idSalsa) VALUES (2,1);
-INSERT INTO OfertarSalsa(idSucursal,idSalsa) VALUES (2,2);
-INSERT INTO OfertarSalsa(idSucursal,idSalsa) VALUES (2,3);
-INSERT INTO OfertarSalsa(idSucursal,idSalsa) VALUES (2,4);
-INSERT INTO OfertarSalsa(idSucursal,idSalsa) VALUES (2,5);
-INSERT INTO OfertarSalsa(idSucursal,idSalsa) VALUES (3,1);
-INSERT INTO OfertarSalsa(idSucursal,idSalsa) VALUES (3,2);
-INSERT INTO OfertarSalsa(idSucursal,idSalsa) VALUES (3,3);
-INSERT INTO OfertarSalsa(idSucursal,idSalsa) VALUES (3,4);
-INSERT INTO OfertarSalsa(idSucursal,idSalsa) VALUES (3,5);
-INSERT INTO OfertarSalsa(idSucursal,idSalsa) VALUES (4,1);
-INSERT INTO OfertarSalsa(idSucursal,idSalsa) VALUES (4,2);
-INSERT INTO OfertarSalsa(idSucursal,idSalsa) VALUES (4,3);
-INSERT INTO OfertarSalsa(idSucursal,idSalsa) VALUES (4,4);
-INSERT INTO OfertarSalsa(idSucursal,idSalsa) VALUES (4,5);
-INSERT INTO OfertarSalsa(idSucursal,idSalsa) VALUES (5,1);
-INSERT INTO OfertarSalsa(idSucursal,idSalsa) VALUES (5,2);
-INSERT INTO OfertarSalsa(idSucursal,idSalsa) VALUES (5,3);
-INSERT INTO OfertarSalsa(idSucursal,idSalsa) VALUES (5,4);
-INSERT INTO OfertarSalsa(idSucursal,idSalsa) VALUES (5,5);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (1,22);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (1,23);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (1,24);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (1,25);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (1,26);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (1,27);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (1,28);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (1,29);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (1,30);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (1,31);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (1,32);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (1,33);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (1,34);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (1,35);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (1,36);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (2,22);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (2,23);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (2,24);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (2,25);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (2,26);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (2,27);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (2,28);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (2,29);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (2,30);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (2,31);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (2,32);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (2,33);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (2,34);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (2,35);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (2,36);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (3,22);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (3,23);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (3,24);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (3,25);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (3,26);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (3,27);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (3,28);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (3,29);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (3,30);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (3,31);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (3,32);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (3,33);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (3,34);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (3,35);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (3,36);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (4,22);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (4,23);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (4,24);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (4,25);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (4,26);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (4,27);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (4,28);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (4,29);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (4,30);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (4,31);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (4,32);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (4,33);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (4,34);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (4,35);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (4,36);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (5,22);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (5,23);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (5,24);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (5,25);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (5,26);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (5,27);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (5,28);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (5,29);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (5,30);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (5,31);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (5,32);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (5,33);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (5,34);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (5,35);
+INSERT INTO OfertarAlimento(idSucursal,idProductoAlimenticio) VALUES (5,36);
+
 
 --Preparar
 --Taco bistec
@@ -723,26 +791,55 @@ INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (19,2
 INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (19,25,1);
 INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (19,27,12);
 --Refresco
-
-
---PrepararSalsa
---Salsa ranchera
-INSERT INTO PrepararSalsa(idSalsa, idIngrediente, porcion) VALUES (1,1,4);
-INSERT INTO PrepararSalsa(idSalsa, idIngrediente, porcion) VALUES (1,31,2);
-INSERT INTO PrepararSalsa(idSalsa, idIngrediente, porcion) VALUES (1,2,2);
---Salsa de habanero
-INSERT INTO PrepararSalsa(idSalsa, idIngrediente, porcion) VALUES (2,1,3);
-INSERT INTO PrepararSalsa(idSalsa, idIngrediente, porcion) VALUES (2,31,3);
---Salsa roja
-INSERT INTO PrepararSalsa(idSalsa, idIngrediente, porcion) VALUES (3,1,4);
-INSERT INTO PrepararSalsa(idSalsa, idIngrediente, porcion) VALUES (3,2,2);
---Salsa verde 
-INSERT INTO PrepararSalsa(idSalsa, idIngrediente, porcion) VALUES (4,1,4);
-INSERT INTO PrepararSalsa(idSalsa, idIngrediente, porcion) VALUES (4,19,1);
-INSERT INTO PrepararSalsa(idSalsa, idIngrediente, porcion) VALUES (4,2,1);
---Pico de gallo
-INSERT INTO PrepararSalsa(idSalsa, idIngrediente, porcion) VALUES (5,1,3);
-INSERT INTO PrepararSalsa(idSalsa, idIngrediente, porcion) VALUES (5,5,3);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (21,33,11);
+--Salsa ranchera pequeña
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (22,31,4);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (22,2,4);
+--Salsa ranchera medio litro
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (23,31,6);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (23,2,6);
+--Salsa ranchera litro
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (24,31,9);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (24,2,5);
+--Salsa habanero pequeña
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (25,31,3);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (25,1,3);
+--Salsa habanero medio litro
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (26,31,6);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (26,1,6);
+--Salsa habanero litro
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (27,31,9);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (27,1,5);
+--Salsa roja pequeña
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (28,1,3);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (28,2,3);
+--Salsa roja medio litro
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (29,1,6);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (29,2,6);
+--Salsa roja litro
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (30,1,9);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (30,2,5);
+--Salsa verde pequeña
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (31,1,3);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (31,2,3);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (31,19,2);
+--Salsa verde medio litro
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (32,1,6);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (32,2,6);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (32,19,4);
+--Salsa verde litro
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (33,1,9);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (33,2,7);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (33,19,5);
+--Pico de gallo pequeña
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (34,1,2);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (34,5,3);
+--Pico de gallo mediano
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (35,1,4);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (35,5,5);
+--Pico de gallo litro
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (36,1,6);
+INSERT INTO Preparar(idProductoAlimenticio, idIngrediente, porcion) VALUES (36,5,6);
 
 
 --Cliente

@@ -35,3 +35,7 @@ where idProductoNoPerecedero = 1;
 SELECT sum(precioCompra) FROM RegistroProductoNoPerecedero
 where idprovedor = 2
 
+-- Numero de los empleados que trabajan en la sucursal 1
+select count(sucursal.idsucursal) from sucursal join empleado on sucursal.idsucursal= empleado.idsucursal -- natural join persona
+where sucursal.idsucursal = 1
+

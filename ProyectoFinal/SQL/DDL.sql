@@ -228,6 +228,7 @@ CREATE TABLE Recibo(
     idRecibo SERIAL PRIMARY KEY,
     idPedido INT NOT NULL REFERENCES Pedido (idPedido) ON DELETE CASCADE ON UPDATE CASCADE,
     idMetodoPago INT NOT NULL REFERENCES MetodoPago (idMetodoPago) ON DELETE CASCADE ON UPDATE CASCADE,
+    total REAL NOT NULL,
     fecha DATE NOT NULL
 );
 COMMENT ON TABLE Recibo IS 'Tabla para guardar la informacion de los recibos.';

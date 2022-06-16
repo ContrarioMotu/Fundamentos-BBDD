@@ -467,21 +467,21 @@ INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,
 INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (19,7,'Agua de jamaica',25,'Bebida');
 INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (20,7,'Agua de horchata',27,'Bebida');
 INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (21,7,'Refresco',30,'Refresco');
-INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (22,8,'Salsa ranchera',30,'Salsa');
-INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (23,8,'Salsa ranchera',45,'Salsa');
-INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (24,8,'Salsa ranchera',80,'Salsa');
-INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (25,8,'Salsa de habanero',30,'Salsa');
-INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (26,8,'Salsa de habanero',45,'Salsa');
-INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (27,8,'Salsa de habanero',80,'Salsa');
-INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (28,8,'Salsa roja',30,'Salsa');
-INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (29,8,'Salsa roja',45,'Salsa');
-INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (30,8,'Salsa roja',80,'Salsa');
-INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (31,8,'Salsa verde',30,'Salsa');
-INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (32,8,'Salsa verde',45,'Salsa');
-INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (33,8,'Salsa verde',80,'Salsa');
-INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (34,8,'Pico de gallo',30,'Salsa');
-INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (35,8,'Pico de gallo',45,'Salsa');
-INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (36,8,'Pico de gallo',80,'Salsa');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (22,8,'Salsa ranchera 250ml',30,'Salsa');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (23,8,'Salsa ranchera 500ml',45,'Salsa');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (24,8,'Salsa ranchera litro',80,'Salsa');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (25,8,'Salsa de habanero 250ml',30,'Salsa');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (26,8,'Salsa de habanero 500ml',45,'Salsa');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (27,8,'Salsa de habanero litro',80,'Salsa');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (28,8,'Salsa roja 250ml',30,'Salsa');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (29,8,'Salsa roja 500ml',45,'Salsa');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (30,8,'Salsa roja litro',80,'Salsa');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (31,8,'Salsa verde 250ml',30,'Salsa');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (32,8,'Salsa verde 500ml',45,'Salsa');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (33,8,'Salsa verde litro',80,'Salsa');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (34,8,'Pico de gallo 250ml',30,'Salsa');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (35,8,'Pico de gallo 500ml',45,'Salsa');
+INSERT INTO ProductoAlimenticio(idProductoAlimenticio,idTipo,nombre,precioVenta,descripcion) VALUES (36,8,'Pico de gallo litro',80,'Salsa');
 
 --Salsa
 INSERT INTO Salsa(idSalsa,nivelPicante,descripcion) VALUES (1,'Extremo', 'Salsa ranchera');

@@ -1,8 +1,0 @@
-prestamos = σ importe ≥ 75000 ∧ importe ≤ 90000 (prestamo ⨝ sucursal)
-
-cantidadpr = γ estado;count(numprestamo) -> cantprestamos (prestamos)
-
-cantmin = γ min(cantprestamos) -> minimo (cantidadpr)
-
-π estado, cantprestamos (cantidadpr ⨝ cantprestamos = minimo cantmin)
-

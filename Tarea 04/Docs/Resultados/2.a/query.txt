@@ -1,8 +1,0 @@
--- Prestamos hechos en el 2014
-c= σ date('2014-01-01') < fecha ∧ fecha < date('2014-12-31') (cliente ⨝ prestatario ⨝ prestamo)
--- Prestamos que fueron hechos en Quintana Roo en el 2014
-o= σ estado = 'QUINTANA ROO' (c)
--- Clientes de Quintana Roo con prestamos hechos en 2014 que nacieron en el intervalo
-q= σ date('1983-09-19') < nacimiento ∧ nacimiento < date('1986-09-21') (o)
--- Mostrar los datos del cliente ordenados por el nombre de cliente
-τ nombrecliente asc (π nombrecliente, direccion, estado, nacimiento (o ⨝ q))

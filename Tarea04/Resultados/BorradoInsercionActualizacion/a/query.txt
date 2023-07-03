@@ -1,1 +1,0 @@
-(cliente ⨝ ctacliente ⨝ cuenta) - σ nombrecliente = 'EDMUNDO RUBIO MONTERO' (cliente ⨝ ctacliente ⨝ cuenta)

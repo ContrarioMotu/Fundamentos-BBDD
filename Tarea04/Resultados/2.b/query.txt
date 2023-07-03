@@ -1,9 +1,0 @@
--- cuentas con el rango de saldo 
-s = σ 85000 < saldo ∧ saldo < 115000 (cuenta)
--- la información de los clientes que tienen ese saldo
-o= π idcliente, nombrecliente, numcta (cliente ⨝ ctacliente ⨝ s)
--- la información de los clientes que tienen prestamos 
-p= π idcliente, nombrecliente, numprestamo (cliente ⨝ prestatario)
--- le restamos los que tienen prestamos a las del saldo
-π idcliente, nombrecliente, numcta, saldo ((o-p) ⨝ cuenta)
-
